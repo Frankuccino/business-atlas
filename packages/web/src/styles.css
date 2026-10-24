@@ -1,0 +1,412 @@
+:root {
+  --bg: #0d1016;
+  --panel: #171c25;
+  --panel-2: #1f2530;
+  --border: #2a3140;
+  --text: #e8ebf1;
+  --muted: #8d97a8;
+  --accent: #4c8dff;
+  --good: #3fb950;
+  --warn: #d29922;
+  --bad: #f85149;
+  --f-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.count {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px;
+  align-items: start;
+}
+
+/* Atlas-style sidebar: a "Browse" title, a section per domain separated by a
+   rule, a head row carrying the name and a count, then nested entry rows. */
+
+.sidebar {
+  position: sticky;
+  top: 56px;
+  align-self: start;
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.sidebar-title {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+  padding: 0 12px 8px;
+}
+
+/* The separator belongs to the section, not to each child. With it on the
+   children, the head and the rows sit at different heights and their two borders
+   read as a crooked line. */
+.nav-domain {
+  margin-bottom: 4px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* One explicit row height for the head, so the count shares a single vertical
+   centre with the name. */
+.nav-domain-head {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 0 8px 0 12px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav-domain-head:hover,
+.nav-domain-head.open {
+  color: var(--accent);
+}
+
+.nav-domain-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-caret {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+  transition: transform 0.12s ease;
+}
+
+.nav-domain-head.open .nav-caret {
+  transform: rotate(90deg);
+}
+
+.nav-count {
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.nav-rows {
+  flex: 1 0 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
+}
+
+.nav-row {
+  display: block;
+  padding: 3px 12px 3px 18px;
+  font-size: 11.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-row:hover,
+.nav-row.active {
+  background: var(--panel-2);
+  color: var(--text);
+}
+
+.content {
+  min-width: 0;
+}
+
+.search {
+  position: relative;
+  flex: 0 1 300px;
+  min-width: 180px;
+}
+
+.search input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.results {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
+  right: 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  max-height: 320px;
+  overflow: auto;
+  z-index: 20;
+}
+
+.results a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.results a:last-child {
+  border-bottom: none;
+}
+
+.results .type {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.domain-section {
+  margin-bottom: 20px;
+}
+
+.domain-section h2 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card .title {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.card .one-line {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.badge {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--panel-2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.badge.d1 { color: var(--good); }
+.badge.d2 { color: var(--accent); }
+.badge.d3 { color: var(--warn); }
+.badge.d4 { color: var(--bad); }
+
+.entry-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.entry-header h1 {
+  font-size: 21px;
+  margin: 0 0 6px;
+}
+
+.entry-header .one-line {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.entry-body {
+  max-width: 720px;
+}
+
+.entry-body h2 {
+  font-size: 15px;
+  margin: 18px 0 6px;
+}
+
+.entry-body p {
+  margin: 8px 0;
+}
+
+.entry-body pre {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 10px;
+  overflow: auto;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.entry-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+}
+
+.formula {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 5px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+}
+
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  padding: 12px;
+  margin-top: 14px;
+}
+
+.panel h3 {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.panel li {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.related {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.related a {
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
+.related a:hover {
+  border-color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.empty {
+  color: var(--muted);
+  padding: 32px 0;
+}

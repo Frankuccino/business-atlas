@@ -57,9 +57,11 @@ Three zoom levels, one hierarchy — the Atlas map model, reused.
 you something false. So:
 
 - Entries hold **ids**, not titles. A rename updates one file.
-- Symmetry is an invariant: if A lists B, B must list A. Enforced by the
-  validator, not by the UI. Render-time filtering would silently drop a link and
-  hide the authoring mistake.
+- **The graph is the symmetric closure of declared links.** An entry declares
+  the links it cares about; the loader adds the reverse direction at build time.
+  Symmetry is a property of an undirected graph, and computing it is cheaper than
+  asking every author to maintain it. The validator still checks that every link
+  *resolves* — that is the error class an author can actually make.
 - Capped at 6, flagged at 10. Sparse and curated beats dense and noisy.
 
 ## Decision 4: playbooks are v1, the decision journal is not

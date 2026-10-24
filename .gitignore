@@ -4,6 +4,7 @@ node_modules/
 # builds
 dist/
 .vercel/
+.vercel/output
 
 # generated content manifest is committed on purpose — it is the build output
 # the API serves, not a local artifact. Do not ignore it.
@@ -28,3 +29,5 @@ npm-debug.log*
 
 # test coverage
 coverage/
+.vercel
+.env*

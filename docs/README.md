@@ -16,6 +16,7 @@ repetition DNA, different corpus.
 | [data-model.md](data-model.md) | Content (markdown, version-controlled) vs. user state (Postgres) |
 | [scheduler.md](scheduler.md) | Rolling queue, daily cap, intervals, determinism |
 | [features.md](features.md) | Confirmed v1 scope, deferred, non-goals |
+| [catalog.md](catalog.md) | The complete inventory: every entry, by domain, type, and priority |
 | [brief.md](brief.md) | The brief, revised with the decisions taken |
 | [plans/](plans/) | Implementation plans |
 

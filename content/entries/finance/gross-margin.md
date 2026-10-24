@@ -9,7 +9,7 @@ formula: "Gross margin % = (revenue - COGS) / revenue"
 how_to_read: "Compare it to your own history and to the model, never to another industry. A 20% gross margin is fatal in software and normal in grocery."
 commonly_confused_with: [cogs, contribution-margin]
 who_uses: [cfo, founder, investor]
-related: [cogs, contribution-margin]
+related: [cogs, contribution-margin, revenue]
 sources: [the-personal-mba]
 tags: [accounting, margin, pricing]
 difficulty: 2

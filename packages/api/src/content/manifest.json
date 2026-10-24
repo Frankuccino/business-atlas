@@ -1,6 +1,389 @@
 {
   "entries": [
     {
+      "id": "acv-arr",
+      "title": "ACV and ARR",
+      "domain": "sales",
+      "one_line_definition": "Average contract value per deal, and the annual recurring revenue the base produces.",
+      "why_it_matters": "They are the two numbers that describe the shape of a subscription business. ACV says what a customer is worth per deal; ARR says what the base is worth per year.",
+      "body": "ACV is the average size of a single contract. ARR is the revenue the whole customer base produces in a year, treating everything as recurring.\n\nTogether they separate two growth stories that look identical from the outside. A company growing by adding large contracts is buying growth; one growing by compounding a stable base is building an asset.\n\n## Worked example\n\nA company has 200 customers:\n\n    150 at $10,000/year   = 1,500,000\n     40 at $40,000/year   = 1,600,000\n     10 at $150,000/year  = 1,500,000\n    ARR                   = 4,600,000\n    ACV                   = 4,600,000 / 200 = 23,000\n\nThe ACV of $23,000 hides a base that is really three businesses. Ten customers produce a third of the revenue, so losing one is a $150,000 event. A company that does not know this will not notice the concentration risk until it bites.\n\n## Watch for\n\n- **ARR excludes one-time fees.** Setup, implementation, and services should be reported separately, or the recurring base looks healthier than it is.\n- **Net new ARR is the growth number.** Total ARR rises even when existing customers downgrade, if new business is large enough to mask it.\n- **ACV is a blend.** Report it by segment, because the average across segments is not a price anyone pays.",
+      "related": [
+        "pipeline",
+        "quota",
+        "sales-cycle"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "sales",
+        "revenue",
+        "contracts"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "ARR = sum of all active contracts normalised to a year",
+      "how_to_read": "Read them together with churn. A high ARR with high churn is a leak; a modest ARR with near-zero churn is a compounding asset.",
+      "commonly_confused_with": [
+        "pipeline",
+        "quota"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "anchoring",
+      "title": "Anchoring",
+      "domain": "negotiation",
+      "one_line_definition": "The tendency for the first number mentioned in a discussion to pull every later number toward it.",
+      "why_it_matters": "It means the first offer often sets the outcome. A negotiation that starts at the wrong number spends the rest of its time recovering from it.",
+      "body": "Anchoring is the cognitive bias where the first number in a discussion becomes the baseline for everything that follows. It operates even when the number is obviously arbitrary.\n\nThe commercial consequence is that the order of speaking matters. Whoever states a number first has set the range, and the other party's counter will be pulled toward it rather than toward the true value.\n\n## Worked example\n\nA supplier negotiation over an annual contract:\n\n    Buyer speaks first:   \"We were thinking $80,000.\"\n    Supplier was prepared to accept $100,000. Final: $92,000.\n\n    Supplier speaks first: \"Our rate is $140,000.\"\n    Buyer was prepared to pay $110,000. Final: $118,000.\n\nThe underlying value is the same in both cases. The first number shifted the settlement by roughly $20,000 in each direction — about 20% of the contract — with no change in the work.\n\n## Watch for\n\n- **Know your number before the meeting.** If you cannot state a well-supported figure, you will accept theirs.\n- **A high anchor needs support.** An aggressive first offer with no reasoning behind it damages credibility. Anchor high and explain why.\n- **Anchors work in both directions.** A salary candidate who names a range first shifts the offer; so does a customer who states a budget.",
+      "related": [
+        "framing",
+        "pricing"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "negotiation",
+        "anchoring",
+        "bias"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "principle",
+      "statement": "The first figure stated becomes the reference point for the whole discussion, and later adjustments are made from there rather than from the underlying value.",
+      "evidence": "In studies of negotiation, arbitrary first offers consistently shift final settlements in the direction of that offer, even when both parties know the number was random.",
+      "failure_mode": "Naming your price first out of politeness, or accepting the other party's anchor because it is the only number on the table."
+    },
+    {
+      "id": "arpu",
+      "title": "ARPU and ARPPU",
+      "domain": "unit-economics",
+      "one_line_definition": "Average revenue per user, and per paying user.",
+      "why_it_matters": "It separates two ways to grow revenue: adding customers, or earning more from the ones you have. Most businesses underestimate the second.",
+      "body": "ARPU is revenue divided by users. ARPPU is revenue divided by *paying* users. The difference matters because the two move for different reasons.\n\nARPU rises when you sell more to existing customers or when the mix shifts toward bigger ones. ARPPU rises when each paying customer spends more. A falling ARPPU with a rising ARPU means you are acquiring many small customers, which usually means higher churn and lower lifetime value.\n\n## Worked example\n\nA company has 10,000 registered users and 2,000 paying ones. Monthly revenue is $60,000:\n\n    ARPU  = 60,000 / 10,000 = $6.00\n    ARPPU = 60,000 /  2,000 = $30.00\n\nNow a price increase lifts revenue to $66,000 with the same user counts:\n\n    ARPU  = $6.60   (+10%)\n    ARPPU = $33.00  (+10%)\n\nBoth rose together, which is what a clean price increase looks like. If instead ARPU rose to $7.20 while ARPPU stayed at $30, the growth came from converting free users rather than from customers spending more — a different, and usually less durable, source.\n\n## Watch for\n\n- **Which denominator.** Reporting ARPU against paying users while comparing it to a competitor's ARPU against all users produces a meaningless comparison.\n- **ARPU hides distribution.** A few very large customers can carry the average. Check the median.\n- **See [ltv](#ltv).** ARPU is a period figure; LTV is the cumulative one. A rising ARPU with a falling LTV means customers are spending more but leaving sooner.",
+      "related": [
+        "ltv",
+        "revenue"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "unit-economics",
+        "revenue",
+        "metrics"
+      ],
+      "difficulty": 1,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "ARPU = total revenue / number of users",
+      "how_to_read": "Read ARPU and ARPPU together. A rising ARPU with a falling ARPPU means the mix is shifting toward smaller customers, which is a warning.",
+      "commonly_confused_with": [
+        "ltv",
+        "revenue"
+      ],
+      "who_uses": [
+        "founder",
+        "marketer",
+        "cfo"
+      ]
+    },
+    {
+      "id": "attribution",
+      "title": "Attribution",
+      "domain": "marketing",
+      "one_line_definition": "Deciding which touchpoint caused a conversion.",
+      "why_it_matters": "It decides where budget goes. Get it wrong and you cut the channel that created demand and keep the one that merely took credit.",
+      "body": "Attribution is the answer to \"which marketing caused this sale?\" It is a modelling problem, not a measurement problem, because the customer's path is not observable end to end.\n\nEvery model is a simplification. Last-click gives all credit to the final touch. First-click gives it all to the first. Linear splits it evenly. Each produces a different budget, and none is correct.\n\n## Worked example\n\nA customer sees a podcast mention, Googles the category a week later, clicks a paid ad, and buys. Three models:\n\n    Last-click:   paid search 100%, podcast 0%\n    First-click:  podcast 100%, paid search 0%\n    Linear:       33% each\n\nUnder last-click the podcast looks worthless and gets cancelled. Under first-click the paid search gets cancelled — and the customer now has no ad to click. Both decisions are wrong, and both are made from the same underlying behaviour.\n\n## Watch for\n\n- **State your model.** An attribution number without its model is uninterpretable, and two teams using different models will disagree about the same data.\n- **Incrementality is the honest test.** Hold out a channel or a region and measure what sales disappear. Everything else is inference.\n- **Do not over-invest in precision.** A roughly right model applied consistently beats a precise model applied once.",
+      "related": [
+        "channels",
+        "roas"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "attribution",
+        "measurement"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read any attribution number as a model, not a fact. Last-click is the most common model and the most misleading.",
+      "commonly_confused_with": [
+        "channels",
+        "roas"
+      ],
+      "who_uses": [
+        "marketer",
+        "founder",
+        "media-buyer"
+      ]
+    },
+    {
+      "id": "balance-sheet",
+      "title": "The Balance Sheet",
+      "domain": "finance",
+      "one_line_definition": "A snapshot of what a business owns and what it owes at a single moment.",
+      "why_it_matters": "It answers the question the income statement cannot: what would be left if everything were sold and every debt repaid today.",
+      "body": "The balance sheet is a photograph, not a film. It lists assets (what the business owns), liabilities (what it owes), and equity (what belongs to the owners) at one instant, and the two sides always balance.\n\nIts value is in the structure. Current assets against current liabilities tells you whether the business can pay its bills in the next year. Debt against equity tells you how much of the company is borrowed and how much is owned.\n\n## Worked example\n\n    Assets\n      Cash                    200,000\n      Accounts receivable     150,000\n      Inventory               100,000\n      Equipment               250,000\n      Total                   700,000\n\n    Liabilities\n      Accounts payable        120,000\n      Loan                    180,000\n      Total                   300,000\n\n    Equity                  =   400,000\n    Total                   =   700,000\n\nCurrent ratio = (200,000 + 150,000 + 100,000) / 120,000 = 3.75. The business can cover its short-term obligations comfortably. But equity of $400,000 against $180,000 of debt means it is financed mostly by its owners, which is conservative and slow.\n\n## Watch for\n\n- **It is a moment, not a trend.** A healthy balance sheet the day before a bad quarter is still a healthy balance sheet. Read it over time.\n- **Inventory and receivables are not cash.** They are assets that must convert. A large receivables balance can hide a cash problem.\n- **Off-balance-sheet items.** Leases, guarantees, and commitments may not appear as liabilities and still bind the business.",
+      "related": [
+        "cash-flow",
+        "revenue"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "accounting",
+        "statements",
+        "assets"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "draft",
+      "type": "term",
+      "formula": "Assets = liabilities + equity",
+      "how_to_read": "Read it for solvency and structure, not performance. A profitable company can still have a balance sheet that is about to break.",
+      "commonly_confused_with": [],
+      "who_uses": []
+    },
+    {
+      "id": "batna",
+      "title": "BATNA",
+      "domain": "negotiation",
+      "one_line_definition": "Your Best Alternative To a Negotiated Agreement — what you will do if this deal does not happen.",
+      "why_it_matters": "It is the only source of real power in a negotiation. A strong alternative lets you walk away; without one, you are accepting terms rather than agreeing to them.",
+      "body": "BATNA is what you do if the negotiation fails. It is the standard against which any offer should be measured, and it is the true source of negotiating power.\n\nThe common mistake is negotiating against your hopes rather than against your alternative. A customer offering $80,000 feels acceptable if you hoped for $70,000 — but if your alternative is doing nothing, $80,000 is the best outcome available and the customer knows it.\n\n## Worked example\n\nA company is choosing a supplier. Its BATNA is an in-house build costing $120,000 and three months.\n\n    Supplier A offers $90,000        →  better than BATNA by $30,000. Acceptable.\n    Supplier B offers $130,000       →  worse than BATNA by $10,000. Build in-house.\n    Supplier C offers $85,000 but is unreliable  →  the risk may make the true cost exceed $120,000.\n\nThe BATNA is not a number to mention — it is a decision rule. Knowing it means the company can walk away from B without regret, which is exactly why it can afford to.\n\n## Watch for\n\n- **Improve your BATNA before negotiating.** A second quote, an in-house option, or a delay all strengthen your position more than any tactic at the table.\n- **Do not reveal it.** Telling the other party your alternative hands them the ceiling of your flexibility.\n- **Estimate theirs.** A supplier with no other customers has a weak BATNA and will concede more. Power is relative, not absolute.",
+      "related": [
+        "framing",
+        "contracts"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "negotiation",
+        "batna",
+        "leverage"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read every negotiation by comparing the offer to your alternative, not to your ideal. A mediocre deal better than your alternative is worth taking.",
+      "commonly_confused_with": [
+        "framing",
+        "anchoring"
+      ],
+      "who_uses": [
+        "founder",
+        "sales",
+        "manager"
+      ]
+    },
+    {
+      "id": "bias",
+      "title": "Cognitive Bias",
+      "domain": "leadership",
+      "one_line_definition": "A systematic error in judgment that comes from how the mind processes information, not from missing information.",
+      "why_it_matters": "It produces confident, wrong decisions that feel well-reasoned. Because the error is systematic, it cannot be removed by trying harder — only by changing the process.",
+      "body": "A cognitive bias is a predictable way the mind reaches a wrong conclusion from correct information. Confirmation bias, sunk cost, anchoring, and survivorship bias are all examples, and all of them feel like clear thinking from the inside.\n\nThe practical point is that biases are not fixed by awareness. Knowing about confirmation bias does not stop you seeking confirming evidence. What works is process: requiring the opposing case, pre-committing to a decision rule, and separating the person who proposes from the person who decides.\n\n## Worked example\n\nA founder must decide whether to launch a second product line:\n\n    Confirmation bias:  reads three success stories, ignores the twenty failures.\n    Sunk cost:           \"we've already spent $80,000 on it\" — that money is gone either way.\n    Anchoring:           the first revenue estimate of $500,000 frames every later revision.\n    Survivorship:        the one comparable company that succeeded is the only one anyone can name.\n\nCountermeasures: seek out the failures deliberately; decide on future costs and future returns only; have someone independent produce the first estimate; ask what the base rate is for companies in this position.\n\n## Watch for\n\n- **Awareness is not a defence.** The bias you can name is still operating. Process is the defence.\n- **Bias is strongest where stakes are high and feedback is slow.** Exactly the conditions of a strategic decision.\n- **Look for the decision you made fastest.** Slow, argued decisions are more likely to have been examined; instant ones are more likely to be bias wearing the costume of intuition.",
+      "related": [
+        "second-order-thinking",
+        "mental-models"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "leadership",
+        "bias",
+        "decisions"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read bias as a reason to distrust your own confidence, not as a reason to distrust data. The strongest signal is a decision you reached quickly and cannot argue against.",
+      "commonly_confused_with": [
+        "second-order-thinking",
+        "mental-models"
+      ],
+      "who_uses": [
+        "founder",
+        "leader",
+        "investor"
+      ]
+    },
+    {
+      "id": "bootstrapping",
+      "title": "Bootstrapping vs Venture Capital",
+      "domain": "capital",
+      "one_line_definition": "Funding the business from its own revenue, or from outside investors in exchange for equity.",
+      "why_it_matters": "It is the decision that sets the ceiling on the company. Venture money buys speed at the cost of control and a permanent obligation to grow; bootstrapping buys control at the cost of speed.",
+      "body": "Bootstrapping means growing from revenue. Venture capital means selling equity to buy growth faster than revenue allows. They are not better or worse; they are different instruments with different terms.\n\nThe real trade-off is not money. It is control and obligation. Venture money requires a return, which requires an exit, which constrains every later decision. Bootstrapping leaves the founders free and caps the speed.\n\n## Worked example\n\nA company needs $2,000,000 to reach its next stage:\n\n    Bootstrapped path:\n      Current revenue          $400,000/yr\n      Contribution margin      70%  →  $280,000 available\n      Time to raise $2,000,000  ≈ 7 years of retained profit\n      Equity given up           0%\n\n    Venture path:\n      Raise $2,000,000         now\n      Equity given up           20-25%\n      Obligation                a return, which requires an exit in ~7 years\n      Growth rate               constrained by the market, not by cash\n\nIf the market is large and the window is short, the venture path is the only one that can win it. If the market is modest and the business is profitable from month one, the venture path gives away control for speed the business does not need.\n\n## Watch for\n\n- **Venture money is a means, not a milestone.** Raising is not success; it is a loan against a future you now have to build.\n- **Runway is the real cost.** See [runway](#runway). Venture funding extends it, which is valuable only if you use the time to become fundable again on better terms.\n- **Bootstrapping has a ceiling.** Some markets cannot be served at a scale that supports the team, and no amount of patience changes that.",
+      "related": [
+        "runway",
+        "cap-table"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "capital",
+        "bootstrapping",
+        "fundraising"
+      ],
+      "difficulty": 2,
+      "layer": 4,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "When deciding how to fund the next stage, or when an investor offer arrives and you need to compare it against the alternative.",
+      "when_not_to_use": "To judge one path as superior. The right answer depends on the market size, the margin structure, and what the founders want to own.",
+      "steps": [
+        "Estimate how much capital the plan requires and by when.",
+        "Estimate how much of that the business can generate itself.",
+        "Price the equity you would give up and the growth you would be forced into.",
+        "Compare the two futures, not the two amounts of money."
+      ],
+      "limitations": "The comparison is a forecast, and both paths carry risk the numbers cannot show — a startup that runs out of cash and a bootstrapped company that never reaches scale."
+    },
+    {
+      "id": "bottleneck",
+      "title": "Bottlenecks and Theory of Constraints",
+      "domain": "operations",
+      "one_line_definition": "A system's output is limited by its single slowest step, so improving anything else does not increase output.",
+      "why_it_matters": "It redirects effort from the work that feels productive to the work that actually moves the number. Most improvement programmes optimise the wrong step.",
+      "body": "The Theory of Constraints says a system's throughput is capped by one step. Everything upstream of it produces faster than it can consume; everything downstream starves.\n\nThe discipline is a loop: find the constraint, exploit it, subordinate everything else to it, then elevate it. When the constraint moves, start again. The mistake is trying to optimise all steps at once, which improves cost and local efficiency while leaving output unchanged.\n\n## Worked example\n\nA software release pipeline:\n\n    Commit       200/day\n    Build        180/day\n    Test          40/day   ← constraint\n    Deploy       100/day\n\nThe constraint is testing. The team hires two more developers, and commit rate rises to 260/day. Test still does 40/day, so the backlog grows, and releases per day do not change. The hire added cost and queue.\n\nElevating testing to 80/day by adding a test engineer doubles output. Now build at 180 becomes the constraint, and the loop restarts.\n\n## Watch for\n\n- **The constraint is not always where the backlog is largest.** Look for the step with the least spare capacity relative to demand.\n- **Subordinating is the hard part.** It means deliberately leaving other steps under-utilised, which feels wrong to every manager.\n- **Constraints move.** An improvement that does not move the constraint did not improve the system, even if it improved a metric.",
+      "related": [
+        "throughput"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "operations",
+        "constraints",
+        "bottlenecks"
+      ],
+      "difficulty": 3,
+      "layer": 2,
+      "status": "draft",
+      "type": "principle",
+      "statement": "Every system has exactly one constraint at a time. Improve it and the constraint moves. Improve anything else and nothing changes.",
+      "evidence": "In every observed production and service system, raising capacity at a non-constraining step increased work-in-progress and cost without increasing completed output.",
+      "failure_mode": "Spreading improvement effort evenly across all steps because it feels fair, and being surprised that throughput does not move."
+    },
+    {
+      "id": "brand",
+      "title": "Brand",
+      "domain": "marketing",
+      "one_line_definition": "The expectation a customer holds about what you will do, built from every interaction.",
+      "why_it_matters": "It is the reason a customer chooses you before comparing. A strong brand lowers acquisition cost and raises the price the market will pay.",
+      "body": "A brand is what a customer expects before they experience the product. It is accumulated, not declared: every support reply, every late shipment, every price change adds to it or subtracts from it.\n\nIts commercial value is concrete. A trusted brand converts better at the same price, survives a mistake that would kill an unknown one, and can charge more because the risk of choosing it feels lower.\n\n## Worked example\n\nTwo suppliers sell an identical component at $10. One is well known, the other unknown:\n\n    Known brand:   converts 8% of enquiries, supports $12 price\n    Unknown brand: converts 3%, supports $10 price\n\nOn 1,000 enquiries the known brand makes 80 sales at $12 = $960; the unknown makes 30 at $10 = $300. The product is identical. The brand is worth more than three times the revenue, and it was built from reliability over years, not from a redesign.\n\n## Watch for\n\n- **Brand is a liability when broken.** A promise the product does not keep turns the brand against you, because it raises expectations you then miss.\n- **Branding is not the brand.** A new identity cannot create trust; it can only express trust that already exists.\n- **Brand compounds slowly and erodes fast.** One bad quarter can undo two years of consistency, which is why it is an operational commitment, not a campaign.",
+      "related": [
+        "positioning"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "brand",
+        "value"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it as a promise kept, not as a logo or a tone of voice. The assets are the residue of the behaviour.",
+      "commonly_confused_with": [
+        "positioning",
+        "value-creation"
+      ],
+      "who_uses": [
+        "founder",
+        "marketer"
+      ]
+    },
+    {
+      "id": "break-even",
+      "title": "Break-even",
+      "domain": "finance",
+      "one_line_definition": "The point where revenue exactly covers all costs, so profit is zero.",
+      "why_it_matters": "It is the first number that tells you whether the business model works at all, before growth or market share enters the picture.",
+      "body": "Break-even is where total revenue equals total cost. It is the smallest volume at which the business stops losing money on its own operations.\n\nIt matters because it separates \"we need more customers\" from \"the model is wrong.\" A company far below break-even can fix itself with growth. A company that cannot reach break-even at any realistic volume has a pricing or cost problem, and no amount of marketing fixes that.\n\n## Worked example\n\nA coffee cart has fixed costs of $3,000 a month. Each coffee sells for $4 and costs $1 to make:\n\n    Contribution margin per unit = 4 - 1 = 3\n    Break-even = 3,000 / 3 = 1,000 coffees a month\n\nThat is about 33 coffees a day. If the cart sells 600 a month it loses $1,200; at 1,500 it makes $1,500. The break-even number is the line between those two futures.\n\nNow raise the price to $5 with the same cost: contribution margin becomes $4 and break-even falls to 750 coffees. The same cart, the same costs, a 25% smaller target.\n\n## Watch for\n\n- **Fixed costs move.** Rent, salaries, and tooling are decisions. Break-even moves when they do.\n- **Contribution margin, not gross margin.** Forgetting variable selling costs makes break-even look closer than it is.\n- **Break-even is not cash flow.** You can be above break-even on paper and still run out of cash if customers pay slowly.",
+      "related": [
+        "contribution-margin",
+        "operating-expenses"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "finance",
+        "pricing",
+        "fundamentals"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "draft",
+      "type": "term",
+      "formula": "Break-even units = fixed costs / contribution margin per unit",
+      "how_to_read": "Read it as a volume and a date. Below break-even every sale loses money; above it every sale funds profit.",
+      "commonly_confused_with": [],
+      "who_uses": []
+    },
+    {
+      "id": "burn-rate",
+      "title": "Burn Rate",
+      "domain": "finance",
+      "one_line_definition": "How fast a company spends more cash than it brings in.",
+      "why_it_matters": "It is the countdown timer on the business. Every strategic decision is bounded by how many months of burn remain.",
+      "body": "Burn rate is net cash outflow per month: what you spent minus what you earned. A company with $300,000 of costs and $100,000 of revenue has a burn rate of $200,000.\n\nThe number that matters is not the burn itself but the ratio of cash to burn — that is [runway](#runway). Burn tells you the speed; runway tells you the time.\n\n## Worked example\n\nA startup has $1,200,000 in the bank.\n\n- Month 1-3: costs $250,000, revenue $50,000 → burn $200,000/month\n- Month 4-6: costs $280,000, revenue $80,000 → burn $200,000/month\n- Month 7: hires two engineers, costs $340,000, revenue $90,000 → burn $250,000/month\n\n    Average burn over 7 months = (200k*6 + 250k) / 7 = 207,143\n\nAt $207,000 a month, $1,200,000 lasts about 5.8 months. If the next fundraise takes four months, the company is fine. If it takes eight, it is not — and the decision to hire was made in month 7 without knowing that.\n\n## Watch for\n\n- **Gross vs net burn.** Gross burn is total spend; net burn subtracts revenue. Investors ask for both because they behave very differently.\n- **Burn is a lagging indicator.** By the time the number is bad, the decisions that caused it are months old.\n- **See [runway](#runway)** — the two are useless apart.",
+      "related": [
+        "operating-expenses",
+        "runway",
+        "cash-flow"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "cash",
+        "runway",
+        "startup"
+      ],
+      "difficulty": 2,
+      "layer": 4,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "Burn rate = cash spent - cash earned, per month",
+      "how_to_read": "Read it as months, not dollars. A $200,000 monthly burn is a different business at $40,000 of cash than at $2,000,000.",
+      "commonly_confused_with": [
+        "runway",
+        "operating-expenses"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
       "id": "cac",
       "title": "Customer Acquisition Cost",
       "domain": "unit-economics",
@@ -9,7 +392,11 @@
       "body": "Customer acquisition cost is the total cost of sales and marketing divided by\nthe number of customers that effort produced. It is the price of growth.\n\nThe trap is that it is almost always reported blended — all spend over all\ncustomers — and a blended number can hide a broken channel inside a healthy\naverage. Two channels can each be individually bad and jointly look acceptable.\nThe useful form is per channel, per cohort, over time.\n\n## Worked example\n\nIn one quarter a company spends:\n\n- Paid ads: $120,000 → 400 customers\n- Content and SEO: $60,000 → 100 customers\n- Sales team (2 reps): $180,000 → 300 customers\n\n    Blended CAC = (120,000 + 60,000 + 180,000) / 800 = $450\n\n    Per channel:  ads $300   |   content $600   |   sales $600\n\nThe blended number suggests $450. The real picture: ads are the only channel\nunder $450, and content — the cheapest to scale — costs $600. If the customer\npays back $500, content and sales are losing money while ads barely break even.\nThat conclusion is invisible in the blended figure.\n\n## Watch for\n\n- **Attribution inflates CAC in your favour.** Last-click credit will hand the\n  sale to the cheapest channel and make every expensive one look worse, or\n  vice versa. Say which model you are using, because it changes the number.\n- **CAC is not payback.** A customer acquired for $450 who pays back in three\n  months is a different business from one who takes three years. Pair this with\n  [contribution-margin](#contribution-margin) and payback period.\n- **See [roas](#roas)** for the same trade-off expressed as revenue per dollar\n  spent rather than cost per customer.",
       "related": [
         "roas",
-        "contribution-margin"
+        "contribution-margin",
+        "channels",
+        "funnel",
+        "ltv",
+        "payback-period"
       ],
       "sources": [
         "the-personal-mba"
@@ -35,6 +422,142 @@
       ]
     },
     {
+      "id": "cap-table",
+      "title": "Cap Table",
+      "domain": "capital",
+      "one_line_definition": "The record of who owns what percentage of the company, and on what terms.",
+      "why_it_matters": "It is the document that decides who controls the company and who receives the value when there is a return. Small errors early become very expensive later.",
+      "body": "The capitalisation table lists every holder of equity and their share. It starts simple — two founders, 50/50 — and grows complicated with every grant, every round, and every early agreement made on a handshake.\n\nThe reason it matters is that the table determines control. A founder who has sold 60% across rounds may still run the company day to day, but no longer decides its fate.\n\n## Worked example\n\n    Holder                    Shares     Percentage\n    Founder A                  600,000       54.5%\n    Founder B                  300,000       27.3%\n    Option pool               150,000       13.6%\n    Angel investor              50,000        4.5%\n    Total                    1,100,000      100.0%\n\nNow a seed round issues 200,000 new shares to an investor:\n\n    Total shares             1,300,000\n    Founder A                  600,000  →  46.2%\n    Investor                   200,000  →  15.4%\n\nFounder A's stake fell from 54.5% to 46.2% without selling anything. That is dilution, and it is why the size of the option pool and the valuation of each round are worth more argument than they usually receive.\n\n## Watch for\n\n- **Handshake equity is a cap-table problem waiting.** A co-founder who leaves at month three with unvested shares still holds them. Vest everything.\n- **The option pool dilutes you, not the investor.** It is created before the round and paid for by existing holders, which founders often discover only after signing.\n- **Model the next two rounds before signing this one.** The terms that look fine now can leave you without control by the round after.",
+      "related": [
+        "bootstrapping",
+        "term-sheet",
+        "dilution",
+        "entity-types"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "capital",
+        "equity",
+        "ownership"
+      ],
+      "difficulty": 3,
+      "layer": 4,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it as a set of claims, not a list of names. What matters is the percentage, the liquidation preference, and whether the shares are vested.",
+      "commonly_confused_with": [
+        "dilution",
+        "term-sheet"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor",
+        "lawyer"
+      ]
+    },
+    {
+      "id": "cash-flow",
+      "title": "The Cash Flow Statement",
+      "domain": "finance",
+      "one_line_definition": "Where the cash actually came from and where it went, over a period.",
+      "why_it_matters": "Profit is an opinion; cash is a fact. Businesses do not fail because they are unprofitable — they fail because they run out of cash.",
+      "body": "The cash flow statement reconciles the gap between profit and cash. It explains why a company with $100,000 of profit can still have $20,000 less in the bank than it started with.\n\nThe three sections answer different questions. Operating cash flow asks whether the core business generates cash. Investing cash flow asks where that cash is being put to work. Financing cash flow asks who is funding the gap.\n\n## Worked example\n\n    Operating activities\n      Net income                    100,000\n      Depreciation                  + 20,000\n      Increase in receivables       - 60,000\n      Increase in payables          + 15,000\n      Operating cash flow           = 75,000\n\n    Investing activities\n      Equipment purchase            - 40,000\n\n    Financing activities\n      Loan repayment                - 30,000\n      Owner draw                    - 25,000\n\n    Net change in cash             = -20,000\n\nThe company made $100,000 and ended with $20,000 less cash. The reason is in the receivables line: $60,000 of the profit has not been collected yet.\n\n## Watch for\n\n- **Positive operating cash flow is the goal.** A business that must keep raising money to fund operations is renting its survival.\n- **Growth consumes cash.** More sales means more inventory and more receivables before the cash returns. Fast growth and a cash shortfall are the same event.\n- **Depreciation is added back.** It reduced profit but not cash. Forgetting this is the most common way to misread the statement.",
+      "related": [
+        "revenue",
+        "burn-rate",
+        "balance-sheet"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "accounting",
+        "cash",
+        "statements"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "draft",
+      "type": "term",
+      "formula": "Net cash flow = cash in from operations + investing + financing",
+      "how_to_read": "Read it as three sections in order: operations, investing, financing. The first tells you if the business works; the other two tell you how it is funded.",
+      "commonly_confused_with": [],
+      "who_uses": []
+    },
+    {
+      "id": "channels",
+      "title": "Channel Economics",
+      "domain": "marketing",
+      "one_line_definition": "The cost, volume, and quality of customers each acquisition route produces.",
+      "why_it_matters": "Two channels can deliver the same number of customers at wildly different cost and lifetime value. The channel is a business decision, not a marketing one.",
+      "body": "Channel economics is the discipline of comparing acquisition routes on cost *and* customer quality. Cost per acquisition alone is misleading, because a cheap channel can deliver customers who leave immediately.\n\nThe comparison that matters is CAC against the lifetime value that channel produces. A channel with high cost and high value beats a channel with low cost and low value.\n\n## Worked example\n\n    Channel        CAC     Avg LTV   LTV/CAC   Verdict\n    Paid search    $300     $900      3.0x    keep\n    Paid social    $180     $300      1.7x    fix or cut\n    Content/SEO    $120   $1,200      10.0x   scale\n    Referral        $80   $1,000      12.5x   scale hard\n\nPaid social looks affordable at $180 but its customers are worth $300 — barely viable. Content looks expensive to produce but delivers the best customers at the lowest effective cost. Referral is the standout and usually the most neglected.\n\n## Watch for\n\n- **Attribution corrupts the comparison.** See [attribution](#attribution) — the channel credited with a sale is often not the channel that caused it.\n- **Channels saturate.** Doubling spend on a working channel usually raises its cost. The curve matters, not the point.\n- **Channel fit is strategic.** A channel that reaches your segment is worth more than a cheap one that does not.",
+      "related": [
+        "segmentation",
+        "cac",
+        "attribution",
+        "network-effects"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "channels",
+        "acquisition"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "When deciding where to spend acquisition budget, and when a channel's cost rises.",
+      "when_not_to_use": "When you have no data on a channel yet — test small before committing.",
+      "steps": [
+        "List every route to a customer.",
+        "Measure cost per acquisition for each.",
+        "Measure the lifetime value each channel's customers produce.",
+        "Compare the ratio, not the cost alone."
+      ],
+      "limitations": "Channel economics shift. A channel that works at one price point or one scale often stops working at another."
+    },
+    {
+      "id": "churn",
+      "title": "Churn Rate",
+      "domain": "unit-economics",
+      "one_line_definition": "The share of customers who stop using the product in a period.",
+      "why_it_matters": "It is the leak in the bucket. Growth fills the bucket; churn empties it. A leak you cannot measure is a leak you cannot fix.",
+      "body": "Churn is the percentage of customers who leave in a period. It is the single most important retention metric because it compounds: a small monthly rate removes a large share of the base over a year.\n\nIts power is in combination with growth. A company growing 10% a month with 5% churn is adding 5% net. The same company at 2% churn is adding 8% net — a 60% faster compounding rate from a change most founders treat as a support problem.\n\n## Worked example\n\nA company starts the month with 1,000 customers and loses 40:\n\n    Monthly churn = 40 / 1,000 = 4%\n\nOver a year, 4% monthly churn removes a startling share of the base. The average customer lifetime is roughly 1 / 0.04 = 25 months. Now suppose churn falls to 2%:\n\n    Average lifetime = 1 / 0.02 = 50 months\n\nThe lifetime doubled. With a contribution margin of $35 a month, LTV goes from $875 to $1,750 — without acquiring a single new customer.\n\n## Watch for\n\n- **Gross vs net churn.** Gross churn ignores the customers who upgrade. Net churn counts expansion revenue as a reduction, which can make a bad retention picture look stable.\n- **Revenue churn is not customer churn.** Losing one large customer can exceed losing many small ones. Track both.\n- **Churn has causes that differ.** Involuntary churn (failed payments) is a fixable operational problem; voluntary churn is a product problem. Treat them separately.",
+      "related": [
+        "retention",
+        "ltv",
+        "cohort-analysis"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "unit-economics",
+        "retention",
+        "saas"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "Churn = customers lost in period / customers at start of period",
+      "how_to_read": "Read it as a rate per month for subscriptions and per period for one-time products. Compare it to your growth rate, not to an industry average.",
+      "commonly_confused_with": [
+        "retention",
+        "ltv"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo"
+      ]
+    },
+    {
       "id": "cogs",
       "title": "Cost of Goods Sold",
       "domain": "finance",
@@ -42,7 +565,8 @@
       "why_it_matters": "It is the first deduction from revenue, and the line that decides whether your margin is a choice or a surprise.",
       "body": "Cost of goods sold is the cost of producing what you sold, and nothing else. It\nincludes materials, direct labour, and the overhead you can attribute to\nproduction. It excludes rent for the office, sales salaries, and the software\nyour engineers use — those are operating expenses, and mixing them in is the\nmost common way to make a healthy business look broken.\n\nThe distinction matters because it decides what you compare. COGS against\nrevenue tells you the margin you earn by existing. Operating expenses against\ngross margin tells you whether your business model scales or just your to-do\nlist.\n\n## Worked example\n\nA reseller reports:\n\n- Revenue: $1,000,000\n- Beginning inventory: $50,000\n- Purchases during the year: $400,000\n- Ending inventory: $80,000\n\n    COGS = 50,000 + 400,000 - 80,000 = 370,000\n    Gross margin = 1,000,000 - 370,000 = 630,000  (63%)\n\nNow suppose next year revenue is flat at $1,000,000 but COGS rises to $500,000.\nGross margin falls to 50%. Revenue did not move; the business got worse. That is\nthe signal this term exists to give you, and it is invisible if you only read\nrevenue.\n\n## Watch for\n\n- **Capitalising what should be expensed.** Software and rent are not COGS.\n  Putting them there inflates gross margin and hides a cash problem.\n- **Inventory changes masking a price cut.** A falling ending inventory with\n  flat purchases usually means you sold down stock, not that you got cheaper.\n- **Comparing COGS across business models.** A manufacturer's COGS is a\n  different animal from a SaaS company's, where COGS is hosting and support.",
       "related": [
-        "gross-margin"
+        "gross-margin",
+        "revenue"
       ],
       "sources": [
         "the-personal-mba"
@@ -68,6 +592,102 @@
       ]
     },
     {
+      "id": "cohort-analysis",
+      "title": "Cohort Analysis",
+      "domain": "unit-economics",
+      "one_line_definition": "Tracking groups of customers by when they arrived, and comparing how each group behaves over time.",
+      "why_it_matters": "It is the only way to see whether the business is actually improving. Aggregate metrics rise even when every group of customers is getting worse.",
+      "body": "Cohort analysis groups customers by when they arrived and follows each group separately. It replaces a single average with a set of comparable histories.\n\nThe reason it matters is that aggregates lie. A company can show rising retention while every individual cohort is decaying, because a large new cohort lifts the average. Cohort analysis removes that illusion by comparing like with like.\n\n## Worked example\n\n    Retention by acquisition month\n\n                  Month 1   Month 3   Month 6   Month 12\n    Jan cohort      82%       58%       44%       38%\n    Feb cohort      80%       55%       41%       35%\n    Mar cohort      79%       57%       43%        -\n    Apr cohort      81%       54%        -         -\n\nReading across month 3, every cohort sits at 54–58%. Reading down the January column, that cohort decayed steadily. The flatness across cohorts says the product's retention is stable; the slope down each column says it is not improving. Both facts matter, and neither appears in an aggregate retention number.\n\n## Watch for\n\n- **Compare at the same age.** A January cohort at month 12 and an April cohort at month 3 are not comparable. Align by age, not by calendar.\n- **Small cohorts are noise.** Below a few hundred, a handful of customers swings the percentage wildly.\n- **Cohort quality changes with acquisition.** If March came from a new channel, its cohort may differ for reasons that have nothing to do with the product.",
+      "related": [
+        "retention",
+        "churn"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "unit-economics",
+        "analysis",
+        "method"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "Anytime a retention, revenue, or lifetime-value number looks wrong, or whenever you change pricing, onboarding, or targeting.",
+      "when_not_to_use": "When you have fewer than a few hundred customers per cohort — the percentages become noise.",
+      "steps": [
+        "Group customers by acquisition month.",
+        "Compute the metric for each group at each age (month 1, 2, 3...).",
+        "Read down a column to see how one cohort ages.",
+        "Read across a row to see how newer cohorts compare at the same age."
+      ],
+      "limitations": "Cohorts need volume to be meaningful, and they describe the past. A cohort that looks healthy today tells you nothing about the cohort arriving next month."
+    },
+    {
+      "id": "competitive-advantage",
+      "title": "Competitive Advantage",
+      "domain": "strategy",
+      "one_line_definition": "A difference you can sustain that allows you to create more value than rivals.",
+      "why_it_matters": "It is the only source of durable profit. Everything else — effort, quality, speed — is available to everyone and gets competed away.",
+      "body": "Competitive advantage is a position that lets you earn more than your rivals for the same effort. The word \"sustain\" is the whole concept: a lead is an advantage you have not yet converted.\n\nThe distinction between better and different is the practical core. Being better is a race anyone can join, and it ends in a price war. Being different changes the comparison the customer makes, so the race is not run at all.\n\n## Worked example\n\nTwo accountants serve small businesses in the same town:\n\n    A. \"We are accurate and affordable.\"  — every accountant claims this. No comparison is possible, so price decides.\n    B. \"We specialise in restaurants, and we know your margin structure.\"  — the restaurant owner compares B to no one.\n\nB is not better. B is different, and the difference is worth more to one specific buyer. That is an advantage, because it cannot be copied by a generalist without giving up their own generalist customers.\n\n## Watch for\n\n- **Advantage needs a customer.** A difference nobody values is a cost, not an advantage.\n- **Advantage erodes.** Competitors copy, markets shift, and technology changes the basis of competition. Treat it as a depreciating asset.\n- **Saying it is not having it.** \"We have great people\" and \"we move fast\" are not advantages — they are claims every competitor makes.",
+      "related": [
+        "moat",
+        "positioning",
+        "five-forces",
+        "seven-powers"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "strategy",
+        "advantage",
+        "competition"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "principle",
+      "statement": "Advantage is not being better. It is being different in a way that matters to a specific customer and cannot be easily copied.",
+      "evidence": "Industries with many undifferentiated competitors show margins near cost. Industries where one firm holds a structural position show sustained excess returns.",
+      "failure_mode": "Confusing a temporary lead with an advantage, and spending the lead on growth instead of converting it into a moat."
+    },
+    {
+      "id": "contracts",
+      "title": "Contracts and Negotiation Basics",
+      "domain": "legal",
+      "one_line_definition": "The written agreement that fixes what each party must do, and what happens if they do not.",
+      "why_it_matters": "It converts a handshake into something enforceable. Most business disputes are not about bad faith; they are about two parties remembering the same conversation differently.",
+      "body": "A contract is a record of an agreement that a court can enforce. Its real value is not that it makes people behave — it is that it states, in advance, what happens when they do not.\n\nThe clauses that decide the outcome of a dispute are rarely the price. They are liability caps, termination rights, and who owns what if the relationship ends.\n\n## Worked example\n\nA development agency signs a client. Four clauses matter more than the fee:\n\n    Liability cap      \"Our total liability is limited to the fees paid.\"\n                       Without it, a bug could expose the agency to the client's whole loss.\n\n    Termination        \"Either party may terminate on 30 days' notice.\"\n                       Without it, the agency can be locked into an unhappy client for years.\n\n    IP assignment      \"Work product transfers on full payment.\"\n                       Without it, the client owns nothing until they have paid — and vice versa.\n\n    Payment terms      \"Net 30, with a 1.5% monthly late fee.\"\n                       Without it, the agency finances the client.\n\nA contract with a generous fee and none of these clauses is worse than one with a lower fee and all of them.\n\n## Watch for\n\n- **The contract is the relationship.** If you cannot agree on the failure terms, the relationship is already in trouble.\n- **Read the termination clause first.** It tells you how you get out, which is the question you will ask when things go wrong.\n- **Do not sign under pressure.** A deadline imposed by the other side is a reason to read more carefully, not less.",
+      "related": [
+        "entity-types",
+        "ip",
+        "batna"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "legal",
+        "contracts",
+        "risk"
+      ],
+      "difficulty": 2,
+      "layer": 4,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read a contract for what happens on failure, not for what happens on success. The clauses that matter are termination, liability, and who bears the risk.",
+      "commonly_confused_with": [
+        "entity-types",
+        "ip"
+      ],
+      "who_uses": [
+        "founder",
+        "lawyer"
+      ]
+    },
+    {
       "id": "contribution-margin",
       "title": "Contribution Margin",
       "domain": "unit-economics",
@@ -77,7 +697,11 @@
       "related": [
         "gross-margin",
         "roas",
-        "cac"
+        "cac",
+        "break-even",
+        "pricing",
+        "ltv",
+        "payback-period"
       ],
       "sources": [
         "the-personal-mba"
@@ -103,6 +727,247 @@
       ]
     },
     {
+      "id": "delegation",
+      "title": "Delegation",
+      "domain": "people",
+      "one_line_definition": "Handing over both the task and the authority needed to complete it, while keeping the outcome yours.",
+      "why_it_matters": "It is the only mechanism by which a founder's capacity grows. Without it, the business is capped at one person's working hours.",
+      "body": "Delegation is giving someone else a result to own, with the authority to decide how to achieve it. The two parts are inseparable, and most delegation fails on the second.\n\nThe reason it is hard is that the founder's judgment is the business's advantage, and handing it over feels like giving that up. But judgment applied to one task is a bottleneck, and the goal is to multiply it by building judgment in other people.\n\n## Worked example\n\nA founder handles every customer refund personally. Delegating well:\n\n    Task:    \"Approve refunds up to $200.\"\n    Bad:     \"Let me know about any refund request and I'll decide.\"\n    Good:    \"Refund up to $200 without asking me. Above $200, bring me the case. Review the pattern monthly with me.\"\n\nThe bad version delegates the work and keeps the decision — so the founder is still the constraint, and now also reviews every request. The good version delegates the decision within a boundary, keeps the founder informed at a level they can act on, and creates a person who learns to judge.\n\n## Watch for\n\n- **Delegation needs a boundary.** Authority without limits is abdication, and the failure mode is a decision the founder would never have made.\n- **You cannot delegate what you cannot define.** If you cannot state the outcome, the other person cannot own it.\n- **Delegation is an investment with a return lag.** The first attempt usually takes longer than doing it yourself. That is the cost of building capacity, not evidence the approach failed.",
+      "related": [
+        "hiring-loop",
+        "roadmap",
+        "incentives"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "people",
+        "management",
+        "delegation"
+      ],
+      "difficulty": 2,
+      "layer": 4,
+      "status": "draft",
+      "type": "principle",
+      "statement": "Delegation without authority is not delegation; it is assignment. The person doing the work must be able to make the decisions that affect the outcome.",
+      "evidence": "Founders who delegate decisions, not just tasks, grow revenue faster and report lower burnout; those who retain every decision cap the organisation at their own capacity.",
+      "failure_mode": "Delegating the task and withholding the authority, then redoing the work when it is done differently than you would have done it."
+    },
+    {
+      "id": "dilution",
+      "title": "Dilution and Ownership",
+      "domain": "capital",
+      "one_line_definition": "The reduction in each shareholder's percentage ownership caused by issuing new shares.",
+      "why_it_matters": "It is the true cost of outside money. A founder's stake falls with every round whether or not they sell anything, and the fall is permanent.",
+      "body": "Dilution is what happens to your percentage when new shares are issued. It is not the same as losing money — your share of a much larger company can be worth far more — but it is permanent and it compounds.\n\nThe distinction founders miss is between percentage and value. Giving away 20% feels like losing a fifth of the company. If the capital turns a $5,000,000 company into a $25,000,000 one, the founder's 80% of $25,000,000 is worth far more than 100% of $5,000,000.\n\n## Worked example\n\nA founder holds 1,000,000 of 1,000,000 shares — 100%.\n\n    Round 1: 250,000 new shares\n      Total 1,250,000 → founder holds 80.0%\n\n    Round 2: 500,000 new shares\n      Total 1,750,000 → founder holds 57.1%\n\n    Round 3: 500,000 new shares\n      Total 2,250,000 → founder holds 44.4%\n\nThree rounds took the stake from 100% to 44.4%. If the company is now worth $40,000,000, that stake is $17,760,000 — against $5,000,000 for the whole company at the start. The percentage fell by more than half and the value rose more than three times.\n\n## Watch for\n\n- **Dilution is decided before the round, not during.** The option pool and the valuation are set at term-sheet stage.\n- **Model to the exit, not to the next round.** A stake that looks thin at round three may still be the largest single holding.\n- **Founders dilute twice.** Once through investment and once through hiring — the option pool comes out of existing holders' shares.",
+      "related": [
+        "cap-table",
+        "term-sheet"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "capital",
+        "dilution",
+        "ownership"
+      ],
+      "difficulty": 3,
+      "layer": 4,
+      "status": "draft",
+      "type": "term",
+      "formula": "New ownership % = existing shares / total shares after the round",
+      "how_to_read": "Read it as a price, not a loss. Dilution is the cost of capital, and the question is whether the capital buys more value than the percentage given up.",
+      "commonly_confused_with": [
+        "cap-table",
+        "term-sheet"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "entity-types",
+      "title": "Entity Types",
+      "domain": "legal",
+      "one_line_definition": "The legal form a business takes, which decides who can be sued, who pays tax, and who owns what.",
+      "why_it_matters": "It is a permanent decision made cheaply at the start and expensively later. The wrong form can make fundraising impossible or put personal assets at risk.",
+      "body": "An entity type is the legal container the business operates inside. The common choices are sole proprietorship, LLC, and corporation, and they differ mainly in liability and taxation.\n\nThe two questions that decide it are: can a customer or creditor reach your personal assets, and does the business pay tax separately from you? Everything else is detail.\n\n## Worked example\n\n    Type             Liability         Tax              Can raise equity\n    Sole trader      Personal assets   Through you      No\n    LLC              Protected         Through you      Awkward\n    C-corp           Protected         Business + you   Yes, cleanly\n\nA freelance designer with no debt and no partners may be fine as a sole trader — simple, cheap, and the liability risk is low. A software company with outside investors must be a C-corp, because investors need shares and the liability protection. Choosing the sole trader form and then trying to raise money means converting later, which costs legal fees and delays the round.\n\n## Watch for\n\n- **Entity choice interacts with funding.** See [cap-table](#cap-table). Investors cannot easily buy into an LLC, and converting later is expensive.\n- **The cheapest form is not the best form.** A sole trader pays less to set up and can be personally bankrupted by a contract dispute.\n- **It varies by jurisdiction.** The names and rules differ by country and state. Get local advice; this entry describes the pattern, not your jurisdiction's law.",
+      "related": [
+        "contracts",
+        "cap-table"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "legal",
+        "entities",
+        "structure"
+      ],
+      "difficulty": 2,
+      "layer": 4,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it by liability and by tax, not by name. The differences that matter are whether your personal assets are exposed and how profits are taxed.",
+      "commonly_confused_with": [
+        "contracts",
+        "cap-table"
+      ],
+      "who_uses": [
+        "founder",
+        "lawyer"
+      ]
+    },
+    {
+      "id": "five-forces",
+      "title": "Porter's Five Forces",
+      "domain": "strategy",
+      "one_line_definition": "Five sources of competitive pressure that together determine how profitable an industry can be.",
+      "why_it_matters": "It stops you judging a business by its growth and forces you to ask whether the industry structure allows profit at all.",
+      "body": "Five Forces asks whether an industry is structurally capable of producing profit. The five pressures are new entrants, supplier power, buyer power, substitutes, and rivalry.\n\nThe point is that a great company in a bad industry earns less than an average company in a good one. Structure dominates execution, which is why the framework is worth running before committing years to a market.\n\n## Worked example\n\nA specialty coffee roaster:\n\n    New entrants        Low barrier — a roaster costs little to start. High pressure.\n    Suppliers           Commodity beans, many sources. Low pressure.\n    Buyers              Cafes and consumers, many choices. High pressure.\n    Substitutes         Instant, tea, energy drinks. High pressure.\n    Rivalry             Many roasters, undifferentiated. High pressure.\n\nFour of five forces are adverse. The industry can contain good companies, but it will not produce structural margin, so profit depends on execution and branding rather than position. Compare a patent-protected drug: one force (new entrants) is blocked by regulation and the economics invert.\n\n## Watch for\n\n- **Define the industry tightly.** \"Food\" and \"specialty coffee for offices\" have completely different force profiles.\n- **Forces change.** Buyer power rose sharply for many suppliers once procurement software made comparison trivial.\n- **A favourable structure is not a strategy.** It tells you where to look, not what to build.",
+      "related": [
+        "competitive-advantage",
+        "moat"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "strategy",
+        "framework",
+        "competition"
+      ],
+      "difficulty": 3,
+      "layer": 2,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "Before entering a market, or when margins are falling and you need to know whether the cause is you or the structure.",
+      "when_not_to_use": "To evaluate a single company's execution — the framework describes industries, not firms.",
+      "steps": [
+        "Assess the threat of new entrants.",
+        "Assess the power of suppliers.",
+        "Assess the power of buyers.",
+        "Assess the threat of substitutes.",
+        "Assess the intensity of rivalry.",
+        "Judge whether the combined pressure leaves room for margin."
+      ],
+      "limitations": "It is a static snapshot of an industry and was written before platform business models. It understates network effects and ecosystem lock-in."
+    },
+    {
+      "id": "framing",
+      "title": "Framing",
+      "domain": "negotiation",
+      "one_line_definition": "The way a proposal is presented, which changes what the other party hears without changing the substance.",
+      "why_it_matters": "It is the difference between the same offer being accepted and rejected. People respond to how a number sits relative to a reference point, not to the number itself.",
+      "body": "Framing is the effect of context on a decision. The same price described as a discount from a higher number feels like a gain; described as a premium over a lower one, it feels like a loss.\n\nIt matters commercially because most negotiations are not about the number but about the reference point the number is measured against. Whoever sets that reference point usually wins the argument.\n\n## Worked example\n\nA freelancer quoting $4,000 for a project:\n\n    Frame A:  \"The project is $4,000.\"                    — no reference. The client compares it to their budget.\n    Frame B:  \"A full rebuild is $9,000. This is $4,000.\" — the client compares it to $9,000 and sees a saving.\n    Frame C:  \"This is $4,000, or $3,200 if we start this month.\" — the client compares two options and picks.\n\nThe work and the price are identical in all three. B anchors a higher number; C reframes the choice as a decision between two gains rather than a cost. Neither is dishonest, and both change the outcome.\n\n## Watch for\n\n- **Someone is always framing you.** A supplier's \"our standard rate\" is a frame. Ask what the alternatives are before accepting the reference point.\n- **Framing is not lying.** Omitting a relevant comparison is not deception; it is presentation. Know the difference and stay on the right side of it.\n- **The strongest frame is the true one.** A frame that collapses under one question costs you the relationship.",
+      "related": [
+        "anchoring",
+        "batna"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "negotiation",
+        "framing",
+        "communication"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read every offer as a frame, not a fact. Ask what reference point it is being compared against, and who chose that reference.",
+      "commonly_confused_with": [
+        "anchoring",
+        "batna"
+      ],
+      "who_uses": [
+        "founder",
+        "sales",
+        "manager"
+      ]
+    },
+    {
+      "id": "fundraising-process",
+      "title": "The Fundraising Process",
+      "domain": "capital",
+      "one_line_definition": "The sequence of finding, pitching, and closing investors, from first outreach to money in the bank.",
+      "why_it_matters": "It is a sales process with a long cycle and a low close rate, and treating it as anything else is how companies run out of money while raising.",
+      "body": "Fundraising is a process with a long cycle and a binary outcome, and the two together are what make it dangerous. A company that starts raising with six months of runway will be out of money before the process finishes.\n\nThe compression point matters most. Investors compare you against their other deals, and a round that is open for a year looks like a round nobody wanted. Running a focused window creates the competition that produces a term sheet.\n\n## Worked example\n\n    Month 1-2   target list, materials, warm intros\n    Month 3     30 first meetings in 3 weeks\n    Month 4     second meetings, 3-4 serious conversations\n    Month 5     term sheets, negotiation\n    Month 6     diligence, legal, close\n\nStarting this with four months of runway means the company is out of cash at month 4 — before the term sheet. The fix is not raising faster; it is starting earlier, which is why [runway](#runway) is the number that governs the whole process.\n\n## Watch for\n\n- **A term sheet is not money.** Diligence and legal can take six weeks, and a term sheet can be withdrawn. Do not stop raising until the funds clear.\n- **Fundraising consumes the founders.** The people who should be running the business are pitching for a quarter. Plan the operating plan around that.\n- **Momentum is real.** A round that closes quickly attracts more interest; one that drags loses it. Compress the window deliberately.",
+      "related": [
+        "term-sheet",
+        "runway"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "capital",
+        "fundraising",
+        "process"
+      ],
+      "difficulty": 3,
+      "layer": 4,
+      "status": "draft",
+      "type": "process",
+      "steps": [
+        "Build a target list of investors who fund your stage and sector.",
+        "Warm the introductions before you need them.",
+        "Pitch to many investors in a compressed window to create competition.",
+        "Run diligence: customers, numbers, references, legal.",
+        "Negotiate the term sheet, then close."
+      ],
+      "inputs": [
+        "a plan that justifies the amount",
+        "financials",
+        "a data room",
+        "a target list of investors"
+      ],
+      "outputs": [
+        "a signed term sheet",
+        "then closed funds"
+      ],
+      "cadence": "a round typically takes 3-6 months from first pitch to close"
+    },
+    {
+      "id": "funnel",
+      "title": "The Funnel",
+      "domain": "marketing",
+      "one_line_definition": "The sequence of stages a person moves through from first hearing about you to becoming a customer.",
+      "why_it_matters": "It turns a vague notion of marketing into measurable stages. Without it you cannot tell whether the problem is awareness, conversion, or retention.",
+      "body": "A funnel is a model of how strangers become customers: awareness, interest, consideration, purchase. Each stage loses people, and the point of the model is to see where the losses are.\n\nWithout it, marketing decisions are made on totals. \"We need more customers\" is not actionable. \"Our trial-to-paid conversion is 4% against an industry 12%\" is.\n\n## Worked example\n\n    Stage                     Count    Conversion\n    Ad impressions            100,000      —\n    Clicks                      2,000     2.0%\n    Signups                       400      20%\n    Activated                    160      40%\n    Paid                          64      40%\n\nThe worst step is impressions to clicks at 2%. But the biggest absolute loss is signups to activated: 400 people sign up and 240 never reach the value. Fixing onboarding from 40% to 60% would take paid customers from 64 to 96 — a 50% increase in revenue from the same traffic.\n\n## Watch for\n\n- **Optimise the worst stage, not the biggest number.** Ten thousand more impressions means nothing if activation is broken.\n- **Stages must be defined by behaviour, not by your org chart.** \"Marketing-qualified lead\" is a handoff, not a customer action.\n- **A funnel hides the loop.** Customers who refer others create a second path in. See [channels](#channels) for the economics of each path.",
+      "related": [
+        "positioning",
+        "cac",
+        "sales-motion"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "funnel",
+        "conversion"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "Whenever you need to find where a growth problem actually is, rather than guessing.",
+      "when_not_to_use": "For products with no repeat purchase, where a loop matters more than a funnel.",
+      "steps": [
+        "Define the stages from first touch to purchase.",
+        "Measure how many people enter each stage.",
+        "Measure how many convert to the next.",
+        "Find the stage with the worst conversion and fix that one first."
+      ],
+      "limitations": "A funnel describes a linear path that real customers do not follow. It is a diagnostic, not a map of behaviour."
+    },
+    {
       "id": "gross-margin",
       "title": "Gross Margin",
       "domain": "finance",
@@ -111,7 +976,9 @@
       "body": "Gross margin is the money you keep from each sale after paying to make the thing\nyou sold. It is the ceiling on everything else: if gross margin is 40%, then\nsales, marketing, engineering, and rent all have to fit inside 40% of revenue,\nand the remainder is profit or loss.\n\nTwo things make it worth learning properly. First, it is the number investors\nask for before they ask for growth — a business with 90% gross margin can lose\nmoney for years and still be a good business; one with 15% cannot. Second, it\nis the number pricing decisions show up in first, before volume or CAC.\n\n## Worked example\n\nSame reseller as [cogs](#cogs):\n\n- Revenue: $1,000,000\n- COGS: $370,000\n\n    Gross margin = (1,000,000 - 370,000) / 1,000,000 = 63%\n\nIf the company spends $400,000 on operating expenses, operating profit is\n$230,000, or 23% of revenue. If COGS rises to $500,000 with revenue flat,\ngross margin falls to 50% and operating profit falls to $100,000 — a 57% drop\nin profit from a 35% rise in COGS. That asymmetry is why this ratio gets so\nmuch attention.\n\n## Watch for\n\n- **Gross margin is not profit.** It ignores every operating expense. Companies\n  routinely celebrate 70% gross margin while losing money overall.\n- **Contribution margin is the stricter sibling.** Gross margin still carries\n  fixed production overhead; contribution margin strips variable selling costs\n  too. See [contribution-margin](#contribution-margin).\n- **A one-off price cut shows up here, not in volume.** If margin drops while\n  revenue rises, you bought revenue.",
       "related": [
         "cogs",
-        "contribution-margin"
+        "contribution-margin",
+        "revenue",
+        "pricing"
       ],
       "sources": [
         "the-personal-mba"
@@ -138,6 +1005,799 @@
       ]
     },
     {
+      "id": "hiring-loop",
+      "title": "The Hiring Loop",
+      "domain": "people",
+      "one_line_definition": "The repeating cycle of deciding what work needs doing, finding someone who can do it, and verifying they can.",
+      "why_it_matters": "A bad hire costs more than an empty seat. The loop exists because hiring is a decision under uncertainty, and the cost of getting it wrong compounds through everything that person touches.",
+      "body": "Hiring is a loop, not an event, because the alternative is a panic hire when someone leaves. A maintained pipeline turns a crisis into a decision.\n\nThe failure mode is hiring for activity instead of outcome. A job description listing tools and years produces candidates who can name the tools. Describing the result the role owns produces candidates who can describe producing it.\n\n## Worked example\n\nTwo versions of the same role:\n\n    Bad:   \"We need a marketing manager. 3-5 years experience, HubSpot, SEO, paid social.\"\n    Good:  \"We need someone who can make our paid channel profitable. You will own CAC from $180 to under $120 in two quarters, and you will tell us what you learned either way.\"\n\nThe second description can be assessed. A candidate who asks \"what is the current conversion rate and who is it best for?\" is demonstrating the job. One who asks \"what is the budget?\" is demonstrating that they have not thought about the outcome.\n\n## Watch for\n\n- **Hire slowly, fire quickly.** The asymmetry is brutal: six months of a bad hire costs more than six months of an unfilled role.\n- **The interview is a prediction, not a verdict.** Structured questions asked the same way to everyone produce far better predictions than conversation.\n- **Reference checks are evidence.** Ask the referee what the person would struggle with, not whether they were good. The answer is almost always honest.",
+      "related": [
+        "delegation",
+        "incentives"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "people",
+        "hiring",
+        "process"
+      ],
+      "difficulty": 3,
+      "layer": 4,
+      "status": "draft",
+      "type": "process",
+      "steps": [
+        "Write the outcome the role must produce, not a list of skills.",
+        "Source candidates before you need them.",
+        "Assess against the outcome with the same questions every time.",
+        "Check the evidence, not the impression.",
+        "Make an explicit decision and record the reasoning."
+      ],
+      "inputs": [
+        "a clear statement of the outcome the role owns",
+        "a pipeline of candidates",
+        "a structured way to assess them"
+      ],
+      "outputs": [
+        "a signed offer",
+        "or a documented reason the search continues"
+      ],
+      "cadence": "continuous; the pipeline should never be empty"
+    },
+    {
+      "id": "incentives",
+      "title": "Incentives Drive Behaviour",
+      "domain": "foundations",
+      "one_line_definition": "People respond to what they are rewarded and punished for, not to what they are asked to do.",
+      "why_it_matters": "It is the most reliable predictor of behaviour available. When behaviour contradicts the stated goal, the incentive structure is usually the explanation.",
+      "body": "Incentives are the consequences attached to actions, and they predict behaviour better than instructions, culture, or personality. People do what they are paid to do, where \"paid\" includes money, status, and avoidance of trouble.\n\nThe practical use is diagnostic. When behaviour is wrong, look at what the behaviour is rewarded by before concluding that people are careless. The behaviour is usually rational given the incentive.\n\n## Worked example\n\nA support team is measured on tickets closed per day:\n\n    Incentive:      close tickets fast\n    Behaviour:      agents close tickets without solving them, then reopen them under a new ticket\n    Result:         the metric looks excellent and customer satisfaction falls\n\nThe same team measured on resolution at first contact behaves completely differently. Nothing about the people changed. The incentive moved, and the behaviour followed.\n\n## Watch for\n\n- **Incentives are never neutral.** A metric chosen for measurement becomes a target, and people optimise for it. Pick metrics that survive being gamed.\n- **Non-financial incentives are incentives.** Recognition, visibility, and who gets promoted all shape behaviour as strongly as pay.\n- **Check incentives before blaming people.** The question is \"what is this behaviour rewarded by?\" — not \"why are they like this?\"",
+      "related": [
+        "value-creation",
+        "delegation",
+        "hiring-loop"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "foundations",
+        "incentives",
+        "behaviour"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "draft",
+      "type": "principle",
+      "statement": "Show me how someone is rewarded and I will show you how they behave. The stated policy is decoration; the incentive is the mechanism.",
+      "evidence": "Sales teams paid on volume discount heavily; teams paid on margin do not. The behaviour tracks the reward in every observed case, regardless of the policy manual.",
+      "failure_mode": "Asking for one behaviour while rewarding another, then treating the resulting behaviour as a character problem rather than a design problem."
+    },
+    {
+      "id": "inflation",
+      "title": "Inflation",
+      "domain": "economics",
+      "one_line_definition": "A general rise in prices, which is the same thing as a fall in what money is worth.",
+      "why_it_matters": "It quietly changes every number in the business. A price that holds for three years is a price cut, and a cost that rises slower than inflation is a saving.",
+      "body": "Inflation is the rate at which money buys less over time. It is usually discussed as a cost of living, but for a business it is a force acting on every price, wage, and contract.\n\nThe key insight is that inflation is a comparison, not a level. What matters is whether your prices and your costs move at the same speed. A business whose costs rise faster than its prices is shrinking without noticing.\n\n## Worked example\n\nA company signs a three-year contract at $10,000 a month. Inflation runs at 5% a year:\n\n    Year 1   $10,000 nominal   = $10,000 real\n    Year 2   $10,000 nominal   =  $9,524 real\n    Year 3   $10,000 nominal   =  $9,070 real\n\nThe price never changed, but the customer is paying $930 less in real terms each year by year three — a 9.3% real price cut. Meanwhile the company's own costs, which rise with inflation, are up 10.2%. The margin compresses from both sides.\n\n## Watch for\n\n- **Fixed-price contracts are inflation exposure.** Build in an escalation clause, or the contract becomes a subsidy to the customer.\n- **Wages lag inflation, then catch up.** Real wages fall first, which is pleasant for the employer, then resentment builds and the correction is sudden.\n- **Inflation changes the hurdle for investment.** A project returning 6% looks good at 2% inflation and worthless at 7%.",
+      "related": [
+        "interest-rates"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "economics",
+        "macro",
+        "inflation"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "draft",
+      "type": "term",
+      "formula": "Real value = nominal value / (1 + inflation rate)",
+      "how_to_read": "Read every financial number as nominal or real. A contract with a fixed price for five years is exposed to inflation the customer will eventually notice.",
+      "commonly_confused_with": [
+        "interest-rates"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "interest-rates",
+      "title": "Interest Rates",
+      "domain": "economics",
+      "one_line_definition": "The price of borrowing money, which is also the discount the market applies to future cash.",
+      "why_it_matters": "It sets the cost of capital and the value of waiting. A change in rates changes which projects are worth doing and how much a growing company is worth.",
+      "body": "An interest rate is the price of money over time. It matters to a business in two ways: directly, as the cost of any borrowing, and indirectly, as the rate at which future cash is discounted to a present value.\n\nThe second effect is the one founders miss. A dollar of profit in five years is worth less than a dollar today, and the higher the rate, the less it is worth. Rising rates therefore punish long-horizon, capital-heavy businesses and favour ones that return cash quickly.\n\n## Worked example\n\nA project returns $1,000,000 in five years. Its present value at different rates:\n\n    At 3%:   1,000,000 / 1.03^5 = $862,609\n    At 7%:   1,000,000 / 1.07^5 = $712,986\n    At 12%:  1,000,000 / 1.12^5 = $567,427\n\nThe same future cash is worth $295,182 less at 12% than at 3%. A company planning on a distant payoff is worth a third less purely because rates moved — with no change to the business.\n\n## Watch for\n\n- **Rates set the value of growth.** High rates make \"grow now, profit later\" expensive. That is why growth companies are hit hardest when rates rise.\n- **Your runway is a rate-sensitive asset.** See [runway](#runway). Borrowing to extend it costs more when rates are high.\n- **Cheap money creates bad habits.** Projects funded at 1% that would fail at 6% get built, and the failures surface only when rates normalise.",
+      "related": [
+        "inflation",
+        "runway"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "economics",
+        "macro",
+        "rates"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "draft",
+      "type": "term",
+      "formula": "Present value = future cash / (1 + rate)^years",
+      "how_to_read": "Read it as the opportunity cost of capital. If you can earn 5% risk-free, a business project must beat that or it destroys value.",
+      "commonly_confused_with": [
+        "inflation",
+        "runway"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "ip",
+      "title": "Intellectual Property",
+      "domain": "legal",
+      "one_line_definition": "The legal rights over creations of the mind — inventions, designs, names, and written work.",
+      "why_it_matters": "It is often the only asset a young company has that cannot be copied overnight, and it is frequently lost by inattention rather than by theft.",
+      "body": "Intellectual property is the law's way of protecting things you can copy but cannot touch. The main types are patents for inventions, trademarks for names and marks, copyright for written and creative work, and trade secrets for information kept confidential.\n\nThe practical point for a young company is that IP is often lost through process, not through a competitor. An employee who invents something may own it, not the company, unless the contract says otherwise.\n\n## Worked example\n\nA software company with a distinctive name and a novel algorithm:\n\n    Copyright      The source code is protected automatically on creation. Registration helps enforce it.\n    Trademark      The name must be registered to be defended reliably; an unregistered mark is hard to stop others using.\n    Patent         The algorithm may be patentable, but software patents are slow, expensive, and jurisdiction-dependent.\n    Trade secret   The customer list and pricing are protected only if access is controlled and contracts say so.\n\nThe most common failure: a contractor builds the product, and nothing in their contract assigns the IP to the company. The company then owns nothing it paid for, and the contractor can sell the same code to a competitor.\n\n## Watch for\n\n- **IP must be assigned in writing.** A contractor, co-founder, or early employee who creates something owns it by default in many jurisdictions unless a contract says otherwise.\n- **Registration is not optional for trademarks.** A name you use is not a name you own.\n- **IP is a moat, not a product.** Owning a patent does not make customers want the product. See [moat](#moat).",
+      "related": [
+        "contracts"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "legal",
+        "ip",
+        "protection"
+      ],
+      "difficulty": 2,
+      "layer": 4,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it as a set of separate rights with different rules. A patent, a trademark, and copyright protect different things and last different lengths.",
+      "commonly_confused_with": [
+        "contracts"
+      ],
+      "who_uses": [
+        "founder",
+        "lawyer",
+        "product"
+      ]
+    },
+    {
+      "id": "jobs-to-be-done",
+      "title": "Jobs to be Done",
+      "domain": "product",
+      "one_line_definition": "The progress a customer is trying to make in a particular circumstance, which is what they actually hire a product to do.",
+      "why_it_matters": "It redefines the competitor set. You do not compete with similar products; you compete with everything the customer could do instead, including doing nothing.",
+      "body": "Jobs to be Done says customers do not buy products; they hire them to make progress. The classic example is a drill: nobody wants a drill, they want a hole, and the hole is a means to hanging a shelf.\n\nThe practical payoff is a competitor set that includes everything else the customer might do. The rival to a project-management tool is not another tool — it is the spreadsheet, the email thread, and the decision to do nothing.\n\n## Worked example\n\nA customer buys a bookkeeping app. The surface answer is \"they want accounting software.\" The job is different:\n\n    Functional:  know whether the business made money this month\n    Emotional:   stop feeling anxious about the numbers\n    Social:      look credible to an accountant or investor\n    Circumstance: it is the first month they have been too busy to keep up\n\nThe competitor set is now spreadsheets, an accountant, a bookkeeping service, and ignoring it. Each competes on different terms. An app that wins on \"stop feeling anxious\" — by showing a single plain-English number on day one — beats one with more features but a steeper learning curve.\n\n## Watch for\n\n- **The job is not the feature.** \"They asked for a dashboard\" is a solution, not a job. Ask what progress they wanted from the dashboard.\n- **Circumstance is the unit.** The same person has different jobs in different situations. Segment by circumstance, not by demographic.\n- **Doing nothing is a competitor.** Most products lose to inaction, not to a rival. If the customer's current state is tolerable, you have no job to win.",
+      "related": [
+        "product-market-fit",
+        "mvp"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "product",
+        "discovery",
+        "customers"
+      ],
+      "difficulty": 3,
+      "layer": 2,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "When positioning, when a feature request does not make sense, or when you need to understand why customers really buy.",
+      "when_not_to_use": "As a substitute for talking to customers. The framework structures interviews; it does not replace them.",
+      "steps": [
+        "Identify the functional job the customer is trying to accomplish.",
+        "Identify the emotional and social dimensions of that job.",
+        "Identify the circumstances that make the job urgent.",
+        "List every alternative the customer considers, including doing nothing.",
+        "Design against the job, not against the feature request."
+      ],
+      "limitations": "Jobs are hard to identify and easy to invent. A job you have imagined will produce a product nobody hires."
+    },
+    {
+      "id": "ltv",
+      "title": "Lifetime Value",
+      "domain": "unit-economics",
+      "one_line_definition": "The total profit a customer generates over the whole relationship.",
+      "why_it_matters": "It sets the ceiling on what you can afford to spend acquiring that customer. Without it, CAC is just a number.",
+      "body": "Lifetime value is the profit a customer produces from the day they arrive to the day they leave. It is the other half of the unit-economics equation: CAC tells you what a customer costs, LTV tells you what they are worth.\n\nThe two together decide whether growth is worth buying. A customer worth more than they cost to acquire makes growth cheap. A customer who costs more than they return makes growth a way to lose money faster.\n\n## Worked example\n\nA subscription costs $30 a month with a contribution margin of $21 after variable costs. The average customer stays 14 months:\n\n    LTV = 21 x 14 = 294\n\nIf acquiring that customer costs $98, the ratio is 294 / 98 = 3.0x, and the customer pays back in about 4.7 months. Now suppose churn rises so the average stay falls to 7 months:\n\n    LTV = 21 x 7 = 147\n    LTV/CAC = 147 / 98 = 1.5x\n\nThe acquisition cost did not change. The business halved its value per customer, which is why churn and LTV are the same conversation.\n\n## Watch for\n\n- **Use contribution margin, not revenue.** Gross margin is a reasonable proxy; revenue is not, because it ignores the cost of serving the customer.\n- **LTV is an average.** Averages hide the difference between customers who stay two months and customers who stay two years.\n- **Cohort, not aggregate.** An LTV computed across all customers mixes old cohorts with new ones and hides whether newer customers are better or worse.",
+      "related": [
+        "cac",
+        "contribution-margin",
+        "churn",
+        "arpu"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "unit-economics",
+        "value",
+        "customers"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "LTV = contribution margin per period x number of periods retained",
+      "how_to_read": "Read it against CAC, never alone. A large LTV is meaningless if the customer costs more than that to acquire.",
+      "commonly_confused_with": [
+        "cac",
+        "arpu"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "mental-models",
+      "title": "Mental Models",
+      "domain": "foundations",
+      "one_line_definition": "A compact representation of how something works, used to reason about a situation without re-deriving it from scratch.",
+      "why_it_matters": "They multiply the decisions you can make well. A good model turns a novel situation into a recognised one, which is the difference between a considered choice and a guess.",
+      "body": "A mental model is a simplified picture of how a domain works — supply and demand, incentives, [opportunity cost](#opportunity-cost), [second-order thinking](#second-order-thinking). They are useful because the world is too complex to reason about directly, and a model compresses it.\n\nThe danger is forgetting that the map is not the territory. A model that explains most situations will mislead in the one that matters, and the confidence it produces is the warning sign.\n\n## Worked example\n\nDeciding whether to raise prices:\n\n    Model: demand curve        — higher price, lower volume. Ask: how elastic is this market?\n    Model: anchoring           — the new price becomes the reference for all future comparisons.\n    Model: incentives          — what does the change reward the sales team to do?\n    Model: second-order        — existing customers see the increase; what does that do to trust?\n\nNo single model answers the question. Four models together surface the trade-offs that one alone would hide. That is the actual value of a model collection: not answers, but a checklist of angles.\n\n## Watch for\n\n- **A model is a prompt, not a conclusion.** The right output of a model is a question, not an answer.\n- **Using one model is worse than using none.** A single lens feels like clarity and is usually just a blind spot.\n- **Models expire.** A model that explained a market at one scale may not explain it at another.",
+      "related": [
+        "second-order-thinking",
+        "bias",
+        "opportunity-cost"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "foundations",
+        "thinking",
+        "models"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read them as tools, not truths. A model is a simplification, and its value is in the questions it prompts — not in being right.",
+      "commonly_confused_with": [
+        "second-order-thinking",
+        "bias"
+      ],
+      "who_uses": [
+        "founder",
+        "leader",
+        "investor"
+      ]
+    },
+    {
+      "id": "moat",
+      "title": "Moat",
+      "domain": "strategy",
+      "one_line_definition": "A structural advantage that makes it hard for competitors to take your customers.",
+      "why_it_matters": "Without one, competition drives your price toward cost and your margin toward zero. The moat is what keeps the profit you create.",
+      "body": "A moat is a durable reason a customer stays with you even when a competitor offers the same thing cheaper. It is the economic term for defensibility.\n\nThe test is not whether you are better today. It is whether a well-funded competitor could replicate your offer in a year and take your customers. If they can, you have a lead, not a moat — and leads expire.\n\n## Worked example\n\nFour businesses, same product category, four different positions:\n\n    A. Better UI            — copied in a quarter. No moat.\n    B. Lower price          — undercut tomorrow. No moat.\n    C. Data from 40,000 users that improves the product — copying the feature does not copy the data. Moat.\n    D. Contracts running to 2028 with switching costs — a competitor must wait or pay to displace them. Moat.\n\nA and B compete on effort, which anyone can match. C and D compete on accumulated position, which takes years to build and cannot be bought quickly.\n\n## Watch for\n\n- **A moat is not a feature.** Features are copied. Moats are network effects, switching costs, economies of scale, and regulation.\n- **Moats can be temporary.** Technology changes destroy them. A retailer's location moat died with the internet.\n- **Moats protect margin, not existence.** They let you keep profit; they do not make you immune to a market that stops wanting the product.",
+      "related": [
+        "competitive-advantage",
+        "network-effects",
+        "five-forces",
+        "seven-powers"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "strategy",
+        "moat",
+        "competition"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it as a question: what happens to a competitor who copies your product exactly? If the answer is 'nothing much', you have no moat.",
+      "commonly_confused_with": [
+        "competitive-advantage",
+        "network-effects"
+      ],
+      "who_uses": [
+        "founder",
+        "investor",
+        "strategist"
+      ]
+    },
+    {
+      "id": "mvp",
+      "title": "Minimum Viable Product",
+      "domain": "product",
+      "one_line_definition": "The smallest thing you can build that tests whether a customer will pay for the value you believe exists.",
+      "why_it_matters": "It is the cheapest way to find out whether you are wrong. Every month spent building before that test is a month of unverified assumption.",
+      "body": "An MVP is not a smaller version of the final product. It is an experiment: the minimum build that can test the riskiest assumption behind the business.\n\nThe distinction matters because most \"MVPs\" are actually incomplete products. A product missing its core value cannot test demand — it can only test whether people tolerate missing features.\n\n## Worked example\n\nA company believes small firms will pay $50 a month for automated invoicing. Two approaches:\n\n    Approach A — build the full product: recurring billing, integrations, reporting, mobile app. Six months. Then launch and find out.\n    Approach B — build only invoice generation, deliver it manually behind the scenes, charge from day one. Two weeks.\n\nApproach B tests the real assumption: will someone pay? If 10 customers pay, the company knows to build Approach A. If none do, it spent two weeks instead of six months. The manual work is not a shortcut — it is the point, because it buys certainty.\n\n## Watch for\n\n- **The assumption must be named.** \"Test whether people want this\" is untestable. \"Test whether a 20-person firm pays $50 for automated reminders\" is.\n- **An MVP can be a conversation.** A landing page, a priced offer, or a manual service can all be MVPs. Shipping code is the most expensive option.\n- **MVPs accumulate debt.** The shortcut is only valid if you plan to rebuild. Otherwise the experiment becomes the product.",
+      "related": [
+        "jobs-to-be-done",
+        "roadmap"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "product",
+        "mvp",
+        "validation"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read 'viable' as 'capable of producing a real answer', not 'small and broken'. An MVP that cannot deliver the core value tests nothing.",
+      "commonly_confused_with": [
+        "jobs-to-be-done",
+        "product-market-fit"
+      ],
+      "who_uses": [
+        "founder",
+        "product",
+        "engineer"
+      ]
+    },
+    {
+      "id": "network-effects",
+      "title": "Network Effects",
+      "domain": "strategy",
+      "one_line_definition": "When each additional customer makes the product more valuable for every existing customer.",
+      "why_it_matters": "It is the strongest moat there is, because the advantage grows automatically with use and a competitor must overcome the network, not just the product.",
+      "body": "A network effect means the product's value is a function of how many people use it. Telephones, marketplaces, and payment networks all become more useful as they grow.\n\nThe consequence is a winner-take-most dynamic. Once a network passes a tipping point, customers are not choosing the better product — they are choosing the one their contacts already use, and no amount of feature work overcomes that.\n\n## Worked example\n\nA messaging app's value to a user is roughly the share of their contacts on it:\n\n    20% of contacts on it   →  you check two apps. Slightly useful.\n    60% of contacts on it   →  you move most conversations. Clearly useful.\n    90% of contacts on it   →  leaving means losing touch with everyone.\n\nThe jump from 60% to 90% is where the moat forms. A competitor with better features at 5% share offers less value than the incumbent at 90%, because value came from the network, not the features. That is why network-effect markets usually produce one dominant player.\n\n## Watch for\n\n- **Not every user adds value.** A social network full of accounts that never post does not strengthen the network. Density within a community matters more than total users.\n- **Network effects can be local.** A marketplace can be strong in one city and weak in another; growth must be concentrated, not spread.\n- **They decay.** If the network stops being useful — spam, noise, irrelevance — the same mechanism accelerates the exit.",
+      "related": [
+        "moat",
+        "channels"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "strategy",
+        "networks",
+        "platforms"
+      ],
+      "difficulty": 3,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it as a growth curve with a tipping point. Below the point the product is worse than the alternative; above it, leaving costs more than staying.",
+      "commonly_confused_with": [
+        "moat",
+        "channels"
+      ],
+      "who_uses": [
+        "founder",
+        "investor",
+        "product"
+      ]
+    },
+    {
+      "id": "operating-expenses",
+      "title": "Operating Expenses",
+      "domain": "finance",
+      "one_line_definition": "The cost of running the business that is not tied to producing a specific unit sold.",
+      "why_it_matters": "It is the part of the cost base you control. COGS scales with sales; operating expenses scale with decisions.",
+      "body": "Operating expenses — opex — are the costs of keeping the lights on: salaries for people who do not build the product, rent, software, marketing, legal, and the sales team's overhead. They are the costs that remain even if you sell nothing.\n\nThe distinction from COGS is the distinction between *variable* and *fixed* cost. COGS goes up when you sell more; opex mostly does not. That is why opex is where leverage lives: a company whose opex is flat while revenue doubles sees its margin expand without changing the product at all.\n\n## Worked example\n\nA SaaS company:\n\n- Revenue: $1,000,000\n- COGS (hosting, support): $150,000\n- Operating expenses: $700,000 — engineering $350,000, sales and marketing $250,000, general and administrative $100,000\n\n    Gross margin = 1,000,000 - 150,000 = 850,000  (85%)\n    Operating profit = 850,000 - 700,000 = 150,000  (15%)\n\nNow revenue doubles to $2,000,000 with COGS rising to $300,000 and opex rising only to $850,000:\n\n    Gross margin = 2,000,000 - 300,000 = 1,700,000  (85%)\n    Operating profit = 1,700,000 - 850,000 = 850,000  (42.5%)\n\nRevenue doubled, profit grew 5.7x. That asymmetry is operating leverage, and it is the reason investors care about the opex line.\n\n## Watch for\n\n- **Opex is a choice, not a fact.** Hiring, office space, and tooling are decisions. Treating them as fixed is how costs creep.\n- **See [break-even](#break-even)** — opex is the fixed cost you must cover before any sale becomes profit.\n- **Capitalised costs hide here.** Software development is often capitalised rather than expensed, which flatters this line and moves the cost to the balance sheet.",
+      "related": [
+        "burn-rate",
+        "break-even"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "accounting",
+        "cost",
+        "overhead"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "Operating profit = gross margin - operating expenses",
+      "how_to_read": "Read it as a ratio to revenue, over time. A rising ratio with flat revenue means the business is getting more expensive to run.",
+      "commonly_confused_with": [
+        "cogs",
+        "burn-rate"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo"
+      ]
+    },
+    {
+      "id": "opportunity-cost",
+      "title": "Opportunity Cost",
+      "domain": "foundations",
+      "one_line_definition": "What you give up by choosing one option over the next best alternative.",
+      "why_it_matters": "It is the difference between a decision and a wish. Every choice spends money, time, and attention that cannot be spent again.",
+      "body": "Opportunity cost is the value of the best alternative you did not choose. It is not a line on a balance sheet — it never appears in the accounts — which is exactly why it is so often ignored.\n\nA decision is only rational when the chosen option beats the alternative, not when it beats nothing. Building a feature for three months is profitable if the alternative was nothing; it is a loss if the alternative was a feature that would have brought in twice the revenue.\n\n## Worked example\n\nYou have one engineer for a quarter. Two options:\n\n- **Option A** — rebuild the checkout: costs $60,000 in salary, expected to lift conversion by 2%, worth $200,000 a year.\n- **Option B** — fix the onboarding funnel: costs $60,000, expected to lift activation by 10%, worth $120,000 a year.\n\nOption A looks better on its own. But choosing A means the $120,000 from B is the opportunity cost. The comparison is:\n\n    A net:  200,000 - 120,000 = 80,000\n    B net:  120,000 - 200,000 = -80,000\n\nA still wins, but by half what it looked like. If B had been worth $250,000, A would have been the wrong call despite the bigger headline number.\n\n## Watch for\n\n- **Sunk costs are not opportunity costs.** Money already spent is gone and should not weigh on the decision. Only the forward-looking alternatives matter.\n- **Time is the hidden one.** Two options costing the same cash can have very different opportunity costs if one takes three times as long.\n- **See [pricing](#pricing)** — the same discipline applies to price: a discount's real cost is the full-price sale you gave up.",
+      "related": [
+        "value-creation",
+        "mental-models"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "economics",
+        "decisions",
+        "tradeoffs"
+      ],
+      "difficulty": 1,
+      "layer": 1,
+      "status": "reviewed",
+      "type": "term",
+      "how_to_read": "If two options look equal on paper, the one with the lower opportunity cost wins. If the cost is invisible, it is probably being ignored.",
+      "commonly_confused_with": [],
+      "who_uses": []
+    },
+    {
+      "id": "payback-period",
+      "title": "CAC Payback Period",
+      "domain": "unit-economics",
+      "one_line_definition": "How many months of a customer's contribution it takes to recover the cost of acquiring them.",
+      "why_it_matters": "It converts CAC from a cost into a cash-flow event. A CAC that pays back in two months is cheap; the same CAC at two years is a loan you may not survive.",
+      "body": "Payback period is the time a customer takes to pay for their own acquisition. It is the bridge between unit economics and cash flow, and it is the number investors check most often after CAC and LTV.\n\nThe distinction it makes is between a cost that returns quickly and a cost that ties up capital. Two businesses can have identical CAC and LTV and completely different cash situations purely because of payback.\n\n## Worked example\n\nCAC is $300. The customer pays $50 a month with a contribution margin of $35:\n\n    Payback = 300 / 35 = 8.6 months\n\nNow the same customer on a $20 plan with a $14 contribution margin:\n\n    Payback = 300 / 14 = 21.4 months\n\nSame acquisition cost. The cheaper plan takes 21 months to pay for itself, which means the business must finance the customer for over a year and a half. That is why a low-price plan with the same CAC can be far worse than a high-price one.\n\n## Watch for\n\n- **Use contribution margin, not revenue.** Paying back on revenue flatters the number; the cost of serving the customer is real.\n- **Payback sets your capital need.** Adding customers adds to the amount you must finance. Growth beyond your capital is a funding problem, not a sales problem.\n- **Longer payback needs longer customers.** If payback is 12 months and the average customer stays 10, the customer never pays for itself. See [ltv](#ltv).",
+      "related": [
+        "cac",
+        "contribution-margin"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "unit-economics",
+        "cash",
+        "payback"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "Payback = CAC / monthly contribution margin per customer",
+      "how_to_read": "Under twelve months is healthy for most subscription businesses. Over twelve months you are funding your customers and need capital to do it.",
+      "commonly_confused_with": [
+        "cac",
+        "ltv"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "pipeline",
+      "title": "Pipeline",
+      "domain": "sales",
+      "one_line_definition": "The total value of opportunities in play, weighted by how likely each is to close.",
+      "why_it_matters": "It is the forward view of the business. Revenue is a lagging indicator; pipeline is the leading one, and it is the only thing you can act on early.",
+      "body": "Pipeline is the set of deals that might close, each valued and weighted by probability. It is how a sales organisation sees the future, and it is the earliest warning available.\n\nThe distinction from a forecast matters. A forecast is a promise; a pipeline is a picture. A pipeline tells you where the risk is — too few opportunities, or too many stuck at low probability — while there is still time to do something about it.\n\n## Worked example\n\n    Opportunity        Value    Probability   Weighted\n    Acme               40,000       60%        24,000\n    Beta                25,000       40%        10,000\n    Gamma               60,000       80%        48,000\n    Delta               15,000       10%         1,500\n    Total              140,000                  83,500\n\nQuota is $200,000 for the quarter. Weighted pipeline coverage is 83,500 / 200,000 = 0.4x, far below the 3x usually needed. The problem is visible: Delta is nearly dead weight and Beta is unlikely. Those two need attention now, not at quarter end.\n\n## Watch for\n\n- **Probabilities are opinions.** Salespeople optimise them. Require evidence for a high probability and audit the ones that never move.\n- **Coverage is a ratio, not a total.** A large pipeline against a large quota can be as unhealthy as a small one against a small quota.\n- **Stale pipeline is worse than no pipeline.** An opportunity that has not moved in two months should be removed. It inflates coverage while hiding the gap.",
+      "related": [
+        "sales-cycle",
+        "acv-arr"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "sales",
+        "pipeline",
+        "forecasting"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "Weighted pipeline = sum of (deal value x probability of closing)",
+      "how_to_read": "Read it as coverage against quota, not as a forecast. A pipeline three times quota is healthy; one that merely equals quota is a coin flip.",
+      "commonly_confused_with": [
+        "sales-cycle",
+        "acv-arr"
+      ],
+      "who_uses": [
+        "sales-lead",
+        "founder",
+        "cfo"
+      ]
+    },
+    {
+      "id": "positioning",
+      "title": "Positioning",
+      "domain": "marketing",
+      "one_line_definition": "The specific place you want to own in the customer's mind, relative to alternatives.",
+      "why_it_matters": "It decides what you are compared against. Competing on someone else's terms means their criteria win, and you lose.",
+      "body": "Positioning is the deliberate choice of what you are and are not. It is not a slogan; it is a decision about which comparison you want to be judged in.\n\nA clear position makes every other decision easier. Pricing, features, channels, and messaging all follow from it. A vague position makes every decision arbitrary, which is why undifferentiated products compete on price and always lose.\n\n## Worked example\n\nA project-management tool could position against \"spreadsheets\" or against \"Jira.\"\n\n- Against spreadsheets: for teams that outgrew them. Message: \"your spreadsheet breaks at fifty rows.\" Buyer: a small team, price-sensitive, short sales cycle.\n- Against Jira: for teams that find Jira too heavy. Message: \"real work, not ticket queues.\" Buyer: an engineering team, higher budget, longer cycle.\n\nBoth describe the same software. They are different products to different buyers, at different prices, through different channels. Picking one is positioning; picking neither is competing on price against both.\n\n## Watch for\n\n- **Positioning is a sacrifice.** Saying you are for everyone means you are for no one. The excluded segment is the point.\n- **It must be defensible.** A position the market does not believe is just marketing. See [competitive-advantage](#competitive-advantage).\n- **Positioning precedes messaging.** Writing copy before deciding the position produces words that describe features instead of a reason to buy.",
+      "related": [
+        "pricing",
+        "funnel",
+        "brand",
+        "competitive-advantage",
+        "product-market-fit",
+        "segmentation"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "strategy",
+        "positioning"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "If a sentence cannot say who you are for and why you are different, you do not have a position — you have a description.",
+      "commonly_confused_with": [
+        "pricing",
+        "brand"
+      ],
+      "who_uses": [
+        "founder",
+        "marketer"
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing",
+      "domain": "marketing",
+      "one_line_definition": "What you charge, and the logic that decides it.",
+      "why_it_matters": "It is the fastest lever on profit. A price change flows straight to the bottom line with no change in cost, volume, or product.",
+      "body": "Pricing is the most under-used lever in business. Founders price from cost or from competitors; the better question is what the customer's alternative costs them.\n\nCost-plus pricing ignores the customer entirely. Competitor-based pricing hands over the decision about your value to someone else. Value-based pricing asks what the customer would otherwise pay — in money, time, or risk — and captures a share of that.\n\n## Worked example\n\nA tool saves a bookkeeper 10 hours a month. A bookkeeper costs $40 an hour, so the value is $400 a month:\n\n    Value-based price:  $40–80/month  (captures 10–20% of value)\n    Cost-plus price:    $15/month     (cost + margin)\n    Competitor price:   $50/month     (whatever the rival charges)\n\nThe cost-plus price leaves $385 of value with the customer. That is not generosity; it is money left on the table that funds your competitor's growth. A price of $60 captures a fair share and still saves the customer $340.\n\n## Watch for\n\n- **Price is a signal.** A price far below the value signals low quality; a price far above it invites a competitor. The wrong signal costs more than the wrong number.\n- **Anchoring matters.** The first number the customer sees shapes every later comparison. Discounting trains them to wait for discounts.\n- **Raise prices on the existing base last.** Existing customers are the hardest to re-price and the most visible. Test on new customers first.",
+      "related": [
+        "positioning",
+        "gross-margin",
+        "contribution-margin",
+        "anchoring"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "pricing",
+        "value"
+      ],
+      "difficulty": 3,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "formula": "Price = value to the customer, captured at a sustainable share",
+      "how_to_read": "Read price against contribution margin and against the customer's alternative. If the customer cannot see the value, the price is too high regardless of your costs.",
+      "commonly_confused_with": [
+        "positioning",
+        "gross-margin"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "marketer"
+      ]
+    },
+    {
+      "id": "product-market-fit",
+      "title": "Product-market Fit",
+      "domain": "marketing",
+      "one_line_definition": "The degree to which the product satisfies a real demand from a defined group of customers.",
+      "why_it_matters": "It is the precondition for everything else. Growth before fit accelerates a product nobody wants; fit without growth is a hobby.",
+      "body": "Product-market fit is the point where a real group of customers wants what you have enough to keep paying for it. It is not the same as having users, or having revenue, or having a good product.\n\nThe distinction matters because the failure modes are different. Before fit, growth spending is wasted — you are filling a bucket with no bottom. After fit, growth spending compounds, because the customers who arrive stay.\n\n## Worked example\n\nThe standard test asks users how they would feel without the product. In a survey of 200:\n\n    Very disappointed   90   (45%)\n    Somewhat disappointed 60   (30%)\n    Not disappointed     50   (25%)\n\nAbove 40% \"very disappointed\" is the usual threshold for fit. Now suppose the same survey a quarter earlier:\n\n    Very disappointed   55   (27%)\n\nThe product was close but not there. Spending on paid acquisition at 27% would have bought customers who left; at 45% the same spend compounds.\n\n## Watch for\n\n- **Fit is per segment.** A product can have fit with one group and none with another. Segment before concluding.\n- **Fit decays.** A market changes and competitors appear. The survey is a snapshot, not a permanent state.\n- **Fit is not traction.** A waiting list is interest, not fit. Fit requires that customers stay and pay once the novelty fades.",
+      "related": [
+        "positioning",
+        "value-creation",
+        "jobs-to-be-done"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "product",
+        "fit"
+      ],
+      "difficulty": 3,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it as a threshold, not a feeling. If customers would be very disappointed without the product, you have it. If they would shrug, you do not.",
+      "commonly_confused_with": [
+        "positioning",
+        "mvp"
+      ],
+      "who_uses": [
+        "founder",
+        "product"
+      ]
+    },
+    {
+      "id": "quota",
+      "title": "Quota and Coverage",
+      "domain": "sales",
+      "one_line_definition": "The revenue target assigned to a seller, and the pipeline multiple required to make it achievable.",
+      "why_it_matters": "Quota is the mechanism that connects company revenue to individual behaviour. Set it wrong and you either pay for failure or leave money uncollected.",
+      "body": "Quota is the individual revenue target that, summed across the team, makes the company plan. Coverage is how much pipeline must exist to make that quota realistic rather than hopeful.\n\nThe two are a system. Quota without coverage is a wish; coverage without quota is activity with no target. Setting them together is the core of sales management.\n\n## Worked example\n\nA seller closes 20% of qualified opportunities and has a 60-day cycle. Quota is $120,000 for the quarter:\n\n    Needed closed value      = 120,000\n    Needed opportunities     = 120,000 / 20% = 600,000 in pipeline\n    Coverage                  = 600,000 / 120,000 = 5.0x\n\nAt a 20% win rate the seller needs five times quota in pipeline. Now raise the win rate to 40% with better qualification:\n\n    Needed opportunities     = 120,000 / 40% = 300,000\n    Coverage                  = 2.5x\n\nThe same quota became half as demanding — not by working harder, but by qualifying better. That is why coverage ratios should be derived from actual win rates, not copied from a benchmark.\n\n## Watch for\n\n- **Attainment should cluster near 60-70%.** Everyone hitting quota means it is too low; almost nobody hitting it means it is demotivating and wrong.\n- **Quota is a commitment, not a ceiling.** Capping earnings turns high performers into the people who stop trying.\n- **Coverage differs by segment.** A new-logo motion needs more coverage than an expansion motion. Blending them produces a number that fits neither.",
+      "related": [
+        "acv-arr",
+        "sales-motion"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "sales",
+        "quota",
+        "management"
+      ],
+      "difficulty": 3,
+      "layer": 4,
+      "status": "draft",
+      "type": "term",
+      "formula": "Pipeline coverage needed = historical win rate and cycle length, typically 3-4x quota",
+      "how_to_read": "Read quota against attainment history. If half the team misses every quarter, the quota is wrong, not the team.",
+      "commonly_confused_with": [
+        "pipeline",
+        "acv-arr"
+      ],
+      "who_uses": [
+        "sales-lead",
+        "cfo"
+      ]
+    },
+    {
+      "id": "retention",
+      "title": "Retention and Cohorts",
+      "domain": "unit-economics",
+      "one_line_definition": "The share of customers who are still using the product after a given period.",
+      "why_it_matters": "Retention is the compounding engine. It determines whether growth accumulates or leaks, and it is the input to every lifetime-value calculation.",
+      "body": "Retention is the complement of churn: the customers who stay. But it is more useful than churn as a lens, because it can be read over time and because its shape is diagnostic.\n\nA retention curve that drops steeply and then flattens is healthy — it means the customers who remain are the ones who genuinely need the product. A curve that declines linearly is unhealthy — it means the product never becomes part of the customer's routine.\n\n## Worked example\n\n    Cohort of 1,000 customers acquired in January\n      Month 1:  800 active  (80%)\n      Month 3:  560 active  (56%)\n      Month 6:  430 active  (43%)\n      Month 12: 390 active  (39%)\n\nThe curve flattens after month 6. The 390 who remain are the durable base, and the business can plan around them. Compare a second cohort that declines linearly to 15% by month 12: the product is attracting a different kind of customer, or the onboarding is worse.\n\n## Watch for\n\n- **Aggregate retention hides everything.** It mixes new and old cohorts and rises as the base grows even when each cohort is getting worse.\n- **Cohort by acquisition date, not by activity.** Group customers by when they arrived; that is the only grouping that reveals a trend.\n- **Retention is not engagement.** A customer who logs in daily and still cancels is a churn risk. Retention measures whether they stay, not whether they are happy.",
+      "related": [
+        "churn",
+        "cohort-analysis"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "unit-economics",
+        "retention",
+        "cohorts"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "Retention = customers still active / customers at start",
+      "how_to_read": "Read it as a curve over time, not a single number. The shape of the curve tells you more than its level.",
+      "commonly_confused_with": [
+        "churn",
+        "ltv"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo"
+      ]
+    },
+    {
+      "id": "revenue",
+      "title": "Revenue",
+      "domain": "finance",
+      "one_line_definition": "The total money a business brings in from selling its product or service.",
+      "why_it_matters": "It is the top line every other number is measured against, and the number most often confused with success.",
+      "body": "Revenue is the gross inflow from sales before any costs are deducted. It is the first line of the income statement and the denominator of almost every ratio in this atlas.\n\nThree things make it treacherous. It is not profit — a company can grow revenue while losing money on every sale. It is not cash — revenue is recognised when earned, which may be weeks before the money arrives. And it can be bought — spending on discounts or acquisition can raise revenue while destroying margin.\n\n## Worked example\n\nA company sells 1,000 units a month at $50 each:\n\n    Revenue = 50 x 1,000 = 50,000\n\nAgainst that: COGS of $20,000 and operating expenses of $25,000.\n\n    Gross margin = 50,000 - 20,000 = 30,000  (60%)\n    Operating profit = 30,000 - 25,000 = 5,000  (10%)\n\nRevenue doubled would be $100,000 on paper — but if the extra 1,000 units were sold at a $10 discount and cost $30 each to fulfil, the new units bring in $40,000 of revenue and $10,000 of gross margin. Revenue looks like growth; margin per unit fell from 60% to 25%.\n\n## Watch for\n\n- **Recognised revenue is not cash.** A $120,000 annual contract booked in January may pay monthly. Revenue and cash flow are separate statements.\n- **Gross vs net.** Marketplaces and agencies report very different revenue for the same transaction depending on whether they report the full amount or only their fee.\n- **See [runway](#runway)** — revenue is the input to whether you survive long enough to be right.",
+      "related": [
+        "cogs",
+        "gross-margin",
+        "runway",
+        "balance-sheet",
+        "cash-flow",
+        "arpu"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "accounting",
+        "top-line",
+        "fundamentals"
+      ],
+      "difficulty": 1,
+      "layer": 1,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "Revenue = price x quantity sold",
+      "how_to_read": "Revenue is not income and not cash. Read it against cost of goods sold, then against operating expenses, then against the timing of the cash.",
+      "commonly_confused_with": [
+        "gross-margin",
+        "runway"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "reversible-decisions",
+      "title": "Reversible vs Irreversible Decisions",
+      "domain": "leadership",
+      "one_line_definition": "Classifying decisions by whether you can undo them, and matching your process to the class.",
+      "why_it_matters": "It is the difference between a decision made in a day and one made in a quarter. Treating a reversible decision as irreversible is the most expensive form of caution.",
+      "body": "Decisions come in two kinds. A reversible decision can be undone at a cost smaller than the cost of deciding slowly. An irreversible one cannot, or only at a cost that changes the business.\n\nThe value of the distinction is speed. Most decisions in a young company are reversible, and treating them as permanent creates a culture where nothing happens without a meeting.\n\n## Worked example\n\n    Decision                          Class          Right process\n    Change the pricing page copy      Reversible     Ship it today, measure for a week\n    Hire a second engineer            Mostly         Decide in days; you can manage them out\n    Sign a 3-year office lease        Irreversible   Diligence, alternatives, board sign-off\n    Sunset a feature                  Reversible     Do it; re-add it if customers revolt\n    Take venture money                Irreversible   Term sheet, references, long deliberation\n\nThe pricing change and the feature sunset are the same kind of decision. One is made in a day and the other in a quarter purely because of habit, and the difference is weeks of learning.\n\n## Watch for\n\n- **Reversibility is about cost, not about regret.** A bad hire can be undone; it is expensive, not irreversible.\n- **Speed has a cost too.** A reversible decision made without anyone checking it can still be wrong — the answer is to measure, not to deliberate.\n- **Irreversible decisions deserve dissent.** The goal is not consensus but the strongest argument against, stated before the decision is locked.",
+      "related": [
+        "second-order-thinking",
+        "runway"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "leadership",
+        "decisions",
+        "speed"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "principle",
+      "statement": "A reversible decision should be made quickly by the person closest to the information. An irreversible one should be made slowly, with dissent sought out deliberately.",
+      "evidence": "Organisations that default to consensus for every decision are slow on the decisions that do not matter and rushed on the ones that do, because the process is the same for both.",
+      "failure_mode": "Applying the same deliberation to everything, so that cheap, undoable experiments are delayed while expensive, permanent commitments are made without scrutiny."
+    },
+    {
+      "id": "roadmap",
+      "title": "Roadmapping",
+      "domain": "product",
+      "one_line_definition": "Deciding the order in which you will build, and communicating that order so the rest of the company can plan around it.",
+      "why_it_matters": "It converts a backlog into a commitment. Without it, every stakeholder prioritises their own request and nothing ships in a coherent order.",
+      "body": "Roadmapping is the discipline of choosing an order and defending it. Its value is not the document — it is the decision about what you will not do, and the communication of that decision.\n\nA roadmap fails in one of two ways: it lists features with no outcome, so it cannot be argued with; or it is treated as a promise, so learning cannot change it.\n\n## Worked example\n\nA team has six candidate items and capacity for three:\n\n    1. Automated reminders      — directly addresses churn in the largest cohort\n    2. Reporting dashboard      — requested by sales, no evidence it changes retention\n    3. Mobile app               — strategic, but no evidence mobile users retain better\n    4. Export to accountant      — cited in 3 of the last 5 churn interviews\n    5. New onboarding flow      — activation is 40% against a 60% target\n    6. Dark mode                — requested often, unrelated to any outcome\n\nRanked by evidence against the stated outcome (retention and activation): 5, 1, 4. Item 3 waits for evidence. Item 2 and 6 are explicitly deferred with the reason stated, which is what makes the roadmap credible.\n\n## Watch for\n\n- **Outcomes before outputs.** \"Increase activation to 60%\" can be argued with. \"Ship onboarding flow\" cannot.\n- **A roadmap is a hypothesis.** If evidence changes, the order should change. A roadmap nobody is allowed to revise becomes a fiction.\n- **Silence is not agreement.** Publishing a roadmap and hearing nothing usually means people did not believe it, not that they accepted it.",
+      "related": [
+        "mvp",
+        "delegation"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "product",
+        "planning",
+        "process"
+      ],
+      "difficulty": 3,
+      "layer": 4,
+      "status": "draft",
+      "type": "process",
+      "steps": [
+        "State the outcome you are aiming for, not the features.",
+        "List candidate bets against that outcome.",
+        "Rank by evidence and by dependency, not by loudness.",
+        "Commit to an order and publish it with the reasoning.",
+        "Revisit monthly against what you learned."
+      ],
+      "inputs": [
+        "customer evidence",
+        "strategy",
+        "engineering capacity",
+        "dependencies"
+      ],
+      "outputs": [
+        "a sequenced set of bets with rationale"
+      ],
+      "cadence": "reviewed quarterly, revisited monthly"
+    },
+    {
       "id": "roas",
       "title": "Return on Ad Spend",
       "domain": "unit-economics",
@@ -146,7 +1806,8 @@
       "body": "Return on ad spend is revenue divided by ad spend. It looks like the answer to\n\"is this channel working\", and because it is a single number, it is frequently\nthe wrong answer.\n\nThe reason: ROAS has no costs in it. It tells you how much revenue a dollar of\nads produced, not how much money the business kept. A channel can return 4x and\nlose money if the product's contribution margin is 20%, because $4 of revenue\ncarries only $0.80 of contribution and you spent $1.00 to get it.\n\nThe correct pairing is ROAS against contribution margin. Work out the break-even\nROAS for your margin, then judge the channel against that.\n\n## Worked example\n\nA product sells for $100 with a contribution margin of $45 after all variable\ncosts including processing and fulfilment.\n\n    Break-even ROAS = 1 / 0.45 = 2.22x\n\nAnything above 2.22x makes money on the first purchase; anything below loses\nmoney. Now the channels:\n\n    Paid search:   $3,000 spend → $12,000 revenue  = 4.0x   (profitable)\n    Paid social:   $3,000 spend → $ 8,400 revenue  = 2.8x   (profitable, thin)\n    Display:       $3,000 spend → $ 6,000 revenue  = 2.0x   (losing money)\n\nDisplay looks like it \"returns 2x\", which sounds fine until you see it is below\nthe 2.22x break-even. It is losing $0.20 on every dollar spent.\n\n## Watch for\n\n- **Attribution is the whole game.** A 4x ROAS from last-click is not the same\n  as 4x from a geo holdout. State the model or do not quote the number.\n- **Revenue is not profit.** See the break-even calculation above; without it,\n  ROAS is a vanity metric.\n- **First-purchase ROAS ignores repeat buying.** A customer who buys once at a\n  loss and returns three times is good business. Compute ROAS on the cohort's\n  lifetime value, not the single order.",
       "related": [
         "cac",
-        "contribution-margin"
+        "contribution-margin",
+        "attribution"
       ],
       "sources": [
         "the-personal-mba"
@@ -170,6 +1831,303 @@
         "marketer",
         "media-buyer"
       ]
+    },
+    {
+      "id": "runway",
+      "title": "Runway",
+      "domain": "finance",
+      "one_line_definition": "How many months a company can keep operating before it runs out of cash.",
+      "why_it_matters": "It sets the deadline on every plan. A strategy that pays off in eighteen months is a bad strategy with six months of runway.",
+      "body": "Runway is cash divided by burn. It converts a spending rate into a deadline, and it is the single number that should be on the founder's dashboard.\n\nIt is also the number most often misstated. Founders quote runway on gross burn while ignoring revenue, or on a burn rate that has already changed, or on cash that is committed to something else.\n\n## Worked example\n\n- Cash on hand: $900,000\n- Monthly burn (net): $150,000\n\n    Runway = 900,000 / 150,000 = 6 months\n\nA fundraise typically takes four to six months from first meeting to cash in the bank. With six months of runway, a founder who starts raising now is raising at the last possible moment, with no leverage and no alternatives. The correct move is to start at twelve months, when there is still a choice.\n\nNow suppose revenue grows so net burn falls to $90,000:\n\n    Runway = 900,000 / 90,000 = 10 months\n\nThe cash did not change. The deadline moved four months — which is the whole point of improving unit economics before raising.\n\n## Watch for\n\n- **Runway is not a plan.** It is a constraint. A plan that assumes more runway than exists is a hope.\n- **Cash on hand is not always spendable.** Restricted cash, outstanding obligations, and minimum balances all reduce the real number.\n- **See [bootstrapping](#bootstrapping)** — the alternative to raising is growing into your own runway.",
+      "related": [
+        "burn-rate",
+        "revenue",
+        "bootstrapping",
+        "fundraising-process",
+        "interest-rates",
+        "reversible-decisions"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "cash",
+        "fundraising",
+        "startup"
+      ],
+      "difficulty": 2,
+      "layer": 4,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "Runway (months) = cash on hand / monthly burn rate",
+      "how_to_read": "Below six months you are fundraising whether you want to or not. Above eighteen months you have the luxury of choosing.",
+      "commonly_confused_with": [
+        "burn-rate",
+        "revenue"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "investor"
+      ]
+    },
+    {
+      "id": "sales-cycle",
+      "title": "Sales Cycle",
+      "domain": "sales",
+      "one_line_definition": "The time from first meaningful contact with a buyer to a signed deal.",
+      "why_it_matters": "It determines your cash timing and your hiring plan. A longer cycle means more pipeline must exist at any moment to hit the same revenue.",
+      "body": "Sales cycle is how long a deal takes to close. It is a structural property of your market — set by the buyer's process, the price, and the risk — not a performance metric you can simply improve.\n\nIts importance is in the arithmetic it imposes. Revenue this quarter comes from pipeline created many months earlier, so the cycle length sets how far ahead you must be working.\n\n## Worked example\n\nA company closes $40,000 deals with a 90-day cycle. To close $400,000 in a quarter, it needs $400,000 of qualified pipeline created roughly 90 days earlier — about 10 deals in motion at all times.\n\nNow the same company sells a $4,000 version with a 7-day cycle:\n\n    400,000 / 4,000 = 100 deals\n    But the pipeline only needs to exist 7 days ahead\n\nThe smaller deal needs far more volume but far less foresight, and it can be closed by a much less expensive seller. That is the core trade-off between a high-ACV and low-ACV motion.\n\n## Watch for\n\n- **Measure per segment.** A blended average across a self-serve and an enterprise motion describes neither.\n- **The cycle has stages.** Knowing where time is spent — discovery, legal, procurement — tells you what to shorten.\n- **Cycle length sets the payback of a hire.** A new salesperson on a 12-month cycle produces nothing for a year. Plan hiring ahead of revenue, not behind it.",
+      "related": [
+        "pipeline",
+        "acv-arr"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "sales",
+        "cycle",
+        "forecasting"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "term",
+      "formula": "Sales cycle = date closed - date of first qualified contact",
+      "how_to_read": "Read it per segment, not as one number. Enterprise and self-serve cycles differ by an order of magnitude and need different motions.",
+      "commonly_confused_with": [
+        "pipeline",
+        "quota"
+      ],
+      "who_uses": [
+        "sales-lead",
+        "founder",
+        "cfo"
+      ]
+    },
+    {
+      "id": "sales-motion",
+      "title": "Enterprise vs Self-serve",
+      "domain": "sales",
+      "one_line_definition": "Choosing whether customers buy from a salesperson or directly from the product.",
+      "why_it_matters": "It determines your cost structure, your pricing ceiling, and your hiring plan. It is the most consequential go-to-market decision a company makes.",
+      "body": "A sales motion uses people to close deals. A self-serve motion uses the product and pricing page. They are not two versions of the same thing — they are different businesses with different economics.\n\nThe decision is arithmetic. A salesperson costs money whether or not they sell. If a customer is not worth more than that cost, a salesperson cannot serve them profitably.\n\n## Worked example\n\n    Salesperson fully loaded:   $180,000/year\n    Expected quota:              $450,000/year\n    Implied cost of sale:        40% of revenue\n\n    Self-serve ACV:              $1,200/year\n    Cost to serve via sales:     $480  →  the sale is unprofitable\n\n    Enterprise ACV:              $60,000/year\n    Cost to serve via sales:     $24,000 →  gross margin 60%, viable\n\nThe same sales team is ruinous at $1,200 and reasonable at $60,000. That is why low-ACV products must be self-serve, and why enterprise products almost always need a seller.\n\n## Watch for\n\n- **The motions blur.** Selling enterprise while leaving a self-serve page creates two conflicting price lists and confuses both buyers.\n- **A sales motion hides product problems.** If the product cannot sell itself, a sales team will paper over the gap until the cost of sale becomes unsustainable.\n- **Switching motions is expensive.** Moving up-market means retraining, re-pricing, and usually rebuilding the product. Decide early.",
+      "related": [
+        "quota",
+        "funnel"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "sales",
+        "motion",
+        "go-to-market"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "When deciding how to take a product to market, or when a motion stops working at a new price point.",
+      "when_not_to_use": "When the product has not yet found fit — a sales motion before fit is an expensive way to learn nothing.",
+      "steps": [
+        "Estimate the value of one customer per year.",
+        "Estimate the cost of one salesperson per year.",
+        "Compare: does one seller's output justify their cost?",
+        "Choose the motion that matches the ratio, then build for it."
+      ],
+      "limitations": "Most companies end up with both, and the two motions compete for the same product and the same customers. Managing that conflict is the real work."
+    },
+    {
+      "id": "second-order-thinking",
+      "title": "Second-order Thinking",
+      "domain": "leadership",
+      "one_line_definition": "Asking what happens after the thing you decided, and after that, before concluding the decision is good.",
+      "why_it_matters": "Most bad decisions are good first-order decisions with unexamined consequences. The first-order effect is visible and the second-order one is not, which is exactly why it is missed.",
+      "body": "Second-order thinking is the discipline of following a decision past its immediate effect. The immediate effect is usually obvious and often good; the next one is where the cost hides.\n\nIt is not about being cautious. It is about seeing the whole chain before committing, so that a decision that looks free is recognised as expensive.\n\n## Worked example\n\nA company cuts its support team from 10 to 6 to save $240,000 a year:\n\n    First order:   payroll down $240,000. Obvious, measurable, immediate.\n    Second order:  response time rises from 10 minutes to 45.\n    Third order:   satisfaction falls; churn rises 2 points; at $200 ARR per customer and 5,000 customers, that is $200,000 a year lost.\n    Net:           the saving cost $200,000 and bought a worse product.\n\nThe first-order view shows a $240,000 win. The full chain shows a $40,000 loss and a product that is harder to sell. Both are true; only one was examined.\n\n## Watch for\n\n- **Time is the mechanism.** Second-order effects arrive later, so they are never present at the moment of decision. You have to go looking for them.\n- **Ask \"and then what?\" three times.** Most chains are short enough to trace, and the third question usually surfaces the real cost.\n- **Not every second-order effect is negative.** Some decisions look expensive and pay back twice. The discipline works in both directions.",
+      "related": [
+        "bias",
+        "mental-models",
+        "reversible-decisions"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "leadership",
+        "thinking",
+        "decisions"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "draft",
+      "type": "principle",
+      "statement": "Every action has consequences, and those consequences have consequences. Judging the first and ignoring the second is how apparently obvious decisions fail.",
+      "evidence": "Cutting support staff reduces cost immediately and increases churn over two quarters. The first effect is measured and celebrated; the second arrives later and is attributed to something else.",
+      "failure_mode": "Optimising the visible metric in the current quarter because the cost of the decision lands in a later quarter someone else will own."
+    },
+    {
+      "id": "segmentation",
+      "title": "Segmentation",
+      "domain": "marketing",
+      "one_line_definition": "Dividing the market into groups whose needs differ enough to warrant a different offer.",
+      "why_it_matters": "It is the mechanism that makes positioning possible. You cannot be for everyone, so you choose who to be for by segmenting first.",
+      "body": "Segmentation is splitting a market into groups that want different things. It is the step between \"who is our customer?\" and \"what do we build for them?\"\n\nThe trap is segmenting by description instead of by need. Two companies in the same industry and of the same size may need entirely different things. Segmenting by what they are rather than what they need produces groups that cannot be served differently.\n\n## Worked example\n\nA bookkeeping tool's market splits by need:\n\n    Segment A — freelancers: want speed and low price, buy alone, churn fast\n    Segment B — 10-person agencies: want client management, buy for a team, churn slowly\n    Segment C — 100-person firms: want compliance and integrations, buy through procurement, churn never\n\nSame software, three different products in practice. Segment B values a feature A would never pay for and C would find trivial. Pricing, messaging, and roadmap all differ. Serving all three with one message produces a product that is mediocre for each.\n\n## Watch for\n\n- **Segments must be actionable.** If you cannot reach the group differently, it is not a segment — it is a description.\n- **Start with one.** Serving two segments well beats serving four badly. Expand from a segment you own.\n- **Segments change as you grow.** The segment that fits a ten-person company may be wrong at a hundred. Revisit it.",
+      "related": [
+        "positioning",
+        "channels"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "marketing",
+        "segmentation",
+        "customers"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read segments by need and by behaviour, not by demographics. Age and job title are proxies; the need is the thing.",
+      "commonly_confused_with": [
+        "positioning",
+        "channels"
+      ],
+      "who_uses": [
+        "founder",
+        "marketer"
+      ]
+    },
+    {
+      "id": "seven-powers",
+      "title": "7 Powers",
+      "domain": "strategy",
+      "one_line_definition": "Seven distinct sources of durable advantage, each with a different mechanism and a different prerequisite.",
+      "why_it_matters": "It separates advantages that are real from those that merely feel real, by asking what must be true for the advantage to exist.",
+      "body": "7 Powers categorises advantage into seven mechanisms: scale economies, network economies, counter-positioning, switching costs, branding, cornered resource, and process power.\n\nIts usefulness is precision. \"We have a moat\" is unfalsifiable; \"we have switching costs because migrating our data format takes six months\" is a claim you can test and an investor can check.\n\n## Worked example\n\n    Scale economies     — unit cost falls as volume rises. Prerequisite: a large addressable market and a cost curve that actually bends.\n    Network economies  — value rises with users. Prerequisite: connections between customers.\n    Counter-positioning — a new model incumbents cannot copy without harming themselves. Prerequisite: an incumbent with a business model that blocks the response.\n    Switching costs    — leaving is expensive. Prerequisite: integration into the customer's operations.\n    Branding           — a price premium from trust. Prerequisite: repeated purchase and uncertainty about quality.\n    Cornered resource  — exclusive access to something scarce. Prerequisite: a resource others cannot obtain.\n    Process power      — embedded know-how that improves with repetition. Prerequisite: a long, stable production history.\n\nA SaaS tool with deep integrations holds switching costs. A search engine holds scale economies and network economies. Neither holds branding in any meaningful sense, and claiming it would be a category error.\n\n## Watch for\n\n- **A power requires its prerequisite.** Claiming network effects for a product with no connections between users is a category error, not a strategy.\n- **Powers have half-lives.** Counter-positioning works only while the incumbent is constrained.\n- **Pick one to build.** Attempting all seven spreads effort and usually produces none.",
+      "related": [
+        "moat",
+        "competitive-advantage"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "strategy",
+        "framework",
+        "power"
+      ],
+      "difficulty": 4,
+      "layer": 2,
+      "status": "draft",
+      "type": "framework",
+      "when_to_use": "When you need to articulate defensibility to an investor or decide which advantage to build toward.",
+      "when_not_to_use": "As a checklist to optimise against — the powers are alternative paths, not a scorecard.",
+      "steps": [
+        "Identify which power your business could plausibly hold.",
+        "Check the prerequisite condition for that power.",
+        "Check whether the power is present at the time you enter the market.",
+        "Build the mechanism, not the claim."
+      ],
+      "limitations": "It is a taxonomy of advantage, not a method for creating it. Knowing the categories does not tell you which one your market will reward."
+    },
+    {
+      "id": "term-sheet",
+      "title": "The Term Sheet",
+      "domain": "capital",
+      "one_line_definition": "The document setting out the terms on which an investor will put money into the company.",
+      "why_it_matters": "It is the contract that governs the relationship for years. Most of the value is not in the valuation — it is in the control and liquidation terms buried after it.",
+      "body": "A term sheet is the agreement on price and terms before the legal documents. It is short, and the important clauses are the ones that decide what happens when things go badly.\n\nValuation gets the attention. But the clauses that matter most are control (board seats, protective provisions), liquidation preference (who gets paid first and how much), and option pool size.\n\n## Worked example\n\nTwo offers for the same company:\n\n    Offer A:  $3,000,000 at a $12,000,000 pre-money valuation\n              1x non-participating preference, 2 board seats (1 investor)\n\n    Offer B:  $3,000,000 at a $10,000,000 pre-money valuation\n              2x participating preference, 3 board seats (2 investor), full ratchet\n\nOffer A is better despite the higher valuation of Offer B being... no — Offer A has the higher valuation and cleaner terms. Offer B takes more control, guarantees the investor double their money before anyone else sees a return, and adjusts the price downward if a later round is raised lower. At a modest exit, Offer B can return more to the investor than the founders receive.\n\n## Watch for\n\n- **Liquidation preference changes everything at a low exit.** A 2x participating preference can take most of a small exit before founders see anything.\n- **Protective provisions are control.** A veto over ordinary decisions is more restrictive than a board seat.\n- **Read the anti-dilution clause.** A full ratchet punishes a down round far more severely than a weighted average, and it is the clause that destroys founder value.",
+      "related": [
+        "cap-table",
+        "fundraising-process",
+        "dilution"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "capital",
+        "term-sheet",
+        "deals"
+      ],
+      "difficulty": 4,
+      "layer": 4,
+      "status": "draft",
+      "type": "term",
+      "how_to_read": "Read it for control and downside, not for the headline number. A higher valuation with worse terms is often worth less than a lower one with clean terms.",
+      "commonly_confused_with": [
+        "cap-table",
+        "dilution"
+      ],
+      "who_uses": [
+        "founder",
+        "investor",
+        "lawyer"
+      ]
+    },
+    {
+      "id": "throughput",
+      "title": "Throughput",
+      "domain": "operations",
+      "one_line_definition": "The rate at which a system produces what it is for, measured in units of value per unit of time.",
+      "why_it_matters": "It is the honest measure of capacity. A team busy at 100% utilisation often produces less than one at 70%, because there is no slack to absorb variation.",
+      "body": "Throughput is how much a system delivers per unit of time. It applies to factories, support queues, and software teams alike, because all of them are systems with a limiting step.\n\nThe counter-intuitive part is that maximising individual utilisation reduces throughput. A station running at 100% has no capacity to absorb a surge, so work piles up in front of it and the whole system slows.\n\n## Worked example\n\nA support team handles tickets in three steps:\n\n    Step         Capacity\n    Triage       40 tickets/hour\n    Resolution   12 tickets/hour\n    Follow-up    30 tickets/hour\n\nThe system's throughput is 12 tickets/hour — the resolution step. Triage at 40 and follow-up at 30 are irrelevant to output; they are idle waiting for work.\n\nNow triage is staffed to 100% utilisation. When a surge arrives, tickets queue, nothing reaches resolution faster, and the queue grows without any increase in completed work. The team feels busier and delivers less.\n\n## Watch for\n\n- **Throughput is set by the slowest step.** Improving any other step adds cost, not output.\n- **Utilisation and throughput are different.** High utilisation with a queue is a warning sign, not a success.\n- **Measure in value, not activity.** Tickets touched, commits merged, and meetings held are not throughput. Completed, usable work is.",
+      "related": [
+        "bottleneck"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "operations",
+        "throughput",
+        "capacity"
+      ],
+      "difficulty": 2,
+      "layer": 2,
+      "status": "draft",
+      "type": "term",
+      "formula": "Throughput = units of value completed per unit of time",
+      "how_to_read": "Read it as a rate, not a total. Two systems with the same output can have very different throughputs, and only one can grow.",
+      "commonly_confused_with": [
+        "bottleneck"
+      ],
+      "who_uses": [
+        "operations",
+        "engineering-lead",
+        "founder"
+      ]
+    },
+    {
+      "id": "value-creation",
+      "title": "Value Creation Before Value Capture",
+      "domain": "foundations",
+      "one_line_definition": "A business exists to create value; capturing it is what makes the creation sustainable.",
+      "why_it_matters": "Almost every failed venture captured value it never created — a rent, a fee, a markup — and the market eventually noticed.",
+      "body": "Business has two halves. **Value creation** is making something worth more than the sum of its parts — a product that saves time, a service that removes risk, a market that connects two sides. **Value capture** is keeping a share of that surplus as profit.\n\nThe order matters. Creation comes first, and capture follows as a consequence. The reverse — designing a capture mechanism and hoping value appears — is how you get a business model that works only while no one is looking.\n\n## Worked example\n\nA logistics startup connects truckers with shippers:\n\n- Without it: a shipper pays $2,000 and waits two days to find a truck.\n- With it: the shipper pays $1,600 and gets a truck in two hours.\n\nThe value created is roughly $400 in price plus the time saved. If the startup keeps $120 as its fee, it created $400 and captured $120. The surplus is real, so both sides return.\n\nNow suppose the startup instead charged $450 while providing nothing the shipper could not do alone. It captures more than it creates. The moment a cheaper connector appears, it is gone — because there was nothing holding the customer there.\n\n## Watch for\n\n- **Capture without creation is a toll, not a business.** Tolls last exactly as long as the road is the only route.\n- **Creating without capturing is a hobby.** Generous surplus with no margin runs out of money.\n- **See [product-market-fit](#product-market-fit)** — the test for whether the value is real at all.",
+      "related": [
+        "opportunity-cost",
+        "incentives",
+        "product-market-fit"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "economics",
+        "strategy",
+        "fundamentals"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "reviewed",
+      "type": "principle",
+      "statement": "Create more value than you capture, and the capture becomes durable. Capture more than you create, and it becomes temporary.",
+      "evidence": "Companies with a genuine surplus to give — cheaper, faster, better — compound. Companies extracting a spread without adding anything are disintermediated the moment a cheaper route appears.",
+      "failure_mode": "Confusing revenue with value. A customer paying you is not proof you created value; it is proof you have not yet been replaced."
     }
   ],
   "sources": [

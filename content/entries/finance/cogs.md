@@ -9,7 +9,7 @@ formula: "COGS = beginning inventory + purchases - ending inventory"
 how_to_read: "Compare COGS to revenue, never to itself. Rising COGS with flat pricing is margin compression, not growth."
 commonly_confused_with: [gross-margin]
 who_uses: [cfo, founder, operations]
-related: [gross-margin]
+related: [gross-margin, revenue]
 sources: [the-personal-mba]
 tags: [accounting, cost, inventory]
 difficulty: 2

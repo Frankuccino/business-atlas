@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { parse as parseYaml } from 'yaml';
+import { closeGraph } from './graph';
 import { catalogSchema, entrySchema, sourceSchema } from './schema';
 import type { Catalog, Entry, Source } from './schema';
 
@@ -67,6 +68,12 @@ async function readEntries(): Promise<Entry[]> {
     }
     entries.push(parsed.data);
   }
+
+  // The graph is undirected. An entry declares the links it cares about; the
+  // manifest carries the symmetric closure, so no author maintains both
+  // directions of an edge. See closeGraph for why this is computed rather than
+  // authored.
+  closeGraph(entries);
 
   entries.sort((a, b) => a.id.localeCompare(b.id));
   return entries;

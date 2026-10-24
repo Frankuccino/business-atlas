@@ -16,6 +16,37 @@ zod, vitest, d3-zoom.
 
 ---
 
+## Progress log
+
+### 2026-10-24 — Phase 0-1 and task 7 complete
+
+Done: tasks 1-7. Verified: 20 unit tests pass, `tsc --noEmit` clean, manifest
+builds (5 entries, 1 source, 14 domains), API boots and listens on :3001.
+
+Deviations from the plan, and why:
+
+| Plan said | Built | Why |
+| --- | --- | --- |
+| `manifest.ts` generated | `manifest.json` generated | A giant TS literal is ugly and re-parses on every typecheck. JSON + `catalogSchema.parse` at module load gives the same runtime validation with a smaller artifact. |
+| Validator in `scripts/` | `packages/api/src/content/validate.ts` | It is library code with unit tests. `scripts/validate-content.ts` is now a thin CLI wrapper. |
+| `gray-matter` | `yaml` + a 10-line splitter | `@types/gray-matter` does not exist on the registry. The body is shipped verbatim, so a full markdown parser was never needed. |
+
+Two bugs the tests caught, both worth remembering:
+
+- The validator read `entry.commonly_confused_with` assuming it was always an
+  array. It is, after parsing — the test fixtures were passing unparsed objects.
+  The contract is "parsed catalog", so the fixtures were wrong, not the
+  validator.
+- `scripts/` is resolved as CJS unless the root package.json says
+  `"type": "module"`. Top-level `await` in a script failed until that was set.
+
+The validator earned its keep immediately: it rejected three dangling
+`commonly_confused_with` references in the seeded entries.
+
+Remaining: HTTP route verification (blocked on a consent prompt), then Phase 2.
+
+---
+
 ## Repo layout
 
 ```

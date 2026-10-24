@@ -1,0 +1,279 @@
+{
+  "entries": [
+    {
+      "id": "cac",
+      "title": "Customer Acquisition Cost",
+      "domain": "unit-economics",
+      "one_line_definition": "What you spend to acquire one paying customer.",
+      "why_it_matters": "It is the denominator of every growth decision. Growth at a CAC above what a customer pays back is a machine for converting cash into churn.",
+      "body": "Customer acquisition cost is the total cost of sales and marketing divided by\nthe number of customers that effort produced. It is the price of growth.\n\nThe trap is that it is almost always reported blended — all spend over all\ncustomers — and a blended number can hide a broken channel inside a healthy\naverage. Two channels can each be individually bad and jointly look acceptable.\nThe useful form is per channel, per cohort, over time.\n\n## Worked example\n\nIn one quarter a company spends:\n\n- Paid ads: $120,000 → 400 customers\n- Content and SEO: $60,000 → 100 customers\n- Sales team (2 reps): $180,000 → 300 customers\n\n    Blended CAC = (120,000 + 60,000 + 180,000) / 800 = $450\n\n    Per channel:  ads $300   |   content $600   |   sales $600\n\nThe blended number suggests $450. The real picture: ads are the only channel\nunder $450, and content — the cheapest to scale — costs $600. If the customer\npays back $500, content and sales are losing money while ads barely break even.\nThat conclusion is invisible in the blended figure.\n\n## Watch for\n\n- **Attribution inflates CAC in your favour.** Last-click credit will hand the\n  sale to the cheapest channel and make every expensive one look worse, or\n  vice versa. Say which model you are using, because it changes the number.\n- **CAC is not payback.** A customer acquired for $450 who pays back in three\n  months is a different business from one who takes three years. Pair this with\n  [contribution-margin](#contribution-margin) and payback period.\n- **See [roas](#roas)** for the same trade-off expressed as revenue per dollar\n  spent rather than cost per customer.",
+      "related": [
+        "roas",
+        "contribution-margin"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "acquisition",
+        "marketing",
+        "unit-economics"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "CAC = total acquisition spend / new customers acquired",
+      "how_to_read": "Blended CAC hides your best and worst channels. Read it per channel, and always against payback period.",
+      "commonly_confused_with": [
+        "roas"
+      ],
+      "who_uses": [
+        "founder",
+        "marketer",
+        "investor"
+      ]
+    },
+    {
+      "id": "cogs",
+      "title": "Cost of Goods Sold",
+      "domain": "finance",
+      "one_line_definition": "What it costs to produce the goods or services you sold.",
+      "why_it_matters": "It is the first deduction from revenue, and the line that decides whether your margin is a choice or a surprise.",
+      "body": "Cost of goods sold is the cost of producing what you sold, and nothing else. It\nincludes materials, direct labour, and the overhead you can attribute to\nproduction. It excludes rent for the office, sales salaries, and the software\nyour engineers use — those are operating expenses, and mixing them in is the\nmost common way to make a healthy business look broken.\n\nThe distinction matters because it decides what you compare. COGS against\nrevenue tells you the margin you earn by existing. Operating expenses against\ngross margin tells you whether your business model scales or just your to-do\nlist.\n\n## Worked example\n\nA reseller reports:\n\n- Revenue: $1,000,000\n- Beginning inventory: $50,000\n- Purchases during the year: $400,000\n- Ending inventory: $80,000\n\n    COGS = 50,000 + 400,000 - 80,000 = 370,000\n    Gross margin = 1,000,000 - 370,000 = 630,000  (63%)\n\nNow suppose next year revenue is flat at $1,000,000 but COGS rises to $500,000.\nGross margin falls to 50%. Revenue did not move; the business got worse. That is\nthe signal this term exists to give you, and it is invisible if you only read\nrevenue.\n\n## Watch for\n\n- **Capitalising what should be expensed.** Software and rent are not COGS.\n  Putting them there inflates gross margin and hides a cash problem.\n- **Inventory changes masking a price cut.** A falling ending inventory with\n  flat purchases usually means you sold down stock, not that you got cheaper.\n- **Comparing COGS across business models.** A manufacturer's COGS is a\n  different animal from a SaaS company's, where COGS is hosting and support.",
+      "related": [
+        "gross-margin"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "accounting",
+        "cost",
+        "inventory"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "COGS = beginning inventory + purchases - ending inventory",
+      "how_to_read": "Compare COGS to revenue, never to itself. Rising COGS with flat pricing is margin compression, not growth.",
+      "commonly_confused_with": [
+        "gross-margin"
+      ],
+      "who_uses": [
+        "cfo",
+        "founder",
+        "operations"
+      ]
+    },
+    {
+      "id": "contribution-margin",
+      "title": "Contribution Margin",
+      "domain": "unit-economics",
+      "one_line_definition": "Revenue left over after every cost that varies with the sale.",
+      "why_it_matters": "It answers the only question a new offer can be judged on: does each additional sale leave money behind, or cost money?",
+      "body": "Contribution margin is gross margin taken one step further. Gross margin\nsubtracts the cost of producing the thing; contribution margin also subtracts\neverything else that changes when you make one more sale — payment processing,\nsales commission, shipping, a salesperson's time, ad spend attributed to the\nsale.\n\nIt is the number that decides whether an offer is worth making. Gross margin\ncan be healthy while contribution margin is negative, because the sale costs\nmore to acquire and fulfil than it brings in. That is a profitable-looking\ncompany quietly paying customers to arrive.\n\n## Worked example\n\nAn online course sells for $200. Per sale:\n\n- Payment processing: $6\n- Affiliate commission: $40\n- Hosting and support: $10\n- Ad spend attributed to the sale: $90\n\n    Contribution margin = 200 - 6 - 40 - 10 - 90 = $54 per sale\n\nEach sale puts $54 toward fixed costs. If the course has $10,000 in fixed\ncosts, you need 186 sales to break even, and every sale after that is $54 of\nprofit.\n\nNow raise the ad spend to $160 per sale: contribution margin becomes -$16. You\nare now losing $16 every time someone buys. Doubling traffic doubles the\nlosses. That is the trap this term exists to catch.\n\n## Watch for\n\n- **Ad spend belongs here, not in operating expenses.** If you exclude\n  acquisition cost you get a number that looks like contribution margin but\n  behaves like gross margin.\n- **It is per unit, and units differ.** A $54 contribution on a $200 course is\n  not the same as $54 on a $2,000 course. Compare the percentage too.\n- **See [roas](#roas) for the ratio view** of the same trade-off: how much you\n  spend to earn a dollar of revenue.",
+      "related": [
+        "gross-margin",
+        "roas",
+        "cac"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "margin",
+        "unit-economics",
+        "pricing"
+      ],
+      "difficulty": 3,
+      "layer": 1,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "Contribution margin per unit = price - variable cost per unit",
+      "how_to_read": "If it is negative, no amount of volume saves you. If it is positive, every sale funds some fixed cost.",
+      "commonly_confused_with": [
+        "gross-margin"
+      ],
+      "who_uses": [
+        "founder",
+        "cfo",
+        "operator"
+      ]
+    },
+    {
+      "id": "gross-margin",
+      "title": "Gross Margin",
+      "domain": "finance",
+      "one_line_definition": "Revenue left over after the cost of producing what you sold.",
+      "why_it_matters": "It is the pool from which every operating expense is paid. No gross margin means no business, whatever the revenue line says.",
+      "body": "Gross margin is the money you keep from each sale after paying to make the thing\nyou sold. It is the ceiling on everything else: if gross margin is 40%, then\nsales, marketing, engineering, and rent all have to fit inside 40% of revenue,\nand the remainder is profit or loss.\n\nTwo things make it worth learning properly. First, it is the number investors\nask for before they ask for growth — a business with 90% gross margin can lose\nmoney for years and still be a good business; one with 15% cannot. Second, it\nis the number pricing decisions show up in first, before volume or CAC.\n\n## Worked example\n\nSame reseller as [cogs](#cogs):\n\n- Revenue: $1,000,000\n- COGS: $370,000\n\n    Gross margin = (1,000,000 - 370,000) / 1,000,000 = 63%\n\nIf the company spends $400,000 on operating expenses, operating profit is\n$230,000, or 23% of revenue. If COGS rises to $500,000 with revenue flat,\ngross margin falls to 50% and operating profit falls to $100,000 — a 57% drop\nin profit from a 35% rise in COGS. That asymmetry is why this ratio gets so\nmuch attention.\n\n## Watch for\n\n- **Gross margin is not profit.** It ignores every operating expense. Companies\n  routinely celebrate 70% gross margin while losing money overall.\n- **Contribution margin is the stricter sibling.** Gross margin still carries\n  fixed production overhead; contribution margin strips variable selling costs\n  too. See [contribution-margin](#contribution-margin).\n- **A one-off price cut shows up here, not in volume.** If margin drops while\n  revenue rises, you bought revenue.",
+      "related": [
+        "cogs",
+        "contribution-margin"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "accounting",
+        "margin",
+        "pricing"
+      ],
+      "difficulty": 2,
+      "layer": 1,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "Gross margin % = (revenue - COGS) / revenue",
+      "how_to_read": "Compare it to your own history and to the model, never to another industry. A 20% gross margin is fatal in software and normal in grocery.",
+      "commonly_confused_with": [
+        "cogs",
+        "contribution-margin"
+      ],
+      "who_uses": [
+        "cfo",
+        "founder",
+        "investor"
+      ]
+    },
+    {
+      "id": "roas",
+      "title": "Return on Ad Spend",
+      "domain": "unit-economics",
+      "one_line_definition": "Revenue earned for every dollar spent on advertising.",
+      "why_it_matters": "It is the fastest honest read on whether a paid channel is pulling its weight, and the number people lie with most.",
+      "body": "Return on ad spend is revenue divided by ad spend. It looks like the answer to\n\"is this channel working\", and because it is a single number, it is frequently\nthe wrong answer.\n\nThe reason: ROAS has no costs in it. It tells you how much revenue a dollar of\nads produced, not how much money the business kept. A channel can return 4x and\nlose money if the product's contribution margin is 20%, because $4 of revenue\ncarries only $0.80 of contribution and you spent $1.00 to get it.\n\nThe correct pairing is ROAS against contribution margin. Work out the break-even\nROAS for your margin, then judge the channel against that.\n\n## Worked example\n\nA product sells for $100 with a contribution margin of $45 after all variable\ncosts including processing and fulfilment.\n\n    Break-even ROAS = 1 / 0.45 = 2.22x\n\nAnything above 2.22x makes money on the first purchase; anything below loses\nmoney. Now the channels:\n\n    Paid search:   $3,000 spend → $12,000 revenue  = 4.0x   (profitable)\n    Paid social:   $3,000 spend → $ 8,400 revenue  = 2.8x   (profitable, thin)\n    Display:       $3,000 spend → $ 6,000 revenue  = 2.0x   (losing money)\n\nDisplay looks like it \"returns 2x\", which sounds fine until you see it is below\nthe 2.22x break-even. It is losing $0.20 on every dollar spent.\n\n## Watch for\n\n- **Attribution is the whole game.** A 4x ROAS from last-click is not the same\n  as 4x from a geo holdout. State the model or do not quote the number.\n- **Revenue is not profit.** See the break-even calculation above; without it,\n  ROAS is a vanity metric.\n- **First-purchase ROAS ignores repeat buying.** A customer who buys once at a\n  loss and returns three times is good business. Compute ROAS on the cohort's\n  lifetime value, not the single order.",
+      "related": [
+        "cac",
+        "contribution-margin"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "advertising",
+        "attribution",
+        "unit-economics"
+      ],
+      "difficulty": 2,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "term",
+      "formula": "ROAS = revenue attributed to ads / ad spend",
+      "how_to_read": "Read it against contribution margin, never against itself. A 4x ROAS can still be a money loser.",
+      "commonly_confused_with": [
+        "cac"
+      ],
+      "who_uses": [
+        "founder",
+        "marketer",
+        "media-buyer"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "the-personal-mba",
+      "kind": "book",
+      "title": "The Personal MBA",
+      "author": "Josh Kaufman",
+      "year": 2010,
+      "core_idea": "Business is value creation plus value capture, and both can be learned as a small set of mental models rather than a body of trivia.",
+      "frameworks": [],
+      "entries": [
+        "cogs",
+        "gross-margin",
+        "contribution-margin",
+        "cac",
+        "roas"
+      ]
+    }
+  ],
+  "domains": [
+    {
+      "id": "foundations",
+      "name": "Foundations",
+      "blurb": "Value creation, value capture, markets, incentives, opportunity cost.",
+      "position": 1
+    },
+    {
+      "id": "finance",
+      "name": "Finance & Accounting",
+      "blurb": "P&L, balance sheet, cash flow, margins, burn, runway, valuation.",
+      "position": 2
+    },
+    {
+      "id": "unit-economics",
+      "name": "Unit Economics & Metrics",
+      "blurb": "CAC, LTV, payback, churn, contribution margin, ROAS, cohorts.",
+      "position": 3
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing & Growth",
+      "blurb": "Positioning, segmentation, funnel, channels, brand, pricing, PMF.",
+      "position": 4
+    },
+    {
+      "id": "sales",
+      "name": "Sales",
+      "blurb": "Pipeline, quota, ACV and ARR, sales cycle, enterprise vs self-serve.",
+      "position": 5
+    },
+    {
+      "id": "strategy",
+      "name": "Strategy",
+      "blurb": "Competitive advantage, moats, power, network effects, build or buy.",
+      "position": 6
+    },
+    {
+      "id": "operations",
+      "name": "Operations & Supply Chain",
+      "blurb": "Throughput, bottlenecks, inventory, lean, quality, logistics.",
+      "position": 7
+    },
+    {
+      "id": "product",
+      "name": "Product & Innovation",
+      "blurb": "Jobs to be done, lean startup, MVP, discovery versus delivery.",
+      "position": 8
+    },
+    {
+      "id": "people",
+      "name": "People & Organization",
+      "blurb": "Hiring, incentives, org design, culture, delegation, equity.",
+      "position": 9
+    },
+    {
+      "id": "leadership",
+      "name": "Leadership & Decision Making",
+      "blurb": "Mental models, second-order thinking, bias, expected value.",
+      "position": 10
+    },
+    {
+      "id": "legal",
+      "name": "Legal, Risk & Governance",
+      "blurb": "Entity types, contracts, IP, compliance, insurance, risk.",
+      "position": 11
+    },
+    {
+      "id": "capital",
+      "name": "Entrepreneurship & Capital",
+      "blurb": "Starting a venture, bootstrapping versus VC, cap tables, exits.",
+      "position": 12
+    },
+    {
+      "id": "economics",
+      "name": "Economics & Macro",
+      "blurb": "Inflation, interest rates, cycles, currency, trade.",
+      "position": 13
+    },
+    {
+      "id": "negotiation",
+      "name": "Negotiation & Communication",
+      "blurb": "Framing, persuasion, writing memos, presenting numbers.",
+      "position": 14
+    }
+  ]
+}

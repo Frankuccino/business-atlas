@@ -1,16 +1,77 @@
+/* ============================================================================
+   Business Atlas — design system
+   ============================================================================
+   Three tiers, deliberately:
+
+     1. Tokens      — the palette and the scale. Change these and the whole
+                      app follows. Nothing below hardcodes a colour or a size.
+     2. Primitives  — topbar, sidebar, cards, badges, buttons. The atoms.
+     3. Composed    — domain sections, entry pages, guide tables, dashboard.
+
+   The previous stylesheet mixed all three, so a change to the sidebar meant
+   hunting through entry-page rules. Tokens first is what makes the rest
+   predictable.
+   ========================================================================= */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+
 :root {
-  --bg: #0d1016;
-  --panel: #171c25;
-  --panel-2: #1f2530;
-  --border: #2a3140;
-  --text: #e8ebf1;
-  --muted: #8d97a8;
-  --accent: #4c8dff;
+  /* Surfaces, darkest to lightest. */
+  --bg: #0b0e14;
+  --panel: #141925;
+  --panel-2: #1c2331;
+  --panel-3: #252e3f;
+
+  /* Lines. */
+  --border: #273043;
+  --border-strong: #35405a;
+
+  /* Text. */
+  --text: #e9edf5;
+  --text-dim: #aab4c6;
+  --muted: #7d879c;
+
+  /* Accents. */
+  --accent: #5b9dff;
+  --accent-soft: rgba(91, 157, 255, 0.14);
   --good: #3fb950;
   --warn: #d29922;
   --bad: #f85149;
+
+  /* Difficulty ramp. d1 is the easiest, d4 the hardest. */
+  --d1: #3fb950;
+  --d2: #5b9dff;
+  --d3: #d29922;
+  --d4: #f85149;
+
+  /* Type. */
+  --f-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Scale. One rhythm, so vertical spacing never has to be eyeballed. */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+
+  /* Radii. */
+  --r-sm: 5px;
+  --r-md: 8px;
+  --r-lg: 12px;
+
+  /* Layout. */
+  --topbar-h: 52px;
+  --sidebar-w: 232px;
+  --content-max: 1180px;
 }
+
+/* --------------------------------------------------------------------------
+   2. Reset and base
+   -------------------------------------------------------------------------- */
 
 * {
   box-sizing: border-box;
@@ -20,7 +81,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font: 14px/1.55 var(--f-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -28,25 +90,84 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   3. App shell
+   -------------------------------------------------------------------------- */
+
 .app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .topbar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 16px;
-  border-bottom: 1px solid var(--border);
-  background: var(--panel);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: 0 var(--s4);
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
 }
 
 .brand {
-  font-weight: 600;
+  font-weight: 650;
+  font-size: 14px;
+  letter-spacing: -0.01em;
   white-space: nowrap;
+}
+
+.brand-mark {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: var(--s2);
+  vertical-align: 1px;
+}
+
+/* Topbar navigation. The guide and dashboard sit beside the brand, so the
+   two non-browse destinations are reachable without scrolling. */
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  margin-left: var(--s4);
+}
+
+.topnav-link {
+  padding: var(--s1) var(--s2);
+  border-radius: var(--r-sm);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+}
+
+.topnav-link:hover {
+  color: var(--text);
+  background: var(--panel-2);
+}
+
+.topnav-link.active {
+  color: var(--text);
+  background: var(--panel-2);
+  border-color: var(--border);
 }
 
 .count {
@@ -54,94 +175,95 @@ a {
   color: var(--muted);
   font-size: 12px;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .layout {
+  flex: 1;
   display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 20px;
-  max-width: 1120px;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  gap: var(--s5);
+  width: 100%;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 16px;
+  padding: var(--s4);
   align-items: start;
 }
 
-/* Atlas-style sidebar: a "Browse" title, a section per domain separated by a
-   rule, a head row carrying the name and a count, then nested entry rows. */
+/* --------------------------------------------------------------------------
+   4. Sidebar
+   -------------------------------------------------------------------------- */
 
 .sidebar {
   position: sticky;
-  top: 56px;
+  top: calc(var(--topbar-h) + var(--s4));
   align-self: start;
-  max-height: calc(100vh - 72px);
+  max-height: calc(100vh - var(--topbar-h) - var(--s5));
   overflow-y: auto;
-  padding: 4px 0;
+  padding: var(--s1) 0;
 }
 
 .sidebar-title {
   font-family: var(--f-mono);
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
   margin: 0;
-  padding: 0 12px 8px;
+  padding: 0 var(--s3) var(--s2);
 }
 
 /* The separator belongs to the section, not to each child. With it on the
-   children, the head and the rows sit at different heights and their two borders
-   read as a crooked line. */
+   children, the head and the rows sit at different heights and their two
+   borders read as a crooked line. */
 .nav-domain {
-  margin-bottom: 4px;
   border-top: 1px solid var(--border);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
-/* One explicit row height for the head, so the count shares a single vertical
-   centre with the name. */
 .nav-domain-head {
-  flex: 1 1 auto;
-  min-width: 0;
-  height: 28px;
+  width: 100%;
+  height: 30px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text);
-  padding: 0 8px 0 12px;
+  gap: var(--s2);
+  padding: 0 var(--s2) 0 var(--s3);
   background: none;
   border: 0;
   cursor: pointer;
   text-align: left;
+  font-size: 12.5px;
+  font-weight: 550;
+  color: var(--text-dim);
 }
 
 .nav-domain-head:hover,
 .nav-domain-head.open {
-  color: var(--accent);
+  color: var(--text);
 }
 
 .nav-domain-name {
   flex: 1 1 auto;
   min-width: 0;
+  /* Two domain names ("Leadership & Decision Making", "Negotiation &
+     Communication") are long enough to truncate at the current sidebar width.
+     Wrapping to two lines is better than hiding the name: a truncated label is
+     a guess, and the count already sits on its own line. */
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.3;
 }
 
 .nav-caret {
   flex: none;
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.7;
+  opacity: 0.55;
   transition: transform 0.12s ease;
 }
 
@@ -151,79 +273,120 @@ a {
 
 .nav-count {
   font-family: var(--f-mono);
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 500;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
 
 .nav-rows {
-  flex: 1 0 100%;
   list-style: none;
   margin: 0;
-  padding: 0 0 4px;
+  padding: 0 0 var(--s1);
 }
 
 .nav-row {
   display: block;
-  padding: 3px 12px 3px 18px;
-  font-size: 11.5px;
+  padding: 3px var(--s3) 3px 22px;
+  font-size: 12px;
   color: var(--muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-left: 2px solid transparent;
 }
 
-.nav-row:hover,
-.nav-row.active {
-  background: var(--panel-2);
+.nav-row:hover {
   color: var(--text);
+  background: var(--panel-2);
 }
+
+.nav-row.active {
+  color: var(--text);
+  background: var(--panel-2);
+  border-left-color: var(--accent);
+}
+
+/* The guide link sits above the domain list, so it reads as a different kind
+   of destination rather than a fifteenth domain. */
+.nav-guide {
+  display: block;
+  padding: var(--s2) var(--s3);
+  font-size: 12.5px;
+  font-weight: 550;
+  color: var(--text-dim);
+  border-left: 2px solid transparent;
+}
+
+.nav-guide:hover {
+  color: var(--text);
+  background: var(--panel-2);
+}
+
+.nav-guide.active {
+  color: var(--text);
+  background: var(--panel-2);
+  border-left-color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   5. Content column
+   -------------------------------------------------------------------------- */
 
 .content {
   min-width: 0;
 }
 
+/* --------------------------------------------------------------------------
+   6. Search
+   -------------------------------------------------------------------------- */
+
 .search {
   position: relative;
-  flex: 0 1 300px;
+  flex: 0 1 320px;
   min-width: 180px;
 }
 
 .search input {
   width: 100%;
-  padding: 6px 10px;
+  padding: 6px var(--s3);
   border: 1px solid var(--border);
-  border-radius: 5px;
+  border-radius: var(--r-sm);
   background: var(--panel-2);
   color: var(--text);
   font-size: 13px;
 }
 
+.search input::placeholder {
+  color: var(--muted);
+}
+
 .search input:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .results {
   position: absolute;
-  top: calc(100% + 3px);
+  top: calc(100% + 4px);
   left: 0;
   right: 0;
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 5px;
-  max-height: 320px;
+  border-radius: var(--r-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  max-height: 340px;
   overflow: auto;
-  z-index: 20;
+  z-index: 30;
 }
 
 .results a {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 8px;
-  padding: 6px 10px;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
   border-bottom: 1px solid var(--border);
 }
 
@@ -231,42 +394,64 @@ a {
   border-bottom: none;
 }
 
+.results a:hover {
+  background: var(--panel-2);
+}
+
 .results .type {
   color: var(--muted);
   font-size: 11px;
 }
 
+/* --------------------------------------------------------------------------
+   7. Domain sections and cards
+   -------------------------------------------------------------------------- */
+
 .domain-section {
-  margin-bottom: 20px;
+  margin-bottom: var(--s5);
 }
 
 .domain-section h2 {
-  font-size: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--muted);
-  margin: 0 0 8px;
+  margin: 0 0 var(--s3);
+}
+
+.domain-section h2 .muted {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  font-variant-numeric: tabular-nums;
 }
 
 .entry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--s2);
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 10px 12px;
+  gap: var(--s2);
+  padding: var(--s3);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--r-md);
   background: var(--panel);
+  transition: border-color 0.12s ease, transform 0.12s ease;
 }
 
 .card:hover {
-  border-color: var(--accent);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 
 .card .title {
@@ -278,45 +463,60 @@ a {
 .card .one-line {
   color: var(--muted);
   font-size: 12px;
-  line-height: 1.45;
+  line-height: 1.5;
 }
+
+/* --------------------------------------------------------------------------
+   8. Badges
+   -------------------------------------------------------------------------- */
 
 .badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 2px;
+  gap: var(--s1);
+  margin-top: var(--s1);
 }
 
 .badge {
+  font-family: var(--f-mono);
   font-size: 10px;
+  font-weight: 500;
   padding: 1px 6px;
   border-radius: 4px;
   background: var(--panel-2);
   color: var(--muted);
   border: 1px solid var(--border);
   white-space: nowrap;
+  line-height: 1.6;
 }
 
-.badge.d1 { color: var(--good); }
-.badge.d2 { color: var(--accent); }
-.badge.d3 { color: var(--warn); }
-.badge.d4 { color: var(--bad); }
+.badge.d1 { color: var(--d1); border-color: color-mix(in srgb, var(--d1) 35%, transparent); }
+.badge.d2 { color: var(--d2); border-color: color-mix(in srgb, var(--d2) 35%, transparent); }
+.badge.d3 { color: var(--d3); border-color: color-mix(in srgb, var(--d3) 35%, transparent); }
+.badge.d4 { color: var(--d4); border-color: color-mix(in srgb, var(--d4) 35%, transparent); }
+
+/* --------------------------------------------------------------------------
+   9. Entry page
+   -------------------------------------------------------------------------- */
 
 .entry-header {
   border-bottom: 1px solid var(--border);
-  padding-bottom: 12px;
-  margin-bottom: 14px;
+  padding-bottom: var(--s4);
+  margin-bottom: var(--s4);
 }
 
 .entry-header h1 {
-  font-size: 21px;
-  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--s2);
 }
 
 .entry-header .one-line {
-  color: var(--muted);
-  margin-bottom: 8px;
+  color: var(--text-dim);
+  font-size: 14px;
+  margin-bottom: var(--s3);
+  max-width: 640px;
 }
 
 .entry-body {
@@ -325,25 +525,30 @@ a {
 
 .entry-body h2 {
   font-size: 15px;
-  margin: 18px 0 6px;
+  font-weight: 600;
+  margin: var(--s5) 0 var(--s2);
+}
+
+.entry-body h2:first-child {
+  margin-top: 0;
 }
 
 .entry-body p {
-  margin: 8px 0;
+  margin: var(--s2) 0;
 }
 
 .entry-body pre {
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: var(--r-md);
+  padding: var(--s3);
   overflow: auto;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .entry-body code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--f-mono);
   font-size: 13px;
 }
 
@@ -351,28 +556,32 @@ a {
   background: var(--panel);
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
-  border-radius: 5px;
-  padding: 10px 12px;
-  margin: 10px 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  border-radius: var(--r-md);
+  padding: var(--s3);
+  margin: var(--s3) 0;
+  font-family: var(--f-mono);
   font-size: 13px;
 }
 
+/* --------------------------------------------------------------------------
+   10. Panels and related links
+   -------------------------------------------------------------------------- */
+
 .panel {
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--r-md);
   background: var(--panel);
-  padding: 12px;
-  margin-top: 14px;
+  padding: var(--s3);
+  margin-top: var(--s4);
 }
 
 .panel h3 {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--muted);
-  margin: 0 0 8px;
+  margin: 0 0 var(--s2);
 }
 
 .panel ul {
@@ -381,48 +590,43 @@ a {
 }
 
 .panel li {
-  margin: 4px 0;
+  margin: var(--s1) 0;
   font-size: 13px;
 }
 
 .related {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--s2);
 }
 
 .related a {
   display: block;
-  padding: 8px 10px;
+  padding: var(--s2) var(--s3);
   border: 1px solid var(--border);
-  border-radius: 5px;
+  border-radius: var(--r-sm);
+  background: var(--panel-2);
 }
 
 .related a:hover {
   border-color: var(--accent);
 }
 
-.muted {
-  color: var(--muted);
-}
+/* --------------------------------------------------------------------------
+   11. Guide page
+   -------------------------------------------------------------------------- */
 
-.empty {
-  color: var(--muted);
-  padding: 32px 0;
-}
-
-/* Guide page: tables carry the axis definitions, so they need real structure. */
 .entry-body table {
   width: 100%;
   border-collapse: collapse;
-  margin: 10px 0 16px;
+  margin: var(--s3) 0 var(--s4);
   font-size: 13px;
 }
 
 .entry-body th,
 .entry-body td {
   text-align: left;
-  padding: 6px 10px;
+  padding: var(--s2) var(--s3);
   border-bottom: 1px solid var(--border);
   vertical-align: top;
 }
@@ -430,9 +634,9 @@ a {
 .entry-body th {
   color: var(--muted);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 10.5px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .entry-body td strong {
@@ -444,14 +648,231 @@ a {
 }
 
 .entry-body li {
-  margin: 4px 0;
+  margin: var(--s1) 0;
   font-size: 13px;
 }
 
 .entry-body code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   background: var(--panel-2);
-  padding: 1px 4px;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   12. Dashboard
+   -------------------------------------------------------------------------- */
+
+.dash-header {
+  margin-bottom: var(--s5);
+}
+
+.dash-header h1 {
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.dash-header p {
+  color: var(--muted);
+  margin: var(--s2) 0 0;
+  max-width: 620px;
+}
+
+/* Stat row. Four numbers, one rhythm, no card chrome — the numbers are the
+   point and a border around each one competes with them. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--s3);
+  margin-bottom: var(--s5);
+}
+
+.stat {
+  padding: var(--s3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--panel);
+}
+
+.stat-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+.stat-value {
+  font-family: var(--f-mono);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: var(--s1);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-value.accent { color: var(--accent); }
+.stat-value.good { color: var(--good); }
+.stat-value.warn { color: var(--warn); }
+
+/* Phase cards. One per priority band, with the unlock rule stated on the card
+   rather than in prose above it. */
+.phases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s3);
+  margin-bottom: var(--s5);
+}
+
+.phase {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--panel);
+  padding: var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.phase.locked {
+  opacity: 0.62;
+  background: var(--panel-2);
+}
+
+.phase-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+
+.phase-name {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.phase-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.phase-desc {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* Progress bar. Track plus fill; the fill width is inline so no CSS class
+   per percentage is needed. */
+.bar {
+  height: 6px;
   border-radius: 3px;
+  background: var(--panel-3);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.bar-fill.good { background: var(--good); }
+.bar-fill.warn { background: var(--warn); }
+
+.phase-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.phase-rule {
+  margin-top: auto;
+  padding-top: var(--s2);
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.phase-rule strong {
+  color: var(--text);
+}
+
+/* Domain progress table. */
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.dash-table th,
+.dash-table td {
+  text-align: left;
+  padding: var(--s2) var(--s3);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.dash-table th {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.dash-table td.num {
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dim);
+}
+
+.dash-table .bar {
+  width: 120px;
+}
+
+/* --------------------------------------------------------------------------
+   13. Utilities
+   -------------------------------------------------------------------------- */
+
+.muted {
+  color: var(--muted);
+}
+
+.empty {
+  color: var(--muted);
+  padding: var(--s6) 0;
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--s4);
+  }
+
+  .sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--s3);
+  }
+
+  .topnav {
+    display: none;
+  }
 }

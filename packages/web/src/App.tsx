@@ -1,23 +1,42 @@
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import { domains, entries } from './content';
 import { DomainNav } from './components/DomainNav';
 import { SearchBox } from './components/SearchBox';
 import { Home } from './pages/Home';
 import { EntryPage } from './pages/Entry';
 import { GuidePage } from './pages/Guide';
+import { DashboardPage } from './pages/Dashboard';
 
 export function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <a className="brand" href="/">
+        <NavLink to="/" className="brand">
+          <span className="brand-mark" aria-hidden="true" />
           Business Atlas
-        </a>
+        </NavLink>
+
+        <nav className="topnav" aria-label="Primary">
+          <NavLink
+            to="/guide"
+            className={({ isActive }) => `topnav-link${isActive ? ' active' : ''}`}
+          >
+            Guide
+          </NavLink>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) => `topnav-link${isActive ? ' active' : ''}`}
+          >
+            Progress
+          </NavLink>
+        </nav>
+
         <SearchBox />
         <span className="count">
           {entries.length} entries · {domains.length} domains
         </span>
       </header>
+
       <div className="layout">
         <aside className="sidenav">
           <DomainNav />
@@ -26,6 +45,7 @@ export function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/guide" element={<GuidePage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/entries/:id" element={<EntryPage />} />
           </Routes>
         </main>

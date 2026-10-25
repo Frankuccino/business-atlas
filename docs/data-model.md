@@ -1,6 +1,10 @@
 # Business Atlas — Data Model
 
-Status: proposed, not yet implemented
+Status: schema implemented 2026-10-25 — `packages/api/src/db/schema.ts`
+
+The tables below are created and pushed. Migrations live in `drizzle/`; apply
+with `npx drizzle-kit generate` then `psql -f drizzle/<file>.sql` (or
+`drizzle-kit push` in an interactive shell).
 
 ## Two aggregates
 
@@ -11,10 +15,16 @@ content/                 <- repo, version-controlled, build-time validated
   domains.ts
 
 Postgres                 <- per-user, mutable, append-only where noted
+  users
+  refresh_tokens
   user_entry
   review
   session
 ```
+
+Content is deliberately not in Postgres. Entries, sources, and domains are
+markdown in the repo, validated at build time, and served from the manifest.
+Putting them in the database would mean two sources of truth for the same text.
 
 ## Content: Markdown + frontmatter
 
@@ -122,6 +132,39 @@ create table session (
 );
 ```
 
+The Drizzle definitions are the operative version — see
+`packages/api/src/db/schema.ts`. Two deliberate divergences from the sketch
+above:
+
+- **`id` is `serial`, not `uuid`.** A surrogate integer is shorter in every
+  foreign key and index, and these tables have no distributed-writer requirement.
+- **`review` has no index on `(user_id, reviewed_at)`.** It is added when a query
+  actually needs it. An index nobody uses is write amplification.
+
+## Auth tables
+
+```sql
+create table users (
+  id            serial primary key,
+  email         text not null unique,
+  name          text,
+  password_hash text not null,       -- scrypt, "salt:hash"
+  created_at    timestamptz not null default now()
+);
+
+create table refresh_tokens (
+  id         serial primary key,
+  user_id    integer not null references users(id) on delete cascade,
+  token_hash text not null unique,   -- SHA-256 of the cookie value, never the value
+  expires_at timestamptz not null,
+  revoked    integer not null default 0,
+  created_at timestamptz not null default now()
+);
+```
+
+The raw refresh token exists only in the cookie and only for one request. A
+database leak must not be replayable.
+
 ## Why `review` is append-only
 
 A spaced-repetition algorithm is only debuggable if you can replay your own
@@ -153,3 +196,5 @@ table — nothing in v1 needs it.
 - No `last_reviewed` on the entry. Same.
 - No `author` on the entry. Attribution lives on the source.
 - No `created_at` on the entry. Git history is the timestamp.
+- No `role` on the user. This is a single-user app; a role column would be a
+  permission system with one occupant.

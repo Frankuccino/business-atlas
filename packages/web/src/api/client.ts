@@ -213,3 +213,40 @@ export const study = {
 
   progress: () => request<Progress>('/progress'),
 };
+
+/* --------------------------------------------------------------------------
+   Export
+   -------------------------------------------------------------------------- */
+
+export interface ExportEnvelope {
+  version: number;
+  exportedAt: string;
+  entries: Array<{
+    entryId: string;
+    mastery: string;
+    intervalDays: number;
+    dueAt: string;
+    lastReviewedAt: string | null;
+    notes: string;
+  }>;
+  reviews: Array<{
+    entryId: string;
+    kind: string;
+    quality: number;
+    prompt: string;
+    answer: string | null;
+    reviewedAt: string;
+  }>;
+}
+
+export const exportApi = {
+  /** The user's whole study history. */
+  download: () => request<ExportEnvelope>('/export'),
+
+  /** Restore from an envelope. */
+  restore: (envelope: ExportEnvelope) =>
+    request<{ importedEntries: number; importedReviews: number }>('/export', {
+      method: 'POST',
+      body: envelope,
+    }),
+};

@@ -9,6 +9,8 @@ import { DashboardPage } from './pages/Dashboard';
 import { SessionPage } from './pages/Session';
 import { ProgressPage } from './pages/Progress';
 import { LoginPage } from './pages/Login';
+import { ExportPage } from './pages/Export';
+import { PlaybooksPage } from './pages/Playbooks';
 
 export function App() {
   return (
@@ -25,6 +27,12 @@ export function App() {
             className={({ isActive }) => `topnav-link${isActive ? ' active' : ''}`}
           >
             Guide
+          </NavLink>
+          <NavLink
+            to="/playbooks"
+            className={({ isActive }) => `topnav-link${isActive ? ' active' : ''}`}
+          >
+            Playbooks
           </NavLink>
           <NavLink
             to="/session"
@@ -57,6 +65,8 @@ export function App() {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/session" element={<SessionPage />} />
             <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/playbooks" element={<PlaybooksPage />} />
+            <Route path="/export" element={<ExportPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/entries/:id" element={<EntryPage />} />
           </Routes>

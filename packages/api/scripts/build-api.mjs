@@ -1,13 +1,14 @@
 /**
  * Bundle the API for production.
  *
- * Plain JavaScript, no TypeScript, no tsx.
+ * Lives inside packages/api, not at the repo root.
  *
- * Why: this runs during `npm install` on the deploy target, where
- * devDependencies are not installed. A build script that needs a dev tool
- * fails with "tsx: not found" — which is exactly what happened. The bundler
- * is ~40 lines of esbuild config; making it plain JS costs nothing and removes
- * the dependency on the install mode.
+ * Why that matters: Node resolves imports by walking up from the importing
+ * file's own location. A script at the repo root looks for esbuild in
+ * `node_modules` at the root, but esbuild is installed in
+ * `packages/api/node_modules` because that is where it is declared. The import
+ * failed with ERR_MODULE_NOT_FOUND even though esbuild was installed and
+ * declared — the file was simply in the wrong tree.
  *
  * Why esbuild rather than `tsc`: the source uses extensionless relative imports,
  * which is correct under `moduleResolution: bundler` (what the typecheck uses)
@@ -15,14 +16,12 @@
  * Adding `.js` to every import would mean two import styles in one codebase and
  * a typecheck that no longer matches what runs.
  *
+ * Plain JavaScript, no tsx: this runs during `npm install` on the deploy target,
+ * where devDependencies are not installed.
+ *
  * External dependencies are not bundled — `node_modules` is installed on the
  * deploy target, and bundling `postgres` or `express` would break their
  * dynamic requires.
- *
- * Paths are resolved from this file, not from `process.cwd()`. npm runs a
- * workspace script with cwd set to the workspace directory, so a relative path
- * like `packages/api/src/index.ts` would resolve against `packages/api` and
- * fail. Anchoring to the repo root makes the script work from any cwd.
  */
 
 import { build } from 'esbuild';
@@ -30,11 +29,14 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(here, '..');
+// packages/api/scripts/build-api.mjs -> packages/api
+const pkgRoot = resolve(here, '..');
+// packages/api -> repo root, where the content manifest lives
+const repoRoot = resolve(pkgRoot, '..', '..');
 
 await build({
-  entryPoints: [resolve(repoRoot, 'packages/api/src/index.ts')],
-  outfile: resolve(repoRoot, 'packages/api/dist/index.js'),
+  entryPoints: [resolve(pkgRoot, 'src/index.ts')],
+  outfile: resolve(pkgRoot, 'dist/index.js'),
   bundle: true,
   platform: 'node',
   target: 'node22',

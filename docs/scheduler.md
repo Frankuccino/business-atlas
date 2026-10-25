@@ -1,6 +1,10 @@
 # Business Atlas — Scheduler
 
-Status: proposed, not yet implemented
+Status: implemented 2026-10-25 — `packages/api/src/scheduler/`
+
+Reference: `intervals.ts` (the ladder) and `session.ts` (the generator). Both are
+pure: `now` is an argument, so neither reads the clock and both are testable at
+any date. 27 unit tests cover them.
 
 ## The one rule that matters
 
@@ -31,6 +35,9 @@ backlog. The habit survives; a fixed calendar day with streaks does not.
 Capped at 15 items total. The caps are constants, not configuration — you can
 tune them later, but they are not user-facing settings in v1.
 
+Verified against the real catalog: a fresh user gets 2 items (1 term + 1
+framework/principle), and a user with everything overdue gets the 15-item cap.
+
 ## Due calculation
 
     due = user_entry.due_at <= now
@@ -51,7 +58,10 @@ fixed ladder is predictable and debuggable.
     hard     -> 1 day
     good     -> 3 days
     easy     -> 7 days
-    mastered -> 30 days, then 90
+    mastered -> 30 days, then 90, then capped at 90
+
+The `mastered` cap matters: an unbounded interval means an item you never see
+again, which is a silent hole in your review coverage.
 
 ## Skip is not free
 
@@ -72,12 +82,20 @@ within a day. `Math.random()` breaks both.
 Deterministic across replays, varied across days, no stored state. If you want
 a different spread, change the seed — do not reach for randomness.
 
+**Currently inert.** The catalog has one source, so `dayOfYear % 1` is always 0
+and the same quote is served every day. This is correct behaviour, not a bug —
+the rotation only becomes meaningful once quotes are authored.
+
 ## Determinism
 
 The same persisted state must always produce the same session. Order by
 `due_at` ascending, then `entry_id`. No shuffle, no time-dependent ordering.
 
+Verified: the ordering property holds against the real catalog.
+
 ## Property tests
+
+All of these are covered:
 
 - Each quality value maps to the expected next `due_at` from a known date.
 - A skipped item still advances.
@@ -86,3 +104,8 @@ The same persisted state must always produce the same session. Order by
 - Clock skew: the scheduler uses the server date, never the client date.
 - The quote index is stable for a given date and varies across dates.
 - A new entry with no `user_entry` row is always due.
+
+## Not yet wired
+
+The generator is built and tested but no route calls it. `POST /api/session`
+(plan task 11) is the consumer, and it needs the Drizzle schema and auth first.

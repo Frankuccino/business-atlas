@@ -6,6 +6,7 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "build:content": "tsx scripts/build-content.ts",
+    "build:priority": "tsx scripts/build-priority.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "dev": "concurrently -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
     "dev:api": "npm run dev -w packages/api",

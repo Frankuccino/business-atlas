@@ -4,6 +4,8 @@ import { entriesRouter } from './routes/entries';
 import { authRouter } from './auth/routes';
 import { sessionRouter } from './routes/session';
 import { progressRouter } from './routes/progress';
+import { playbooksRouter } from './routes/playbooks';
+import { exportRouter } from './routes/export';
 
 const app = express();
 
@@ -22,6 +24,8 @@ app.use('/api/auth', authRouter);
 // answers them with its own 404. Mount order is load-bearing here.
 app.use('/api/session', sessionRouter);
 app.use('/api/progress', progressRouter);
+app.use('/api/playbooks', playbooksRouter);
+app.use('/api/export', exportRouter);
 app.use('/api', entriesRouter);
 
 /**

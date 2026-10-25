@@ -1,19 +1,19 @@
-import { build } from 'esbuild';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
-
 /**
  * Bundle the API for production.
+ *
+ * Plain JavaScript, no TypeScript, no tsx.
+ *
+ * Why: this runs during `npm install` on the deploy target, where
+ * devDependencies are not installed. A build script that needs a dev tool
+ * fails with "tsx: not found" — which is exactly what happened. The bundler
+ * is ~40 lines of esbuild config; making it plain JS costs nothing and removes
+ * the dependency on the install mode.
  *
  * Why esbuild rather than `tsc`: the source uses extensionless relative imports,
  * which is correct under `moduleResolution: bundler` (what the typecheck uses)
  * but illegal under NodeNext, which is what Node needs to run ESM directly.
  * Adding `.js` to every import would mean two import styles in one codebase and
  * a typecheck that no longer matches what runs.
- *
- * Bundling sidesteps that: esbuild resolves the extensionless imports and emits
- * a single file Node can execute. The typecheck stays the authority on types;
- * esbuild is only the packaging step.
  *
  * External dependencies are not bundled — `node_modules` is installed on the
  * deploy target, and bundling `postgres` or `express` would break their
@@ -25,10 +25,12 @@ import { dirname, resolve } from 'node:path';
  * fail. Anchoring to the repo root makes the script work from any cwd.
  */
 
+import { build } from 'esbuild';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, '..');
-
-const isWatch = process.argv.includes('--watch');
 
 await build({
   entryPoints: [resolve(repoRoot, 'packages/api/src/index.ts')],
@@ -57,6 +59,4 @@ await build({
   logLevel: 'info',
 });
 
-if (!isWatch) {
-  console.log('[build] api bundled to packages/api/dist/index.js');
-}
+console.log('[build] api bundled to packages/api/dist/index.js');

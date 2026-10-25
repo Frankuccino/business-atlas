@@ -1,33 +1,36 @@
-import 'dotenv/config';
-import postgres from 'postgres';
-import { readFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
-
 /**
  * Apply the Drizzle migrations.
+ *
+ * Plain JavaScript, no TypeScript, no tsx — same reason as build-api.mjs: this
+ * runs during `npm install` on the deploy target, where devDependencies are not
+ * installed.
  *
  * Why this exists instead of `drizzle-kit push`: `push` needs an interactive TTY
  * to confirm destructive changes, and Render's free tier has no shell. So the
  * schema is applied by running the generated SQL files directly.
  *
- * Idempotent by construction: each statement is `CREATE TABLE` / `CREATE INDEX`
- * and the whole file is wrapped so a re-run is safe. This runs on every deploy,
- * and a deploy step that can destroy data is a deploy step that will eventually
- * destroy data.
+ * Idempotent on two axes, because it runs on every deploy and a deploy step that
+ * fails on the second run is a deploy step that will eventually fail:
  *
- * `__drizzle_applied` records which files have run. Without it, every deploy
- * re-runs every migration and the second one fails on the existing table.
+ *   1. `__drizzle_applied` records which files have run, so a re-run skips them.
+ *   2. Duplicate-object errors are swallowed per statement, so a schema created
+ *      by an earlier `drizzle-kit push` does not block the migration.
  */
 
+import postgres from 'postgres';
+import { readFileSync, readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+
 /**
- * The database URL, resolved once.
+ * The database URL.
  *
  * Read inside a function rather than at module scope so the guard narrows the
  * type. A module-level `if (!x) throw` does not narrow a `const` for the rest of
- * the module under `noUncheckedIndexedAccess`-adjacent strictness, and the
- * un-narrowed `string | undefined` then fails at the call site.
+ * the module, and the un-narrowed `string | undefined` then fails at the call
+ * site.
  */
-function requireDatabaseUrl(): string {
+function requireDatabaseUrl() {
   const url = process.env.DATABASE_URL;
   if (!url) {
     throw new Error('DATABASE_URL is not set. Cannot apply migrations.');
@@ -38,17 +41,21 @@ function requireDatabaseUrl(): string {
 /**
  * The migrations directory, anchored to the repo root.
  *
- * Not `process.cwd()`. Render runs the build command from the repository root,
- * but the script may be invoked from a workspace directory locally, and a path
- * that works in one and not the other is a deploy that fails on the second try.
+ * Not `process.cwd()`. npm runs a workspace script with cwd set to the workspace
+ * directory (`packages/api`), so a cwd-relative path would look for
+ * `packages/api/drizzle` and find nothing. Anchoring to this file's location
+ * makes the script work from any cwd.
  */
-function migrationsDir(): string {
+function migrationsDir() {
   const fromEnv = process.env.MIGRATIONS_DIR;
   if (fromEnv) return fromEnv;
-  return join(process.cwd(), 'drizzle');
+
+  const here = dirname(fileURLToPath(import.meta.url));
+  // packages/api/src/db/migrate.mjs -> repo root
+  return resolve(here, '../../../../drizzle');
 }
 
-async function main(): Promise<void> {
+async function main() {
   // SSL is required by managed Postgres (Render, Neon) and rejected by a local
   // one. Deciding from the hostname rather than from an env var means the same
   // command works locally and in production without a flag to remember.
@@ -95,9 +102,7 @@ async function main(): Promise<void> {
         .map((s) => s.trim())
         .filter(Boolean)
         // Generated migrations use bare `CREATE TABLE`, which fails on a second
-        // run. Rewriting to `IF NOT EXISTS` makes the runner idempotent, which
-        // matters because it runs on every deploy and a deploy step that fails
-        // on the second run is a deploy step that will eventually fail.
+        // run. Rewriting to `IF NOT EXISTS` makes the runner idempotent.
         .map((s) => s.replace(/^CREATE TABLE (?!IF NOT EXISTS)/i, 'CREATE TABLE IF NOT EXISTS '))
         .map((s) => s.replace(/^CREATE INDEX (?!IF NOT EXISTS)/i, 'CREATE INDEX IF NOT EXISTS '))
         .map((s) => s.replace(/^CREATE UNIQUE INDEX (?!IF NOT EXISTS)/i, 'CREATE UNIQUE INDEX IF NOT EXISTS '));
@@ -126,7 +131,7 @@ async function main(): Promise<void> {
             await tx.unsafe(statement);
           });
         } catch (err) {
-          const code = (err as { code?: string }).code;
+          const code = err?.code;
           if (code && DUPLICATE_CODES.has(code)) {
             console.log(`[db:migrate]   skipped duplicate: ${statement.slice(0, 60)}…`);
             continue;

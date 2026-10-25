@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsx ../../scripts/build-api.ts",
+    "build": "node ../../scripts/build-api.mjs",
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "db:migrate": "tsx src/db/migrate.ts"
+    "db:migrate": "node src/db/migrate.mjs"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",

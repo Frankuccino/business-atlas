@@ -410,3 +410,48 @@ a {
   color: var(--muted);
   padding: 32px 0;
 }
+
+/* Guide page: tables carry the axis definitions, so they need real structure. */
+.entry-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 16px;
+  font-size: 13px;
+}
+
+.entry-body th,
+.entry-body td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.entry-body th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.entry-body td strong {
+  white-space: nowrap;
+}
+
+.entry-body ul {
+  padding-left: 18px;
+}
+
+.entry-body li {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.entry-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  background: var(--panel-2);
+  padding: 1px 4px;
+  border-radius: 3px;
+}

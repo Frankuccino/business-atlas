@@ -4,6 +4,7 @@ import { DomainNav } from './components/DomainNav';
 import { SearchBox } from './components/SearchBox';
 import { Home } from './pages/Home';
 import { EntryPage } from './pages/Entry';
+import { GuidePage } from './pages/Guide';
 
 export function App() {
   return (
@@ -24,6 +25,7 @@ export function App() {
         <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/guide" element={<GuidePage />} />
             <Route path="/entries/:id" element={<EntryPage />} />
           </Routes>
         </main>

@@ -35,6 +35,15 @@ export function DomainNav() {
     <nav className="sidebar" aria-label="Browse the atlas">
       <h2 className="sidebar-title">Browse</h2>
 
+      <section className="nav-domain">
+        <NavLink
+          to="/guide"
+          className={({ isActive }) => `nav-guide${isActive ? ' active' : ''}`}
+        >
+          <span className="nav-domain-name">How the catalog is organised</span>
+        </NavLink>
+      </section>
+
       {domains.map((d) => {
         const entries = byDomain(d.id);
         const isOpen = !!open[d.id];

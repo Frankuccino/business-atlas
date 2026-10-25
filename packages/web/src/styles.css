@@ -876,3 +876,170 @@ button {
     display: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Session and review
+   -------------------------------------------------------------------------- */
+
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s4);
+  max-width: 46rem;
+}
+
+.review-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s3);
+}
+
+.review-kind {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.review-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin: 0 0 var(--s2);
+}
+
+.review-prompt {
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0 0 var(--s3);
+}
+
+.review-answer {
+  border-left: 2px solid var(--accent);
+  padding-left: var(--s3);
+  margin-bottom: var(--s3);
+}
+
+.review-answer-label {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: var(--s1);
+}
+
+.review-answer p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.review-actions {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--s2);
+}
+
+.btn-rate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--s2) var(--s1);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.btn-rate:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.btn-rate:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-again:hover:not(:disabled) {
+  border-color: var(--danger);
+}
+.btn-hard:hover:not(:disabled) {
+  border-color: var(--warn);
+}
+.btn-good:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.btn-easy:hover:not(:disabled) {
+  border-color: var(--good);
+}
+.btn-mastered:hover:not(:disabled) {
+  border-color: var(--good);
+}
+
+.rate-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.rate-hint {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.review-note {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin-top: var(--s2);
+}
+
+@media (max-width: 700px) {
+  .review-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Auth
+   -------------------------------------------------------------------------- */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  max-width: 22rem;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  font-size: var(--text-xs);
+  color: var(--muted);
+}
+
+.auth-form input {
+  padding: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-sm);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: inherit;
+  text-decoration: underline;
+}

@@ -6,8 +6,14 @@ import { sessionRouter } from './routes/session';
 import { progressRouter } from './routes/progress';
 import { playbooksRouter } from './routes/playbooks';
 import { exportRouter } from './routes/export';
+import { corsOptions } from './middleware/cors';
 
 const app = express();
+
+// CORS before the routes. A preflight OPTIONS request must be answered by the
+// CORS layer, not by a router that does not implement OPTIONS.
+app.use(corsOptions);
+app.options('*', corsOptions);
 
 app.use(express.json());
 // cookieParser must run before any route that reads req.cookies, so it is

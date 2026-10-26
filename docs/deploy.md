@@ -104,3 +104,54 @@ invalid and the browser rejects it.
 The web app calls `/api` on its own origin, which Vercel's SPA rewrite catches
 and returns HTML. It needs `VITE_API_URL` pointing at the Render URL. Until that
 is set, auth, session, and progress work only against a local API.
+
+## Verified state
+
+The API is deployed and the full loop works against the live URL:
+
+    /health        200  {"ok":true}
+    /api           200  the catalog
+    register       201  real user, real JWT
+    login          200  access token
+    session        201  {"id":2,"entryIds":["balance-sheet",...]}
+    review         201  {"quality":4,"rung":"easy","mastery":"can_apply"}
+    progress       200  per-domain mastery
+    export         200  versioned envelope
+    CORS           echoes https://businessliteracy.vercel.app exactly
+
+### Free-tier cold start
+
+The first request after inactivity returns `000` — a connection failure, not a
+404. Render spins the free instance down and the first request pays the boot
+cost. A retry succeeds in under a second. This is expected behaviour, not a
+deploy failure, and it is the main argument against the free tier for a
+production app.
+
+### Remaining gap
+
+The deployed web bundle does not contain the API URL, so the live site still
+cannot reach the backend. Two steps close it:
+
+1. Set `VITE_API_URL=https://business-atlas-backend.onrender.com` on the Vercel
+   project.
+2. Redeploy. Vite inlines env vars at build time, so a runtime change alone does
+   nothing.
+
+Verify by fetching the deployed bundle and checking for the hostname:
+
+    curl -s https://businessliteracy.vercel.app | grep -o 'src="/assets/[^"]*"'
+    curl -s https://businessliteracy.vercel.app/assets/<that-file>.js | grep -c business-atlas-backend
+
+Zero means the env var is not set. Non-zero means the site can reach the API.
+
+### Production cleanup
+
+Test users created during verification live on the production database and must
+be removed by hand — they are not reachable from a local connection:
+
+    verify@example.com
+    frank-check@example.com
+
+Rotate `JWT_SECRET` as well. The value generated during setup is in the
+conversation that produced it, and the repository is public.
+

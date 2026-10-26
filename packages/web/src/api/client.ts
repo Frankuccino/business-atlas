@@ -15,6 +15,20 @@
  * user state does.
  */
 
+/**
+ * The API base URL.
+ *
+ * Defaults to `/api` so local development needs no configuration — Vite proxies
+ * that path to the local server. In production the web app is on Vercel and the
+ * API is on Render, so `VITE_API_URL` must be set or every request hits Vercel's
+ * SPA rewrite and returns HTML.
+ *
+ * The failure is silent from the user's side: the request succeeds, the response
+ * is the index page, and the JSON parse throws. So this is worth getting right
+ * rather than discovering later.
+ */
+const API_BASE = import.meta.env.VITE_API_URL ?? '/api';
+
 export class ApiError extends Error {
   constructor(
     public readonly status: number,
@@ -61,7 +75,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   if (body !== undefined) headers['Content-Type'] = 'application/json';
   if (accessToken) headers['Authorization'] = `Bearer ${accessToken}`;
 
-  const response = await fetch(`/api${path}`, {
+  const response = await fetch(`${API_BASE}${path}`, {
     method,
     headers,
     credentials: 'include',
@@ -77,7 +91,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
       throw new ApiError(401, 'Session expired');
     }
 
-    const retry = await fetch(`/api${path}`, {
+    const retry = await fetch(`${API_BASE}${path}`, {
       method,
       headers: {
         ...headers,
@@ -114,7 +128,7 @@ async function toError(response: Response): Promise<ApiError> {
  */
 async function tryRefresh(): Promise<boolean> {
   try {
-    const response = await fetch('/api/auth/refresh', {
+    const response = await fetch(`${API_BASE}/auth/refresh`, {
       method: 'POST',
       credentials: 'include',
     });

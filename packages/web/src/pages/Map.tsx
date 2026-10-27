@@ -249,22 +249,34 @@ export function MapView() {
         })}
       </svg>
 
-      {selected ? <NodePanel entry={entries.find((e) => e.id === selected.id) ?? null} /> : null}
+      {selected ? <NodePanel entry={entries.find((e) => e.id === selected.id) ?? null} position={selected} /> : null}
     </div>
   );
 }
 
-function NodePanel({ entry }: { entry: Entry | null }) {
+function NodePanel({ entry, position }: { entry: Entry | null; position: { x: number; y: number } }) {
   if (!entry) return null;
 
+  // Position the card near the node, but keep it in viewport
+  const left = Math.min(position.x + 16, WIDTH - 280);
+  const top = Math.max(position.y - 60, 10);
+
   return (
-    <div className="node-panel">
+    <div
+      className="node-panel"
+      style={{
+        position: 'absolute',
+        left: `${(left / WIDTH) * 100}%`,
+        top: `${(top / HEIGHT) * 100}%`,
+        zIndex: 10,
+      }}
+    >
       <h3>{entry.title}</h3>
       <p className="muted">
         {entry.type} · {entry.domain}
       </p>
       <p>{entry.one_line_definition}</p>
-      <a href={`/entries/${entry.id}`}>Open entry</a>
+      <a href={`/entries/${entry.id}`}>Open entry →</a>
     </div>
   );
 }

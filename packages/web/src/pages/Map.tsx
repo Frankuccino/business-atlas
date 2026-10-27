@@ -201,6 +201,7 @@ export function MapView() {
         ))}
       </div>
 
+<div style={{ position: 'relative' }}>
       <svg
         ref={svgRef}
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
@@ -232,24 +233,25 @@ export function MapView() {
           const isSelected = n.id === selectedId;
           const isNeighbour = neighbours.has(n.id);
           const dimmed = selectedId !== null && !isSelected && !isNeighbour;
+          const entry = entries.find((e) => e.id === n.id);
 
           return (
-            <circle
-              key={n.id}
-              cx={n.x}
-              cy={n.y}
-              r={isSelected ? 9 : 6}
-              fill={domainColor(n.domain)}
-              className={dimmed ? 'map-node map-node-dim' : 'map-node'}
-              onClick={() => select(n.id)}
-            >
-              <title>{n.id}</title>
-            </circle>
+            <g key={n.id} onClick={() => select(n.id)} style={{ cursor: 'pointer' }}>
+              <circle
+                cx={n.x}
+                cy={n.y}
+                r={isSelected ? 9 : 6}
+                fill={domainColor(n.domain)}
+                className={dimmed ? 'map-node map-node-dim' : 'map-node'}
+              />
+              <title>{entry?.title ?? n.id}</title>
+            </g>
           );
         })}
       </svg>
 
       {selected ? <NodePanel entry={entries.find((e) => e.id === selected.id) ?? null} position={selected} /> : null}
+    </div>
     </div>
   );
 }
@@ -257,9 +259,10 @@ export function MapView() {
 function NodePanel({ entry, position }: { entry: Entry | null; position: { x: number; y: number } }) {
   if (!entry) return null;
 
-  // Position the card near the node, but keep it in viewport
+  // Position the card near the node. The SVG preserves its 900:620 aspect ratio,
+  // so both axes scale by (containerWidth / 900). Use WIDTH for both to stay aligned.
   const left = Math.min(position.x + 16, WIDTH - 280);
-  const top = Math.max(position.y - 60, 10);
+  const top = Math.max(position.y - 40, 10);
 
   return (
     <div
@@ -267,7 +270,7 @@ function NodePanel({ entry, position }: { entry: Entry | null; position: { x: nu
       style={{
         position: 'absolute',
         left: `${(left / WIDTH) * 100}%`,
-        top: `${(top / HEIGHT) * 100}%`,
+        top: `${(top / WIDTH) * 100}%`,
         zIndex: 10,
       }}
     >

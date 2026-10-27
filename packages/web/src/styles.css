@@ -522,7 +522,9 @@ article {
   gap: var(--s2);
   margin-top: var(--s4);
   overflow-x: auto;
-  padding-bottom: var(--s2);
+  overflow-y: visible;
+  padding-top: var(--s1);
+  padding-bottom: var(--s3);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;
@@ -554,7 +556,6 @@ article {
 .related a:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
 }
 
 .related a strong {

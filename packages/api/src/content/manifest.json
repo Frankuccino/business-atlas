@@ -229,6 +229,51 @@
       ]
     },
     {
+      "id": "board-meeting",
+      "title": "Board Meeting",
+      "domain": "leadership",
+      "one_line_definition": "A checklist for running a board meeting that produces decisions instead of updates.",
+      "why_it_matters": "A board meeting is the most expensive two hours a company spends. Most of them are wasted.",
+      "body": "A board meeting is a decision-making forum disguised as a reporting exercise.\nMost founders treat it as the latter and are surprised when it produces no\ndecisions. The fix is to design the meeting around the decisions, not the data.\n\n## Before the meeting\n\nSend the deck a week ahead, with the narrative, not just the numbers. A board\nthat reads the deck in the meeting is a board that is not deciding. The meeting\nshould start with the assumption that everyone has read it, and spend its time on\nthe questions it raised.\n\n## The agenda\n\nThree items, in this order:\n\n1. What changed since last time.\n2. What decisions need to be made now.\n3. What help you need from the board.\n\nItem one is short. Item two is the meeting. Item three is why the board exists.\n\n## The bad news\n\nPut it first, not last. A board that hears bad news in the first five minutes\nhas time to help. A board that hears it in the last five minutes has time to\nreact. The reaction is not the same as the help.\n\n## After the meeting\n\nSend minutes within 48 hours, including the decisions and the owners. A meeting\nthat produces no written record produces no accountability, and a board that is\nnot accountable to its own decisions is a board that is performing.",
+      "related": [],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "board",
+        "leadership",
+        "governance"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "playbook",
+      "trigger": "You are preparing for a board meeting, and need to make it useful rather than performative.",
+      "questions": [
+        "What decisions need to be made, and by whom?",
+        "What does the board need to know that they do not already?",
+        "What are you not telling them?",
+        "What do you want them to do between now and the next meeting?"
+      ],
+      "numbers_to_pull": [
+        "Revenue and growth rate vs. plan",
+        "Burn rate and runway",
+        "Key metrics by segment",
+        "Hiring progress against plan"
+      ],
+      "traps": [
+        "Treating the meeting as a status update",
+        "Sending the deck the night before",
+        "Hiding bad news in the appendix",
+        "Asking for approval instead of advice"
+      ],
+      "who_to_consult": [
+        "ceo",
+        "cfo",
+        "board"
+      ]
+    },
+    {
       "id": "bootstrapping",
       "title": "Bootstrapping vs Venture Capital",
       "domain": "capital",
@@ -395,6 +440,7 @@
         "contribution-margin",
         "channels",
         "funnel",
+        "cac-spike",
         "ltv",
         "payback-period"
       ],
@@ -419,6 +465,55 @@
         "founder",
         "marketer",
         "investor"
+      ]
+    },
+    {
+      "id": "cac-spike",
+      "title": "CAC Spike",
+      "domain": "unit-economics",
+      "one_line_definition": "A checklist for diagnosing and fixing a sudden rise in customer acquisition cost.",
+      "why_it_matters": "CAC is the price you pay for growth. A spike means the market got more expensive or you got less efficient, and the difference matters.",
+      "body": "A CAC spike is a symptom with several possible diseases. The first move is to\nsplit it, because the split tells you which one you have and the aggregate tells\nyou nothing.\n\n## Split by channel\n\nCAC is an average, and averages hide. If one channel spiked while the others\nheld, the problem is that channel. If every channel moved together, the problem\nis your conversion rate, your pricing, or your market, and no channel fix will\nsolve it.\n\n## Split conversion from cost\n\nA rising CAC can come from traffic getting more expensive, conversion getting\nworse, or both. They have different causes and different fixes. Pull cost per\nclick and conversion rate separately before you decide what to do.\n\n## The timeline\n\nPlot CAC against every change in the last 60 days: creative refreshes, landing\npage changes, bid strategy changes, competitor launches. The spike usually lines\nup with one of them. If it does not, check seasonality and auction dynamics\nbefore concluding it is mysterious.\n\n## The response\n\nDo not cut spend across the board. Cut the channel that moved, fix the\nconversion problem, and re-measure. Cutting everything treats a local problem\nas a global one and loses the channels that were working.",
+      "related": [
+        "cac",
+        "roas",
+        "contribution-margin"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "cac",
+        "acquisition",
+        "marketing"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "playbook",
+      "trigger": "Your customer acquisition cost has risen sharply, and you need to find the cause and decide the response.",
+      "questions": [
+        "Which channel got more expensive?",
+        "Did conversion drop, or did traffic cost more?",
+        "Is the spike in one segment or across the board?",
+        "Did a competitor enter the auction?"
+      ],
+      "numbers_to_pull": [
+        "CAC by channel, trailing 90 days",
+        "Cost per click and conversion rate by channel",
+        "CAC by segment and cohort",
+        "LTV by channel to check whether the economics still hold"
+      ],
+      "traps": [
+        "Blaming the channel when the landing page broke",
+        "Cutting spend before diagnosing",
+        "Averaging CAC across channels and missing the one that moved",
+        "Ignoring that LTV may have moved too"
+      ],
+      "who_to_consult": [
+        "marketing",
+        "finance",
+        "product"
       ]
     },
     {
@@ -555,6 +650,51 @@
       "who_uses": [
         "founder",
         "cfo"
+      ]
+    },
+    {
+      "id": "churn-spike",
+      "title": "Churn Spike",
+      "domain": "product",
+      "one_line_definition": "A checklist for diagnosing and responding to a sudden rise in churn.",
+      "why_it_matters": "Churn is the leak in the bucket. A spike is a signal, not a mystery, if you know where to look.",
+      "body": "A churn spike is a question, not a verdict. The first move is to stop\npanicking and start segmenting, because the cause is almost always visible in\nthe breakdown and invisible in the average.\n\n## Segment first\n\nSplit churn by cohort, plan, channel, and tenure. A spike that hits only new\ncustomers points to onboarding or acquisition quality. A spike that hits\nestablished customers points to a product change, a competitor, or a pricing\nshift. The answer is in the split; the aggregate tells you nothing.\n\n## Separate voluntary from involuntary\n\nInvoluntary churn — failed payments, expired cards — is the cheapest to fix and\nthe most commonly ignored. Dunning, retry logic, and card-update prompts can\nrecover a meaningful share of it. Fix this before touching the product.\n\n## The timeline\n\nPlot churn against every change in the last 60 days: releases, price changes,\nmarketing campaigns, competitor launches. The spike usually lines up with one\nof them. If it does not, look at seasonality and acquisition mix before\nconcluding it is mysterious.\n\n## The response\n\nDo not discount. A discount retains the customer you have and trains them to\nthreaten to leave. Fix the cause, communicate the fix, and let the data tell\nyou whether it worked.",
+      "related": [],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "churn",
+        "retention",
+        "product"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "playbook",
+      "trigger": "Your churn rate has risen sharply, and you need to find the cause and decide the response.",
+      "questions": [
+        "When did it start, and what changed?",
+        "Which cohort churned — new or established?",
+        "Is it voluntary or involuntary?",
+        "Did a competitor ship something?"
+      ],
+      "numbers_to_pull": [
+        "Churn rate by cohort and acquisition month",
+        "Churn rate by plan and channel",
+        "Failed payment rate (involuntary churn)",
+        "NPS or support ticket volume, pre and post"
+      ],
+      "traps": [
+        "Averaging churn across cohorts and missing the spike",
+        "Treating all churn as a product problem",
+        "Offering discounts before diagnosing",
+        "Ignoring involuntary churn, which is the cheapest to fix"
+      ],
+      "who_to_consult": [
+        "product",
+        "customer-success",
+        "finance"
       ]
     },
     {
@@ -699,7 +839,9 @@
         "roas",
         "cac",
         "break-even",
+        "pricing-change",
         "pricing",
+        "cac-spike",
         "ltv",
         "payback-period"
       ],
@@ -820,6 +962,51 @@
       "who_uses": [
         "founder",
         "lawyer"
+      ]
+    },
+    {
+      "id": "evaluating-a-hire",
+      "title": "Evaluating a Hire",
+      "domain": "people",
+      "one_line_definition": "A checklist for deciding whether to hire, and whether to hire this person.",
+      "why_it_matters": "A bad hire costs six months and a team's morale. A good hire is still expensive, but it compounds.",
+      "body": "Hiring is a decision to spend a large amount of money on a bet about a person.\nThe bet is worth making only when the person will do something specific that\ncreates more value than they cost, and when you can tell whether they are doing\nit.\n\n## The role\n\nBefore you look at candidates, write down what the person will produce in their\nfirst 90 days. Not \"lead the team\" or \"own the function\" — those are titles.\nWrite the deliverables. If you cannot, the role is not real yet, and hiring\nwill not make it real.\n\n## The candidate\n\nA resume is a story the candidate tells about themselves. A work sample is\nevidence. Prefer the second. Give them a real problem from your business, with\nreal constraints, and watch how they think. The interview tells you how they\ntalk; the sample tells you how they work.\n\n## The reference\n\nReferences given by the candidate are marketing. References you find yourself\nare signal. Ask the reference what the candidate was like on their worst day, and\nlisten for the pause before the answer.\n\n## The decision\n\nHire when the cost of not hiring is higher than the cost of hiring, and when you\nhave a specific answer to \"what will change.\" A hire made to relieve pressure\nrelieves it briefly and creates a permanent cost. A hire made to create value\ncompounds.",
+      "related": [],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "hiring",
+        "people",
+        "management"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "playbook",
+      "trigger": "You are considering a hire, and need to decide whether the role is real and whether this candidate is the right person for it.",
+      "questions": [
+        "What is this person going to do that is not being done now?",
+        "Is the role a gap or a luxury?",
+        "What would change if you did not hire?",
+        "Can you describe what great looks like in 90 days?"
+      ],
+      "numbers_to_pull": [
+        "Revenue per employee, current and projected",
+        "The cost of the hire against the runway",
+        "Time to productivity for the last three hires",
+        "Output of the team the hire would join"
+      ],
+      "traps": [
+        "Hiring to relieve pressure rather than to create value",
+        "Confusing culture fit with comfort",
+        "Skipping the work sample",
+        "Hiring for the company you want to be, not the one you are"
+      ],
+      "who_to_consult": [
+        "founder",
+        "hiring-manager",
+        "team"
       ]
     },
     {
@@ -978,6 +1165,7 @@
         "cogs",
         "contribution-margin",
         "revenue",
+        "pricing-change",
         "pricing"
       ],
       "sources": [
@@ -1589,6 +1777,55 @@
       ]
     },
     {
+      "id": "pricing-change",
+      "title": "Pricing Change",
+      "domain": "finance",
+      "one_line_definition": "A checklist for changing your price without breaking your business.",
+      "why_it_matters": "Pricing is the highest-leverage decision a business makes, and the one most often made on vibes.",
+      "body": "A price change is not a number change. It is a claim about who your product is\nfor and what it is worth. Most teams treat it as a spreadsheet exercise and are\nsurprised when the spreadsheet is right and the business breaks anyway.\n\n## Before you change anything\n\nAnswer the four questions in the trigger. If you cannot answer \"what is the\nvalue to the customer\" in one sentence, stop. You are not ready to price; you\nare ready to learn.\n\n## The test\n\nTest the new price on new customers first. Existing customers carry switching\ncosts and goodwill that distort the signal. A price that works on new customers\nand fails on old ones is a communication problem, not a pricing problem.\n\n## The rollout\n\nGrandfather existing customers for a fixed period, then migrate. Announce the\nchange before it takes effect, with the reason. Customers tolerate a price\nincrease they understand and resent one they discover on their invoice.\n\n## The number that matters\n\nGross margin at the new price, at the same volume. If volume drops, the question\nis whether the margin gain exceeds the revenue loss. That is arithmetic, and\nit is the only part of this that is.",
+      "related": [
+        "gross-margin",
+        "contribution-margin",
+        "roas"
+      ],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "pricing",
+        "strategy",
+        "revenue"
+      ],
+      "difficulty": 3,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "playbook",
+      "trigger": "You are considering changing your price, and need to know whether to do it, by how much, and how to roll it out.",
+      "questions": [
+        "What is the value to the customer, not the cost to you?",
+        "Who is the marginal customer you would lose?",
+        "What does the current price signal about who you are?",
+        "Can you test before committing?"
+      ],
+      "numbers_to_pull": [
+        "Gross margin at current price",
+        "Price elasticity from past changes or competitor data",
+        "Churn rate by price tier",
+        "Customer acquisition cost at current price"
+      ],
+      "traps": [
+        "Pricing to cost instead of to value",
+        "Raising price without changing the offer",
+        "Testing on existing customers before new ones",
+        "Ignoring the signal price sends to the market"
+      ],
+      "who_to_consult": [
+        "cfo",
+        "founder",
+        "sales"
+      ]
+    },
+    {
       "id": "product-market-fit",
       "title": "Product-market Fit",
       "domain": "marketing",
@@ -1654,6 +1891,51 @@
       "who_uses": [
         "sales-lead",
         "cfo"
+      ]
+    },
+    {
+      "id": "raising-a-round",
+      "title": "Raising a Round",
+      "domain": "capital",
+      "one_line_definition": "A checklist for deciding whether to raise, and what to expect when you do.",
+      "why_it_matters": "Fundraising is a full-time job disguised as a side project, and most founders start it without knowing the rules.",
+      "body": "Raising money is not a milestone. It is a trade: you give up a permanent share\nof a business that may be worth something later, in exchange for time and\nresources now. The trade is worth making only when the time and resources buy\nsomething revenue cannot.\n\n## Before you start\n\nAnswer the four questions. If the answer to \"what will you do with it that you\ncannot do with revenue\" is \"grow faster,\" you have not answered the question.\nFaster is not a use of funds; it is an outcome. The use of funds is specific:\nhire three engineers, open a second market, fund a twelve-month sales cycle.\n\n## The process\n\nFundraising is a sales process with a single buyer at a time. Treat it like\none. Run a tight timeline, create competition between investors, and never let\none investor's pace set your company's pace.\n\n## The terms\n\nValuation is the number people remember. The terms are the numbers that matter.\nLiquidation preference, participation, anti-dilution, and board composition\ndecide who gets paid and who decides. Read the term sheet twice, and have a\nlawyer read it once more.\n\n## The cost\n\nThe real cost of a round is not the dilution. It is the reporting, the board\nmeetings, the investor updates, and the loss of the ability to change your mind\nquietly. Count that cost before you take the money.",
+      "related": [],
+      "sources": [
+        "the-personal-mba"
+      ],
+      "tags": [
+        "fundraising",
+        "capital",
+        "strategy"
+      ],
+      "difficulty": 4,
+      "layer": 3,
+      "status": "reviewed",
+      "type": "playbook",
+      "trigger": "You are considering raising external capital, and need to know whether you should, on what terms, and from whom.",
+      "questions": [
+        "Do you need the money, or do you want the signal?",
+        "What will you do with it that you cannot do with revenue?",
+        "What does your cap table look like after this round?",
+        "Who on your team will run the process while you keep running the company?"
+      ],
+      "numbers_to_pull": [
+        "Monthly burn and runway",
+        "Revenue growth rate, trailing 12 months",
+        "CAC and LTV by channel",
+        "Current cap table and dilution model"
+      ],
+      "traps": [
+        "Raising before you have a story the numbers support",
+        "Optimizing for valuation over investor fit",
+        "Letting the process stall the product",
+        "Ignoring the liquidation preference"
+      ],
+      "who_to_consult": [
+        "founder",
+        "cfo",
+        "legal"
       ]
     },
     {
@@ -1807,7 +2089,9 @@
       "related": [
         "cac",
         "contribution-margin",
-        "attribution"
+        "pricing-change",
+        "attribution",
+        "cac-spike"
       ],
       "sources": [
         "the-personal-mba"

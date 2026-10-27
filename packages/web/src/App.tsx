@@ -1,6 +1,7 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { domains, entries } from './content';
 import { SearchBox } from './components/SearchBox';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { EntryPage } from './pages/Entry';
 import { GuidePage } from './pages/Guide';
@@ -15,6 +16,7 @@ import { MapView } from './pages/Map';
 export function App() {
   return (
     <div className="app">
+      <ScrollToTop />
       <header className="topbar">
         <NavLink to="/" className="brand">
           <span className="brand-mark" aria-hidden="true" />

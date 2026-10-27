@@ -188,15 +188,28 @@ button { font: inherit; color: inherit; }
 
 .domain-pills {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--s2);
   margin-bottom: var(--s5);
+  overflow-x: auto;
+  padding-bottom: var(--s2);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.domain-pills::-webkit-scrollbar {
+  height: 4px;
+}
+
+.domain-pills::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 2px;
 }
 
 .domain-pill {
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   background: var(--panel);
   color: var(--text-dim);
@@ -204,6 +217,8 @@ button { font: inherit; color: inherit; }
   box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .domain-pill:hover {

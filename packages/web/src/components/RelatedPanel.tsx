@@ -25,7 +25,7 @@ export function RelatedPanel({ entry }: { entry: Entry }) {
       ) : (
         <div className="related">
           {related.map((r) => (
-            <Link key={r.id} to={`/entries/${r.id}`}>
+            <Link key={r.id} to={`/entries/${r.id}`} title={r.one_line_definition}>
               <strong>{r.title}</strong>
               <div className="muted">{r.one_line_definition}</div>
             </Link>

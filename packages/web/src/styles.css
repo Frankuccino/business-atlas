@@ -588,9 +588,57 @@ article {
   overflow: hidden;
 }
 
-/* -------------------------------------------------------------------------- */
-/* 11. Utilities                                                             */
-/* -------------------------------------------------------------------------- */
+/* Categories dropdown */
+.categories-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.categories-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 240px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--s1) 0;
+  z-index: 60;
+}
+
+.categories-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--s2) var(--s3);
+  border: none;
+  background: none;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.categories-item:hover {
+  background: var(--panel-2);
+  color: var(--text);
+}
+
+.categories-item.active {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.categories-count {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
 
 .muted { color: var(--muted); }
 .empty { color: var(--muted); padding: var(--s6) 0; text-align: center; }

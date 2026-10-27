@@ -1,6 +1,7 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { domains, entries } from './content';
 import { SearchBox } from './components/SearchBox';
+import { CategoriesDropdown } from './components/CategoriesDropdown';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { EntryPage } from './pages/Entry';
@@ -24,6 +25,7 @@ export function App() {
         </NavLink>
 
         <nav className="topnav" aria-label="Primary">
+          <CategoriesDropdown />
           <NavLink
             to="/guide"
             className={({ isActive }) => `topnav-link${isActive ? ' active' : ''}`}

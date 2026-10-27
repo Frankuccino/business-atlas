@@ -24,41 +24,41 @@
  * dynamic requires.
  */
 
-import { build } from 'esbuild';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { build } from "esbuild";
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
 // packages/api/scripts/build-api.mjs -> packages/api
-const pkgRoot = resolve(here, '..');
+const pkgRoot = resolve(here, "..");
 // packages/api -> repo root, where the content manifest lives
-const repoRoot = resolve(pkgRoot, '..', '..');
+const repoRoot = resolve(pkgRoot, "..", "..");
 
 await build({
-  entryPoints: [resolve(pkgRoot, 'src/index.ts')],
-  outfile: resolve(pkgRoot, 'dist/index.js'),
+  entryPoints: [resolve(pkgRoot, "src/index.ts")],
+  outfile: resolve(pkgRoot, "dist/index.js"),
   bundle: true,
-  platform: 'node',
-  target: 'node22',
-  format: 'esm',
+  platform: "node",
+  target: "node22",
+  format: "esm",
   // The manifest is imported as JSON. esbuild inlines it, which is what we
   // want: the catalog must be present without a filesystem read at runtime.
-  loader: { '.json': 'json' },
+  loader: { ".json": "json" },
   external: [
-    'express',
-    'cookie-parser',
-    'cors',
-    'jsonwebtoken',
-    'postgres',
-    'dotenv',
-    'drizzle-orm',
-    'drizzle-orm/postgres-js',
-    'zod',
-    'yaml',
+    "express",
+    "cookie-parser",
+    "cors",
+    "jsonwebtoken",
+    "postgres",
+    "dotenv",
+    "drizzle-orm",
+    "drizzle-orm/postgres-js",
+    "zod",
+    "yaml",
   ],
   sourcemap: false,
   minify: false,
-  logLevel: 'info',
+  logLevel: "info",
 });
 
-console.log('[build] api bundled to packages/api/dist/index.js');
+console.log("[build] api bundled to packages/api/dist/index.js");

@@ -597,8 +597,8 @@ article {
 .categories-menu {
   position: absolute;
   top: calc(100% + 4px);
-  right: 0;
-  min-width: 520px;
+  left: 0;
+  min-width: 720px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
@@ -617,7 +617,7 @@ article {
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--s3);
 }
 

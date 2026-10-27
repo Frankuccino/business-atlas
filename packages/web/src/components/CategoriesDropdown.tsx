@@ -9,12 +9,12 @@ interface CategoryGroup {
 
 const GROUPS: CategoryGroup[] = [
   { name: 'Foundations', domains: ['foundations'] },
-  { name: 'Finance', domains: ['finance-accounting', 'unit-economics-metrics'] },
-  { name: 'Growth', domains: ['marketing-growth', 'sales', 'product-innovation'] },
-  { name: 'Strategy', domains: ['strategy', 'operations-supply-chain', 'economics-macro'] },
-  { name: 'People', domains: ['people-organization', 'leadership-decision-making'] },
-  { name: 'Legal & Risk', domains: ['legal-risk-governance'] },
-  { name: 'Capital & Deals', domains: ['entrepreneurship-capital', 'negotiation-communication'] },
+  { name: 'Finance', domains: ['finance', 'unit-economics'] },
+  { name: 'Growth', domains: ['marketing', 'sales', 'product'] },
+  { name: 'Strategy', domains: ['strategy', 'operations', 'economics'] },
+  { name: 'People', domains: ['people', 'leadership'] },
+  { name: 'Legal & Risk', domains: ['legal'] },
+  { name: 'Capital & Deals', domains: ['capital', 'negotiation'] },
 ];
 
 export function CategoriesDropdown() {

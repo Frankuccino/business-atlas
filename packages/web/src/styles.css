@@ -597,7 +597,7 @@ article {
 .categories-menu {
   position: absolute;
   top: calc(100% + 4px);
-  left: 0;
+  right: 0;
   min-width: 520px;
   background: var(--panel);
   border: 1px solid var(--border);

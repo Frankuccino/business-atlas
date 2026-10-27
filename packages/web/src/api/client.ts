@@ -23,11 +23,16 @@
  * API is on Render, so `VITE_API_URL` must be set or every request hits Vercel's
  * SPA rewrite and returns HTML.
  *
+ * The value is the origin only (e.g. https://business-atlas-backend.onrender.com).
+ * The `/api` prefix is appended here so callers keep using paths like `/auth/login`
+ * and never have to know whether they are in dev or prod.
+ *
  * The failure is silent from the user's side: the request succeeds, the response
  * is the index page, and the JSON parse throws. So this is worth getting right
  * rather than discovering later.
  */
-const API_BASE = import.meta.env.VITE_API_URL ?? '/api';
+const API_ORIGIN = import.meta.env.VITE_API_URL;
+const API_BASE = API_ORIGIN ? `${API_ORIGIN.replace(/\/+$/, '')}/api` : '/api';
 
 export class ApiError extends Error {
   constructor(

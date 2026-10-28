@@ -18,7 +18,7 @@ const GROUPS: CategoryGroup[] = [
 ];
 
 export function CategoriesDropdown() {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const active = params.get('domain');

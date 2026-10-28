@@ -3,6 +3,7 @@ import { domains, entries } from './content';
 import { SearchBox } from './components/SearchBox';
 import { CategoriesDropdown } from './components/CategoriesDropdown';
 import { ScrollToTop } from './components/ScrollToTop';
+import { MobileNav } from './components/MobileNav';
 import { Home } from './pages/Home';
 import { EntryPage } from './pages/Entry';
 import { GuidePage } from './pages/Guide';
@@ -57,6 +58,8 @@ export function App() {
             Progress
           </NavLink>
         </nav>
+
+        <MobileNav />
 
         <SearchBox />
         <span className="count">

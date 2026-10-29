@@ -57,6 +57,11 @@ export function SearchBox() {
           ))}
         </div>
       )}
+      {q.trim().length > 0 && results.length === 0 && (
+        <div className="results">
+          <span className="no-results">No matching terms found.</span>
+        </div>
+      )}
     </div>
   );
 }

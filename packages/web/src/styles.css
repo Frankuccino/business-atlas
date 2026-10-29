@@ -1037,3 +1037,5 @@ article {
     margin-top: var(--s2);
   }
 }
+
+.no-results { padding: var(--s2) var(--s3); color: var(--muted); font-size: 13px; }

@@ -14,6 +14,7 @@ import { LoginPage } from './pages/Login';
 import { ExportPage } from './pages/Export';
 import { PlaybooksPage } from './pages/Playbooks';
 import { MapView } from './pages/Map';
+import { DomainPage } from './pages/Domain';
 
 export function App() {
   return (
@@ -80,6 +81,7 @@ export function App() {
             <Route path="/export" element={<ExportPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/entries/:id" element={<EntryPage />} />
+            <Route path="/domains/:id" element={<DomainPage />} />
           </Routes>
         </main>
       </div>

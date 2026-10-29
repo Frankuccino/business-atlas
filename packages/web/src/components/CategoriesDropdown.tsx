@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { domains, byDomain } from '../content';
 
 interface CategoryGroup {
@@ -18,10 +18,12 @@ const GROUPS: CategoryGroup[] = [
 ];
 
 export function CategoriesDropdown() {
-  const [params] = useSearchParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
-  const active = params.get('domain');
+  const active = location.pathname.startsWith('/domains/')
+    ? location.pathname.split('/')[2]
+    : null;
 
   const activeName = active
     ? (domains.find((d) => d.id === active)?.name ?? 'Categories')
@@ -63,7 +65,7 @@ export function CategoriesDropdown() {
                     <button
                       key={d!.id}
                       className={`categories-item${active === d!.id ? ' active' : ''}`}
-                      onClick={() => { navigate('/?domain=' + d!.id); setOpen(false); }}
+                      onClick={() => { navigate('/domains/' + d!.id); setOpen(false); }}
                     >
                       {d!.name}
                       <span className="categories-count">{byDomain(d!.id).length}</span>
